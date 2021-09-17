@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,7 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/admin-dashboard', [DashboardController::class, 'index']);
+
+// Authentication
+Route::post('system-login', [LoginController::class, 'systemLogin'])->name('system-login');
+Route::get('singout', [LoginController::class, 'signOut'])->name('system-logout');

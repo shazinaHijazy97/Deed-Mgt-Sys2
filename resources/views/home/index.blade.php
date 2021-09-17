@@ -19,10 +19,17 @@
         </div>
 
         <!-- Login Form -->
-        <form ACTION = "{{url('/admin-dashboard')}}">
-        <input type="text" id="login" class="fadeIn second" name="login" placeholder="EMAIL">
-        <input type="text" id="password" class="fadeIn third" name="login" placeholder="PASSWORD">
-        <input type="submit" class="fadeIn fourth" value="Log In">
+        <form ACTION = "{{route('system-login')}}" METHOD = "POST">
+        @csrf
+        <input type="email" id="login" class="fadeIn second" name="email" placeholder="EMAIL" required autofocus>
+        @if ($errors->has('email'))
+        <span class = "text-danger">{{$errors->first('email')}}</span>
+        @endif
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="PASSWORD" required>
+        @if ($errors->has('password'))
+        <span class = "text-danger">{{$errors->first('password')}}</span>
+        @endif
+        <button type="submit" class="submit-button btn btn-primary fadeIn fourth" >LOG IN </button>
         </form>
 
         <!-- Remind Passowrd -->
