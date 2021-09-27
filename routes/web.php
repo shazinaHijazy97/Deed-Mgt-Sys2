@@ -26,5 +26,6 @@ Route::get('singout', [LoginController::class, 'signOut'])->name('system-logout'
 
 
 // Admin
-Route::resource('/admin-clients', ClientController::class);
+Route::resource('admin-clients', ClientController::class);
 Route::get('/admin-client-register',[ ClientController::class, 'clientRegister']);
+Route::get('/admin-client-edit/{id}',[ ClientController::class, 'edit']);

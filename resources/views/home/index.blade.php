@@ -30,13 +30,16 @@
         <span class = "text-danger">{{$errors->first('password')}}</span>
         @endif
         <button type="submit" class="submit-button btn btn-primary fadeIn fourth" >LOG IN </button>
+        <br>
+        <a class="underlineHover" href="#">FORGOT PASSWORD</a>
         </form>
 
         <!-- Remind Passowrd -->
-        <div id="formFooter">
-        <a class="underlineHover" href="#">FORGOT PASSWORD</a> | 
-        <a class="underlineHover" href="#">REGISTER</a>
-        </div>
+        <!-- <div id="formFooter"> -->
+        
+        <button type="" class="btn btn-dark fadeIn fourth mb-4" >REGISTER</button>
+        <!-- <a class="underlineHover" href="#">REGISTER</a> -->
+        <!-- </div> -->
 
     </div>
     </div>

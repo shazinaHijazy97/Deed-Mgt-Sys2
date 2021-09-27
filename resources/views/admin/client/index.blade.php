@@ -44,7 +44,7 @@
       <td>{{$client->contact}}</td>
       <td>{{$client->address}}</td>
       <td>{{$client->email}}</td>
-      <td><a hreaf="#" class="btn btn-primary">Edit</a> <a hreaf="#" class="btn btn-danger">Delete</a></td>
+      <td><a href="admin-client-edit/{{$client->id}}" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
     </tr>
 
     @endforeach

@@ -38,7 +38,20 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fname' =>'required',
+            'lname' =>'required',
+            'gender' =>'required',
+            'nic' =>'required',
+            'address' =>'required',
+            'email' =>'required',
+            'contact' =>'required',
+            'password' =>'required',
+        ]);
+
+        Client::create($request->all());
+        return redirect()->intended('admin-clients')->with('success', 'Client created successfully');
+
     }
 
     /**
@@ -60,7 +73,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $client = Client::find($id);
+        return view('admin.client.edit',compact('client'));
     }
 
     /**
@@ -70,9 +84,37 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Client $client)
     {
-        //
+        $request->validate([
+            'fname' =>'required',
+            'lname' =>'required',
+            'gender' =>'required',
+            'nic' =>'required',
+            'address' =>'required',
+            'email' =>'required',
+            'contact' =>'required',
+            'password' =>'required',
+        ]);
+        // dd($request->all());
+
+        $client->update($request->all());
+        // $client->save();
+        // $client->update([
+        //     'fname' =>request('fname'),
+        //     'lname' =>request('lname'),
+        //     'gender' =>request('gender'),
+        //     'nic' =>request('nic'),
+        //     'address' =>request('address'),
+        //     'email' =>request('email'),
+        //     'contact' =>request('contact'),
+        //     'password' =>request('password'),
+        // ]);
+        // $client->save();
+
+        // dd($client);
+        return redirect()->intended('admin-clients')->with('success','Client updated successfully');
+
     }
 
     /**
