@@ -43,9 +43,9 @@ class ClientController extends Controller
             'lname' =>'required',
             'gender' =>'required',
             'nic' =>'required',
+            'contact' =>'required',
             'address' =>'required',
             'email' =>'required',
-            'contact' =>'required',
             'password' =>'required',
         ]);
 
@@ -91,28 +91,13 @@ class ClientController extends Controller
             'lname' =>'required',
             'gender' =>'required',
             'nic' =>'required',
+            'contact' =>'required',
             'address' =>'required',
             'email' =>'required',
-            'contact' =>'required',
             'password' =>'required',
         ]);
-        // dd($request->all());
 
         $client->update($request->all());
-        // $client->save();
-        // $client->update([
-        //     'fname' =>request('fname'),
-        //     'lname' =>request('lname'),
-        //     'gender' =>request('gender'),
-        //     'nic' =>request('nic'),
-        //     'address' =>request('address'),
-        //     'email' =>request('email'),
-        //     'contact' =>request('contact'),
-        //     'password' =>request('password'),
-        // ]);
-        // $client->save();
-
-        // dd($client);
         return redirect()->intended('admin-clients')->with('success','Client updated successfully');
 
     }
@@ -123,9 +108,11 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Client $client)
     {
-        //
+        $client->delete();
+
+        return redirect()->intended('admin-clients')->with('success','Client deleted successfully');
     }
 
     public function clientRegister()

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\LawyerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,5 @@ Route::get('singout', [LoginController::class, 'signOut'])->name('system-logout'
 Route::resource('admin-clients', ClientController::class);
 Route::get('/admin-client-register',[ ClientController::class, 'clientRegister']);
 Route::get('/admin-client-edit/{id}',[ ClientController::class, 'edit']);
+
+Route::resource('admin-lawyers', LawyerController::class);

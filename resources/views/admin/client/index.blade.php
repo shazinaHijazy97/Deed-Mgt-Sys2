@@ -44,12 +44,21 @@
       <td>{{$client->contact}}</td>
       <td>{{$client->address}}</td>
       <td>{{$client->email}}</td>
-      <td><a href="admin-client-edit/{{$client->id}}" class="btn btn-primary">Edit</a> <a href="#" class="btn btn-danger">Delete</a></td>
+      <td><a href="admin-client-edit/{{$client->id}}" class="btn btn-primary">Edit</a>
+      <form action="{{route('admin-clients.destroy',$client->id)}}" method="POST">
+        @csrf
+        @method('DELETE')
+      <!-- <a href="#" class="btn btn-danger">Delete</a> -->
+      <button type="submit" class="btn btn-danger mt-1">Delete</button>
+      </form>
+      </td>
     </tr>
 
     @endforeach
 
   </table>
+
+  {!! $clients->links() !!}
 
 
   </div>
