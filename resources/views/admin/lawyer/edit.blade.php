@@ -13,7 +13,7 @@
         <form action="{{route('admin-lawyers.update', $lawyer->id)}}" method="POST">
         @csrf
         @method('PUT')
-
+        ID: <input type="text" value="{{$lawyer->id}}" name="id"> <br>
         First Name: <input type="text" name="fname" value="{{$lawyer->fname}}"> <br>
         Last Name: <input type="text" name="lname" value="{{$lawyer->lname}}"> <br>
         Gender : <select name="gender" id="gender">

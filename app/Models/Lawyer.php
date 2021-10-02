@@ -9,7 +9,9 @@ class Lawyer extends Model
 {
     use HasFactory;
 
+    protected $table = 'lawyers';
+
     protected $fillable = [
-        'fname', 'lname', 'gender', 'nic', 'contact', 'address', 'email', 'password'
+        'fname', 'lname', 'gender', 'nic', 'contact', 'address', 'email', 'password', 'created_by', 'updated_by'
     ];
 }

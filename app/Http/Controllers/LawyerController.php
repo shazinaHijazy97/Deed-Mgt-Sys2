@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lawyer;
 use Illuminate\Http\Request;
+use DB;
 
 class LawyerController extends Controller
 {
@@ -79,7 +80,46 @@ class LawyerController extends Controller
      */
     public function update(Request $request, Lawyer $lawyer)
     {
-        $lawyer->update($request->all());
+        // dd($request->id);
+        // $lawyer->
+        // Lawyer::update($request->all());
+        // Lawyer::where('id', $lawyer->id)->update($request->all());
+        // Lawyer::where('id', $lawyer->id)->update(
+        //     [
+        //             'fname' => request('fname'),
+        //             'lname' => request('lname'),
+        //             'gender' => request('gender'),
+        //             'nic' => request('nic'),
+        //             'address' => request('address'),
+        //             'contact' => request('contact'),
+        //             'email' => request('email'),
+        //             'password' => request('password'),
+        //         ]
+        // );
+        DB::table('lawyers')->where('id', $lawyer->id)->update([
+            'fname' =>$request->fname,
+            'lname' => $request->lname,
+            'gender' => $request->gender,
+            'nic' => $request->nic,
+            'address' => $request->address,
+            'contact' => $request->contact,
+            'email' => $request->email,
+            'password' => $request->password
+        ]);
+
+        // $lawyer -> update([
+        //     'fname' => request('fname'),
+        //     'lname' => request('lname'),
+        //     'gender' => request('gender'),
+        //     'nic' => request('nic'),
+        //     'address' => request('address'),
+        //     'contact' => request('contact'),
+        //     'email' => request('email'),
+        //     'password' => request('password'),
+        // ]);
+
+        // dd($lawyer);
+        // dump(request('fname'));
 
         return redirect()->route('admin-lawyers.index')->with('success','Lawyer updated successfully');
     }
@@ -93,6 +133,6 @@ class LawyerController extends Controller
     public function destroy(Lawyer $lawyer)
     {
         $lawyer->delete();
-        return redirect()->route('admin-lawyer.index')->with('success','Lawyer deleted successfully');
+        return redirect()->route('admin-lawyers.index')->with('success','Lawyer deleted successfully');
     }
 }
