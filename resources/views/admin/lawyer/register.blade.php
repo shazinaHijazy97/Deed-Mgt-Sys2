@@ -1,36 +1,82 @@
-<html>
-<head>
-    <title>Lawyer Details</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-</head>
+@extends('admin.layout.master')
+@section('content')
 
-<body>
-    <div class="container">
-        <div class="pull-right">
-            <a href="{{route('admin-lawyers.index')}}">Lawyers</a>
-        </div>
-    <div class="container">
-        <form action="{{route('admin-lawyers.store')}}" method="POST">
-        @csrf
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Register New Lawyer</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item active">Lawyer Details</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+  </div>
 
-        First Name: <input type="text" name="fname"> <br>
-        Last Name: <input type="text" name="lname"> <br>
-        Gender : <select name="gender" id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select> <br>
-        NIC : <input type="text" name="nic"> <br>
-        Contact : <input type="text" name="contact"> <br>
-        Address: <input type="text" name="address"> <br>
-        Email: <input type="text" name="email"> <br>
-        Password: <input type="text" name="password"> <br>
-        <button type="submit">Submit</button>
-
-        </form>
+<section class="content">
+  <div class="container-fluid">
+<div class="container modal-content">
+<div class="modal-body">
+  @if ($errors->any())
+    <div class="alert alert-danger">
+      <strong>There were some problems with your input.</strong>
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
     </div>
+  @endif
 
-    </div>
+  <form action = "{{url('admin-lawyers')}}" method = "POST">
+    @csrf
+  <div class="form-group">
+    <label for="fname">First Name</label>
+    <input type="text" class="form-control" id="fname" name="fname" aria-describedby="" placeholder="First Name">
+  </div>
+  <div class="form-group">
+    <label for="lname">Last Name</label>
+    <input type="text" class="form-control" id="lname" name="lname" aria-describedby="" placeholder="Last Name">
+  </div>
+  <div class="form-group">
+    <label for="gender">Gender</label>
+    <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
+    <select name="gender" id="gender" class="form-control">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="nic">NIC</label>
+    <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC">
+  </div>
+  <div class="form-group">
+    <label for="contact">Contact</label>
+    <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact">
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Cancel</button>
+</form>
+</div>
+</div>
 
-</body>
+  </div>
+</section>
 
-</html>
+@endsection

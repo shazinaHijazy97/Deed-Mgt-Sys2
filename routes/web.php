@@ -26,9 +26,10 @@ Route::post('system-login', [LoginController::class, 'systemLogin'])->name('syst
 Route::get('singout', [LoginController::class, 'signOut'])->name('system-logout');
 
 
-// Admin
+// Admin-Client
 Route::resource('admin-clients', ClientController::class);
 Route::get('/admin-client-register',[ ClientController::class, 'clientRegister']);
-Route::get('/admin-client-edit/{id}',[ ClientController::class, 'edit']);
 
+// Admin-Lawyer
 Route::resource('admin-lawyers', LawyerController::class);
+Route::get('/admin-lawyer-register',[ LawyerController::class, 'lawyerRegister']);

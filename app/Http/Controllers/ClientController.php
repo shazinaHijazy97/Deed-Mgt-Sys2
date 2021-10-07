@@ -84,8 +84,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, $id)
     {
+        // dd($id);
         $request->validate([
             'fname' =>'required',
             'lname' =>'required',
@@ -97,7 +98,7 @@ class ClientController extends Controller
             'password' =>'required',
         ]);
 
-        $client->update($request->all());
+        $client = Client::findOrFail($id)->update($request->all());
         return redirect()->intended('admin-clients')->with('success','Client updated successfully');
 
     }
@@ -108,9 +109,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy($id)
     {
-        $client->delete();
+        $client = Client::findOrFail($id)->delete();
 
         return redirect()->intended('admin-clients')->with('success','Client deleted successfully');
     }

@@ -38,6 +38,17 @@ class LawyerController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'fname' =>'required',
+            'lname' =>'required',
+            'gender' =>'required',
+            'nic' =>'required',
+            'contact' =>'required',
+            'address' =>'required',
+            'email' =>'required',
+            'password' =>'required',
+        ]);
+
         Lawyer::create($request->all());
 
         return redirect()->route('admin-lawyers.index')->with('success','Lawyer created successfully');
@@ -78,8 +89,22 @@ class LawyerController extends Controller
      * @param  \App\Models\Lawyer  $lawyer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lawyer $lawyer)
+    public function update(Request $request, $id)
     {
+        // dd($id);
+        $request->validate([
+            'fname' =>'required',
+            'lname' =>'required',
+            'gender' =>'required',
+            'nic' =>'required',
+            'contact' =>'required',
+            'address' =>'required',
+            'email' =>'required',
+            'password' =>'required',
+        ]);
+        
+        $lawyer = Lawyer::findOrFail($id)->update($request->all());
+
         // dd($request->id);
         // $lawyer->
         // Lawyer::update($request->all());
@@ -96,16 +121,16 @@ class LawyerController extends Controller
         //             'password' => request('password'),
         //         ]
         // );
-        DB::table('lawyers')->where('id', $lawyer->id)->update([
-            'fname' =>$request->fname,
-            'lname' => $request->lname,
-            'gender' => $request->gender,
-            'nic' => $request->nic,
-            'address' => $request->address,
-            'contact' => $request->contact,
-            'email' => $request->email,
-            'password' => $request->password
-        ]);
+        // DB::table('lawyers')->where('id', $lawyer->id)->update([
+        //     'fname' =>$request->fname,
+        //     'lname' => $request->lname,
+        //     'gender' => $request->gender,
+        //     'nic' => $request->nic,
+        //     'address' => $request->address,
+        //     'contact' => $request->contact,
+        //     'email' => $request->email,
+        //     'password' => $request->password
+        // ]);
 
         // $lawyer -> update([
         //     'fname' => request('fname'),
@@ -130,9 +155,14 @@ class LawyerController extends Controller
      * @param  \App\Models\Lawyer  $lawyer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lawyer $lawyer)
+    public function destroy($id)
     {
-        $lawyer->delete();
+        $lawyer = Lawyer::findOrFail($id)->delete();
         return redirect()->route('admin-lawyers.index')->with('success','Lawyer deleted successfully');
+    }
+
+    public function lawyerRegister()
+    {
+        return view('admin.lawyer.register');
     }
 }

@@ -1,56 +1,87 @@
-<html>
-<head>
-    <title>Lawyer Details</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet">
-</head>
+@extends('admin.layout.master')
+@section('content')
 
-<body>
-    <div class="container">
-        <div class="pull-right">
-            <a href="{{route('admin-lawyers.create')}}">Create New Lawyer</a>
-        </div>
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success">
-            <p>{{ $message }}</p>
-        </div>
-        @endif
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Lawyer Details</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item active">Lawyer Details</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+  </div>
 
-        <table class="table table-bordered">
-            <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>NIC</th>
-            <th>Contact</th>
-            <th>Address</th>
-            <th>Email</th>
-            <th>Action</th>
-            </tr>
-            @foreach ($lawyers as $lawyer)
-            <tr>
-            <td>{{$lawyer->id}}</td>
-            <td>{{$lawyer->fname}}</td>
-            <td>{{$lawyer->lname}}</td>
-            <td>{{$lawyer->gender}}</td>
-            <td>{{$lawyer->nic}}</td>
-            <td>{{$lawyer->contact}}</td>
-            <td>{{$lawyer->address}}</td>
-            <td>{{$lawyer->email}}</td>
-            <td><a href="{{route('admin-lawyers.edit', $lawyer->id)}}" class="btn btn-primary">Edit</a>
-            <form action="{{route('admin-lawyers.destroy',$lawyer->id)}}" method="POST">
-                @csrf
-                @method('DELETE')
-            <!-- <a href="#" class="btn btn-danger">Delete</a> -->
-            <button type="submit" class="btn btn-danger mt-1">Delete</button>
-            </form>
-            </td>
-            </tr>
-            @endforeach
-        </table>
+<section class="content">
+  <div class="container-fluid">
 
-    </div>
+  <table class="table">
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+      <th>NIC</th>
+      <th>Contact</th>
+      <th>Address</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
 
-</body>
+    @foreach ($lawyers as $lawyer)
 
-</html>
+    <tr>
+      <td>{{$lawyer->id}}</td>
+      <td>{{$lawyer->fname}}</td>
+      <td>{{$lawyer->lname}}</td>
+      <td>{{$lawyer->gender}}</td>
+      <td>{{$lawyer->nic}}</td>
+      <td>{{$lawyer->contact}}</td>
+      <td>{{$lawyer->address}}</td>
+      <td>{{$lawyer->email}}</td>
+      <td><a href="{{route('admin-lawyers.edit',$lawyer->id)}}" class="btn btn-primary">Edit</a>
+      <button type="submit" class="btn btn-danger remove-user" data-id="{{$lawyer->id}}" data-action="{{route('admin-lawyers.destroy',$lawyer->id)}}">Delete</button>
+      </td>
+    </tr>
+
+    @endforeach
+
+  </table>
+
+  </div>
+  <script type="text/javascript">
+  $("body").on("click", ".remove-user", function(){
+    var current_object = $(this);
+    swal({
+      title: "Are you sure?",
+      type: "error",
+      showCancelButton: true,
+      dangerMode: true,
+      cancelButtonClass: '#DD6B55',
+      confirmButtonColor: '#dc3545',
+      confirmButtonText: 'Delete',
+    }, function (result) {
+      if (result) {
+        var action = current_object.attr('data-action');
+        var token = jQuery('meta[name="csrf-token"]').attr('content');
+        var id = current_object.attr('data-id');
+
+        $('body').html("<form class='form-inline remove-form' method='post' action='"+action+"'></form>");
+        $('body').find('.remove-form').append('<input name="_method" type="hidden" value="delete">');
+        $('body').find('.remove-form').append('<input name="_token" type="hidden" value="'+token+'">');
+        $('body').find('.remove-form').append('<input name="id" type="hidden" value="'+id+'">');
+        $('body').find('.remove-form').submit();
+        
+
+      }
+    });
+  });
+  </script>
+</section>
+
+@endsection
