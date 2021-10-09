@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\LawyerController;
+use App\Http\Controllers\StaffController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,7 @@ Route::get('/admin-client-register',[ ClientController::class, 'clientRegister']
 // Admin-Lawyer
 Route::resource('admin-lawyers', LawyerController::class);
 Route::get('/admin-lawyer-register',[ LawyerController::class, 'lawyerRegister']);
+
+// Admin-Staff
+Route::resource('admin-staff', StaffController::class);
+Route::get('/admin-staff-register',[ StaffController::class, 'staffRegister']);

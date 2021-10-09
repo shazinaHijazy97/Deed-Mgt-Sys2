@@ -238,13 +238,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-staff')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Staff Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-staff-register')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Staff Registration</p>
                 </a>
