@@ -7,6 +7,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\DeedRequestsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +40,7 @@ Route::get('/admin-lawyer-register',[ LawyerController::class, 'lawyerRegister']
 // Admin-Staff
 Route::resource('admin-staff', StaffController::class);
 Route::get('/admin-staff-register',[ StaffController::class, 'staffRegister']);
+
+// Admin-Deed Requests
+Route::resource('admin-deed-requests', DeedRequestsController::class);
+Route::get('/admin-deed-deedRequests',[ DeedRequestsController::class, 'deedRequests']);

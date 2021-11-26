@@ -261,15 +261,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-deed-requests')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Deed Requests</p>
+                  <p>Deed Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin-deed-requests.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Deed Details</p>
+                  <p>Deed Requests</p>
                 </a>
               </li>
             </ul>

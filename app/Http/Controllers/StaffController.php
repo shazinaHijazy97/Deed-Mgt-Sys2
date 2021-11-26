@@ -46,7 +46,6 @@ class StaffController extends Controller
             'contact' =>'required',
             'address' =>'required',
             'email' =>'required',
-            'password' =>'required',
         ]);
 
         Staff::create($request->all());
@@ -98,7 +97,6 @@ class StaffController extends Controller
             'contact' =>'required',
             'address' =>'required',
             'email' =>'required',
-            'password' =>'required',
         ]);
         
         $staff = Staff::findOrFail($id)->update($request->all());
