@@ -57,7 +57,7 @@
   </div>
   <div class="form-group">
     <label for="request_date">Request Date</label>
-    <input type="date" class="form-control" id="request_date" name="request_date" value= "{{$deedRequests->date}}" placeholder="Request Date">
+    <input type="date" class="form-control" id="request_date" name="request_date" value= "{{$deedRequests->request_date}}" placeholder="Request Date">
   </div>
   <div class="form-group">
     <label for="payment_status">Payment Status</label>

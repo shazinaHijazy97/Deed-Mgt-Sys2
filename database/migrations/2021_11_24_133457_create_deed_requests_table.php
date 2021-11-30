@@ -18,7 +18,7 @@ class CreateDeedRequestsTable extends Migration
             $table->string('client_id');
             $table->string('deed_no');
             $table->string('deed_type');
-            $table->string('request_date');
+            $table->date('request_date');
             $table->string('payment_status');
             $table->string('note');
             $table->string('created_by');

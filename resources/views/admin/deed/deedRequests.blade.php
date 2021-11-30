@@ -35,8 +35,12 @@
   <form action = "{{url('admin-deed-requests')}}" method = "POST">
     @csrf
   <div class="form-group">
-    <label for="client_id">Client ID</label>
-    <input type="text" class="form-control" id="client_id" name="client_id" aria-describedby="" placeholder="Client ID">
+    <label for="client_id">Client</label>
+    <select name="client_id" id="client_id" class="form-control" >
+      @foreach ($clients as $client)
+        <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
+      @endforeach
+    </select>
   </div>
   <div class="form-group">
     <label for="deed_no">Deed No</label>
@@ -79,5 +83,9 @@
 
   </div>
 </section>
+
+<script>
+    $('#client_id').select2();
+</script>
 
 @endsection

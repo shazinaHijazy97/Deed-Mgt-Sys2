@@ -29,6 +29,8 @@
   <!-- Custom -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+  <link href="{{url('assets/css/select2.min.css')}}" rel="stylesheet">
+  <script src="{{url('assets/js/select2.min.js')}}"></script>
   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

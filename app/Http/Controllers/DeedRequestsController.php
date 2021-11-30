@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DeedRequests;
+use App\Models\Client;
 use Illuminate\Http\Request;
 use DB;
 
@@ -27,7 +28,8 @@ class DeedRequestsController extends Controller
      */
     public function create()
     {
-        return view('admin.deed.deedRequests');
+        $clients = Client::select('id','nic','fname','lname')->get();
+        return view('admin.deed.deedRequests',compact('clients'));
     }
 
     /**
