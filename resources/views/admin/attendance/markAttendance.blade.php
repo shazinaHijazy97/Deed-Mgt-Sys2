@@ -31,7 +31,7 @@
       </ul>
     </div>
   @endif
-  <form action = "{{url('admin-lawyers')}}" method = "POST">
+  <form action = "{{url('admin-attendance.store')}}" method = "POST">
     @csrf
   <div class="form-group">
     <label for="client_id">Lawyer/Staff NIC</label>

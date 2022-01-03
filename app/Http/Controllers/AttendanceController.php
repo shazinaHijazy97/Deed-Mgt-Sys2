@@ -39,7 +39,15 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'fname' =>'required',
+            'lname' =>'required',
+            'nic' =>'required',
+        ]);
+
+        Attendance::create($request->all());
+        return redirect()->intended('admin-attendance')->with('success', 'Attendance Marked successfully');
+
     }
 
     /**
