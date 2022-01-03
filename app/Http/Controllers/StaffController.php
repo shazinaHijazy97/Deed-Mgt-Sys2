@@ -15,9 +15,9 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staff = Staff::latest()->paginate(5);
+        $staff = Staff::all();
 
-        return view('admin.staff.index', compact('staff'))->with('i', (request()->input('page', 1) -1) * 5);
+        return view('admin.staff.index', compact('staff'));
     }
 
     /**

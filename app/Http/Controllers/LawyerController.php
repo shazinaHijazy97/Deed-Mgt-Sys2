@@ -15,9 +15,9 @@ class LawyerController extends Controller
      */
     public function index()
     {
-        $lawyers = Lawyer::latest()->paginate(5);
+        $lawyers = Lawyer::all();
 
-        return view('admin.lawyer.index', compact('lawyers'))->with('i', (request()->input('page', 1) -1) * 5);
+        return view('admin.lawyer.index', compact('lawyers'));
     }
 
     /**
