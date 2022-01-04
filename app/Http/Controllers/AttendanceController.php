@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Lawyer;
+use App\Models\Staff;
 
 class AttendanceController extends Controller
 {
@@ -15,9 +16,11 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        $attendances = Attendance::latest()->paginate(5);
+        $attendances = Attendance::with(['lawyer','staff'])->get();
+        // $attendances = Attendance::all();
+        // dd($attendances);
 
-        return view('admin.attendance.index', compact('attendances'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('admin.attendance.index', compact('attendances'));
     }
 
     /**
@@ -28,7 +31,8 @@ class AttendanceController extends Controller
     public function create()
     {
         $lawyers = Lawyer::select('id','nic','fname','lname')->get();
-        return view('admin.attendance.markAttendance',compact('lawyers'));
+        $staffs = Staff::select('id','nic','fname','lname')->get();
+        return view('admin.attendance.markAttendance',compact('lawyers','staffs'));
     }
 
     /**
@@ -39,11 +43,11 @@ class AttendanceController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'fname' =>'required',
-            'lname' =>'required',
-            'nic' =>'required',
-        ]);
+        // $request->validate([
+        //     'fname' =>'required',
+        //     'lname' =>'required',
+        //     'nic' =>'required',
+        // ]);
 
         Attendance::create($request->all());
         return redirect()->intended('admin-attendance')->with('success', 'Attendance Marked successfully');

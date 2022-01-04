@@ -9,6 +9,15 @@ class Attendance extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'fname', 'lname', 'nic'
+        'nic', 'date_in', 'time_in'
     ];
+
+    public function lawyer()
+    {
+        return $this->belongsTo(Lawyer::class,'nic','nic');
+    }
+    public function staff()
+    {
+        return $this->belongsTo(Staff::class,'nic','nic');
+    }
 }

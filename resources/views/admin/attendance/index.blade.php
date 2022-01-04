@@ -20,11 +20,12 @@
 <section class="content">
   <div class="container-fluid">
 
-  <table class="table">
+  <table class="table" id="attendance-table">
     <tr>
       <th>ID</th>
-      <th>NIC</th>
       <th>Name</th>
+      <th>NIC</th>
+      <th>Type</th>
       <th>Date In</th>
       <th>Time In</th>
     </tr>
@@ -33,8 +34,16 @@
 
     <tr>
       <td>{{$attendance->id}}</td>
+      <td>{{$attendance->lawyer->fname ?? $attendance->staff->fname}} {{$attendance->lawyer->lname ?? $attendance->staff->lname}}</td>
       <td>{{$attendance->nic}}</td>
-      <td>Name</td>
+      <td>
+        @if ($attendance->lawyer->fname ?? '')
+          <?php echo 'Lawyer'?>
+        @endif
+        @if ($attendance->staff->fname ?? '')
+          <?php echo 'Staff'?>
+        @endif
+      </td>
       <td>{{$attendance->date_in}}</td>
       <td>{{$attendance->time_in}}</td>
     </tr>
@@ -45,5 +54,9 @@
 
   </div>
 </section>
-
+<script>
+  $(document).ready(function() {
+      $('#attendance-table').DataTable();
+  } );
+</script>
 @endsection

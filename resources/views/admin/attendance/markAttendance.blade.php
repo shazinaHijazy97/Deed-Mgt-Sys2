@@ -31,15 +31,20 @@
       </ul>
     </div>
   @endif
-  <form action = "{{url('admin-attendance.store')}}" method = "POST">
+  <form action = "{{route('admin-attendance.store')}}" method = "POST">
     @csrf
   <div class="form-group">
-    <label for="client_id">Lawyer/Staff NIC</label>
-    <select name="client_id" id="client_id" class="form-control" >
+    <label for="nic">Lawyer/Staff NIC</label>
+    <select name="nic" id="nic" class="form-control" >
       @foreach ($lawyers as $lawyer)
-        <option value="{{$lawyer->id}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+        <option value="{{$lawyer->nic}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+      @endforeach
+      @foreach ($staffs as $staff)
+        <option value="{{$staff->nic}}">{{$staff->nic}} - {{$staff->fname}} {{$staff->lname}}</option>
       @endforeach
     </select>
+    <input type="hidden" id="date_in" name="date_in" value="<?php echo date('Y-m-d'); ?>">
+    <input type="hidden" id="time_in" name="time_in" value="<?php echo date('h:i:s'); ?>">
   </div>
   <button type="submit" class="btn btn-primary">Mark Attendance</button>
 </form>
@@ -50,7 +55,7 @@
 </section>
 
 <script>
-    $('#client_id').select2();
+    $('#nic').select2();
 </script>
 
 @endsection
