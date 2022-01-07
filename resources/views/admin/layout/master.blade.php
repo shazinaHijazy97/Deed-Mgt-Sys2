@@ -308,6 +308,20 @@
                 Appointments 
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="{{route('admin-appointment.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Make Appointments</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin-appointment')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Appointments</p>
+                </a>
+              </li>
+            </ul>
           </li>
           </li>
           <li class="nav-item">
