@@ -9,7 +9,7 @@ use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\DeedRequestsController;
 use App\Http\Controllers\AttendanceController;
-use App\Http\Controllers\AppointmenteController;
+use App\Http\Controllers\AppointmentController;
 
 
 /*

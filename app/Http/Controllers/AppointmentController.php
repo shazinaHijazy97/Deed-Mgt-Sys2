@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Lawyer;
+use App\Models\Client;
 
 class AppointmentController extends Controller
 {
@@ -15,7 +16,7 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        $appointments = Appointment::all();
+        $appointments = Appointment::with(['lawyer','client'])->get();
 
         return view('admin.appointment.index', compact('appointments'));
     }
@@ -27,9 +28,10 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        $lawyers = Lawyer::select('id');
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $clients = Client::select('id','nic','fname','lname')->get();
     
-        return view('admin.app.markAttendance',compact('lawyers'));
+        return view('admin.appointment.makeAppointment',compact('lawyers', 'clients'));
     }
 
     /**

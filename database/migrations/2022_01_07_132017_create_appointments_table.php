@@ -20,6 +20,7 @@ class CreateAppointmentsTable extends Migration
             $table->date('date');
             $table->time('time');
             $table->string('appointment_status');
+            $table->string('note');
             $table->timestamps();
         });
     }
