@@ -65,8 +65,14 @@ class AppointmentController extends Controller
      */
     public function edit($id)
     {
-        $appointment = Appointment::find($id);
+        // $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        // $clients = Client::select('id','nic','fname','lname')->get();
+
+        // $appointment = Appointment::with(['lawyer','client'])->find($id);
+        // $appointment = Appointment::find($id);
         return view('admin.appointment.edit', compact ('appointment'));
+
+        // return view('admin.appointment.edit', compact ('lawyers', 'clients'));
     }
 
     /**
