@@ -42,7 +42,9 @@
       <td>{{$appointment->time}}</td>
       <td>{{$appointment->appointment_status}}</td>
       <td>{{$appointment->note}}</td>
-      <td>EDIT | DELETE</td>
+      <td><a href="{{route('admin-appointment.edit',$appointment->id)}}" class="btn btn-primary">Edit</a>
+      <button type="submit" class="btn btn-danger remove-user" data-id="{{$appointment->id}}" data-action="{{route('admin-appointment.destroy',$appointment->id)}}">Delete</button>
+      <!-- <td>EDIT | DELETE</td> -->
     </tr>
 
     @endforeach

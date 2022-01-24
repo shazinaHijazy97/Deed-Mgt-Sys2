@@ -65,7 +65,8 @@ class AppointmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $appointment = Appointment::find($id);
+        return view('admin.appointment.edit', compact ('appointment'));
     }
 
     /**
@@ -77,7 +78,19 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'client_id' =>'required',
+                'lawyer_id' =>'required',
+                'date' =>'required',
+                'time' =>'required',
+                'appointment_status' =>'required',
+                'note' =>'required',
+            ]
+        ); 
+
+        $appointment = Appointment::findOrFail($id)->update($request->all());
+        return redirect()->intended('admin-appointment')->with('success','Appointment updated successfully');
     }
 
     /**
@@ -88,6 +101,8 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $appointment = Appointment::findOrFail($id)->delete();
+
+        return redirect()->intended('admin-appointment')->with('success','Appointment deleted successfully');
     }
 }
