@@ -34,7 +34,7 @@
 
   <form action = "{{route('admin-appointment.update',$appointment->id)}}" method = "POST">
     @csrf
-    <!-- @method('PUT') -->
+    @method('PUT')
     <div class="form-group">
     <label for="client_id">Client NIC/Name</label>
     <!-- <input type="text" class="form-control" id="client_id" name="client_id" aria-describedby="" placeholder="Client ID"> -->
@@ -55,11 +55,11 @@
   </div>
   <div class="form-group">
     <label for="date">Date</label>
-    <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+    <input type="date" class="form-control" id="date" name="date" value="{{$appointment->date}}" placeholder="Date">
   </div>
   <div class="form-group">
     <label for="time">Time</label>
-    <input type="time" class="form-control" id="time" name="time" placeholder="Time">
+    <input type="time" class="form-control" id="time" name="time" value="{{$appointment->time}}" placeholder="Time">
   </div>
   <div class="form-group">
     <label for="appointment_status">Appointment Status</label>
@@ -72,7 +72,7 @@
   </div>
   <div class="form-group">
     <label for="note">Note</label>
-    <input type="text" class="form-control" id="note" name="note" placeholder="Note">
+    <input type="text" class="form-control" id="note" name="note" value="{{$appointment->note}}" placeholder="Note">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button type="submit" class="btn btn-primary">Cancel</button>
