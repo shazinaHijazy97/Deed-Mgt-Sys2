@@ -11,6 +11,8 @@ use App\Http\Controllers\DeedRequestsController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\NotificationController;
+
 
 
 /*
@@ -56,3 +58,6 @@ Route::resource('admin-appointment', AppointmentController::class);
 
 // Admin-Payments
 Route::resource('admin-payment', PaymentController::class);
+
+//ADmin-Notification
+Route::resource('admin-notification', NotificationController::class);
