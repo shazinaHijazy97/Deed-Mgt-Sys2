@@ -10,6 +10,7 @@ use App\Http\Controllers\StaffController;
 use App\Http\Controllers\DeedRequestsController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -52,3 +53,6 @@ Route::resource('admin-attendance', AttendanceController::class);
 
 // Admin-Appointments
 Route::resource('admin-appointment', AppointmentController::class);
+
+// Admin-Payments
+Route::resource('admin-payment', PaymentController::class);

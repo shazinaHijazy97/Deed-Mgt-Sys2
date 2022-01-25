@@ -331,6 +331,20 @@
                 Payments 
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="{{route('admin-payment.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Make Payments</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin-payment')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Payments</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
