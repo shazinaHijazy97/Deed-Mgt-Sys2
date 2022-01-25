@@ -65,7 +65,12 @@ class PaymentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $clients = Client::select('id','nic','fname','lname')->get();
+
+        $payment = Payment::with(['lawyer','client'])->find($id);
+
+         return view('admin.payment.edit', compact ('payment','lawyers', 'clients'));
     }
 
     /**
@@ -77,7 +82,18 @@ class PaymentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'client_id' =>'required',
+                'lawyer_id' =>'required',
+                'date' =>'required',
+                'payment_type' =>'required',
+                'amount' =>'required',
+            ]
+        ); 
+
+        $payment = Payment::findOrFail($id)->update($request->all());
+        return redirect()->intended('admin-payment')->with('success','Payment updated successfully');
     }
 
     /**
@@ -88,6 +104,8 @@ class PaymentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $payment = Payment::findOrFail($id)->delete();
+
+        return redirect()->intended('admin-payment')->with('success','Payment deleted successfully');
     }
 }

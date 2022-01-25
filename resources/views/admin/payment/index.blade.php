@@ -27,7 +27,6 @@
       <th>Lawyer</th>
       <th>Date</th>
       <th>Payment Type</th>
-      <th>Appointment Status</th>
       <th>Amount</th>
       <th>Action</th>
     </tr>
@@ -40,7 +39,7 @@
       <td>{{$payment->lawyer->nic}} - {{$payment->lawyer->fname}} {{$payment->lawyer->lname}}</td>
       <td>{{$payment->date}}</td>
       <td>{{$payment->payment_type}}</td>
-      <td>{{$payment->Amount}}</td>
+      <td>{{$payment->amount}}</td>
       <td><a href="{{route('admin-payment.edit',$payment->id)}}" class="btn btn-primary">Edit</a>
       <button type="submit" class="btn btn-danger remove-user" data-id="{{$payment->id}}" data-action="{{route('admin-payment.destroy',$payment->id)}}">Delete</button>
       <!-- <td>EDIT | DELETE</td> -->
