@@ -353,6 +353,20 @@
                 Notifications
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="{{route('admin-notification.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Post Notifiction</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin-notification')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Notification</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
