@@ -13,6 +13,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\ReportController;
 
 
 
@@ -65,3 +66,6 @@ Route::resource('admin-notification', NotificationController::class);
 
 //Admin-Inventory
 Route::resource('admin-inventory', InventoryController::class);
+
+//Admin-Report
+Route::get('admin-report', ReportController::class, 'index');
