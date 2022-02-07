@@ -391,7 +391,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin-inventory')}}" class="nav-link">
+            <a href="{{url('admin-report')}}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Management Reports
