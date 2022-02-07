@@ -24,7 +24,7 @@
     <tr>
       <th>ID</th>
       <th>Item Name</th>
-      <th>Category</th>
+      <th>Item Category</th>
       <th>Quantity</th>
       <th>Service Date</th>
       <th>Manufacturer</th>
@@ -37,7 +37,7 @@
     <tr>
       <td>{{$inventory->id}}</td>
       <td>{{$inventory->item_name}}</td>
-      <td>{{$inventory->category}}</td>
+      <td>{{$inventory->item_category}}</td>
       <td>{{$inventory->quantity}}</td>
       <td>{{$inventory->service_date}}</td>
       <td>{{$inventory->manufacturer}}</td>

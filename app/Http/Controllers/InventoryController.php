@@ -26,7 +26,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.inventory.addinventory');
     }
 
     /**
@@ -37,7 +37,8 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Inventory::create($request->all());
+        return redirect()->intended('admin-inventory')->with('success', 'Inventory added successfully');
     }
 
     /**
@@ -59,7 +60,8 @@ class InventoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $inventory = Inventory::find($id);
+        return view('admin.inventory.edit')->with('inventory' ,$inventory);
     }
 
     /**
@@ -71,7 +73,19 @@ class InventoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'item_name' =>'required',
+            'item_category' =>'required',
+            'quantity' =>'required',
+            'service_date' =>'required',
+            'manufacturer' =>'required',
+            'manufacturer_contact' =>'required',
+        ]);
+        
+        $inventory = Inventory::findOrFail($id)->update($request->all());
+
+
+        return redirect()->route('admin-inventory.index')->with('success','Inventory updated successfully');
     }
 
     /**
@@ -82,6 +96,7 @@ class InventoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $inventory = Inventory::findOrFail($id)->delete();
+        return redirect()->route('admin-inventory.index')->with('success','Inventory deleted successfully');
     }
 }
