@@ -375,6 +375,20 @@
                 Inventory
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+              <a href="{{route('admin-inventory.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Inventory</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin-inventory')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>View Inventory</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -407,6 +421,18 @@
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deed Reports</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Attendance Reports</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Appointment Reports</p>
                 </a>
               </li>
             </ul>

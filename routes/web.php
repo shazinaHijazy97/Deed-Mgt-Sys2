@@ -12,6 +12,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\InventoryController;
 
 
 
@@ -59,5 +60,8 @@ Route::resource('admin-appointment', AppointmentController::class);
 // Admin-Payments
 Route::resource('admin-payment', PaymentController::class);
 
-//ADmin-Notification
+//Admin-Notification
 Route::resource('admin-notification', NotificationController::class);
+
+//Admin-Inventory
+Route::resource('admin-inventory', InventoryController::class);
