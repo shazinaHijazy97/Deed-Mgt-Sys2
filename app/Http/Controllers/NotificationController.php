@@ -65,7 +65,11 @@ class NotificationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $clients = Client::select('id','nic','fname','lname')->get();
+
+        $notifications = Notification::with(['lawyer','client'])->find($id);
+         return view('admin.notification.edit', compact ('notifications','lawyers', 'clients'));
     }
 
     /**
@@ -77,7 +81,19 @@ class NotificationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'notice_subject' =>'required',
+                'notice_content' =>'required',
+                'notice_date' =>'required',
+                'notice_time' =>'required',
+                'notice_type' =>'required',
+                'recipient' =>'required',
+            ]
+        ); 
+
+        $notifications = Notification::findOrFail($id)->update($request->all());
+        return redirect()->intended('admin-notification')->with('success','Notification updated successfully');
     }
 
     /**
@@ -88,6 +104,8 @@ class NotificationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $notifications = Notification::findOrFail($id)->delete();
+
+        return redirect()->intended('admin-notification')->with('success','Notification deleted successfully');
     }
 }
