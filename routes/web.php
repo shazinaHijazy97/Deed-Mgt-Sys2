@@ -68,4 +68,4 @@ Route::resource('admin-notification', NotificationController::class);
 Route::resource('admin-inventory', InventoryController::class);
 
 //Admin-Report
-Route::get('admin-report', ReportController::class, 'index');
+Route::get('admin-report', [ReportController::class, 'index']);

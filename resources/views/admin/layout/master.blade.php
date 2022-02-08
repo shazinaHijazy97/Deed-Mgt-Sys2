@@ -391,7 +391,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="{{url('admin-report')}}" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Management Reports
@@ -400,7 +400,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-report')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Client Reports</p>
                 </a>
