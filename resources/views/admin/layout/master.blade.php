@@ -406,31 +406,31 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-report')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lawyer Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-report')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Payment Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-report')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deed Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-report')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Attendance Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{url('admin-report')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Appointment Reports</p>
                 </a>

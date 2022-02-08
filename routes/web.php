@@ -69,3 +69,8 @@ Route::resource('admin-inventory', InventoryController::class);
 
 //Admin-Report
 Route::get('admin-report', [ReportController::class, 'index']);
+Route::get('admin-report', [ReportController::class, 'lawyerReport'])->name('lawyer-report');
+Route::get('admin-report', [ReportController::class, 'deedReport'])->name('deed-report');
+Route::get('admin-report', [ReportController::class, 'paymentReport'])->name('payment-report');
+Route::get('admin-report', [ReportController::class, 'attendenceReport'])->name('attendence-report');
+Route::get('admin-report', [ReportController::class, 'appointmentReport'])->name('appointment-report');
