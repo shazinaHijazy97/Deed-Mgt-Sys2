@@ -400,37 +400,37 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-report')}}" class="nav-link">
+                <a href="{{url('admin-report.index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Client Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-report')}}" class="nav-link">
+                <a href="{{url('admin-report.lawyerReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lawyer Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-report')}}" class="nav-link">
+                <a href="{{url('admin-report.paymentReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Payment Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-report')}}" class="nav-link">
+                <a href="{{url('admin-report.deedReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deed Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-report')}}" class="nav-link">
+                <a href="{{url('admin-report.attendanceReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Attendance Reports</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-report')}}" class="nav-link">
+                <a href="{{url('admin-report.appointmentReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Appointment Reports</p>
                 </a>
