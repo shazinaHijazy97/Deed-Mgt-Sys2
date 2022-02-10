@@ -424,7 +424,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-attendanceReport')}}" class="nav-link">
+                <a href="{{url('admin-attendenceReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Attendance Reports</p>
                 </a>
