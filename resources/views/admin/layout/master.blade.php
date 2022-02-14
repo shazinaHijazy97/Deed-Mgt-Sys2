@@ -259,6 +259,29 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
+                Cases
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('admin-client-case.create')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Case Request</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin-client-case')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Case Request Details</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
                 Deed
                 <i class="fas fa-angle-left right"></i>
               </p>

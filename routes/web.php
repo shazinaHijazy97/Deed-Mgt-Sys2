@@ -14,6 +14,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ClientCaseController;
 
 
 
@@ -74,3 +75,6 @@ Route::get('admin-deedReport', [ReportController::class, 'deedReport']);
 Route::get('admin-paymentReport', [ReportController::class, 'paymentReport']);
 Route::get('admin-attendenceReport', [ReportController::class, 'attendenceReport']);
 Route::get('admin-appointmentReport', [ReportController::class, 'appointmentReport']);
+
+//Admin-Cases
+Route::resource('admin-client-case', ClientCaseController::class);
