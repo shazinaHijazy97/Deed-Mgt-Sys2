@@ -19,7 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->string('lawyer_id')->nullable();
             $table->date('date');
             $table->string('payment_type');
-            $table->decimal('amount',5,2);
+            $table->decimal('amount',6,2);
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->timestamps();

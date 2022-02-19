@@ -49,6 +49,7 @@
       <option value="Scanner">Scanner</option>
       <option value="Photocopy Machine">Photocopy Machine</option>
       <option value="Stationary Items">Stationary Items</option>
+      <option value="Technical Items">Technical Items</option>
     </select>
   </div>
   <div class="form-group">

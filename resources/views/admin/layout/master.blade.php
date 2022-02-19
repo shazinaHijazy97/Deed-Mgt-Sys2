@@ -329,6 +329,7 @@
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Appointments 
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -346,12 +347,12 @@
               </li>
             </ul>
           </li>
-          </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Payments 
+                Payments
+                <i class="fas fa-angle-left right"></i> 
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -374,6 +375,7 @@
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Notifications
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -396,6 +398,7 @@
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Inventory
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -423,7 +426,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-report')}}" class="nav-link">
+                <a href="{{url('admin-clientReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Client Reports</p>
                 </a>
@@ -438,6 +441,12 @@
                 <a href="{{url('admin-paymentReport')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Payment Reports</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url('admin-caseReport')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Case Reports</p>
                 </a>
               </li>
               <li class="nav-item">

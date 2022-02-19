@@ -69,12 +69,16 @@ Route::resource('admin-notification', NotificationController::class);
 Route::resource('admin-inventory', InventoryController::class);
 
 //Admin-Report
-Route::get('admin-report', [ReportController::class, 'index']);
+Route::get('admin-clientReport', [ReportController::class, 'clientReport']);
 Route::get('admin-lawyerReport', [ReportController::class, 'lawyerReport']);
 Route::get('admin-deedReport', [ReportController::class, 'deedReport']);
 Route::get('admin-paymentReport', [ReportController::class, 'paymentReport']);
 Route::get('admin-attendenceReport', [ReportController::class, 'attendenceReport']);
 Route::get('admin-appointmentReport', [ReportController::class, 'appointmentReport']);
+Route::get('admin-caseReport', [ReportController::class, 'caseReport']);
+
+Route::post('post-attendance-report', [ReportController::class, 'checkAttendance']);
+
 
 //Admin-Cases
 Route::resource('admin-client-case', ClientCaseController::class);
