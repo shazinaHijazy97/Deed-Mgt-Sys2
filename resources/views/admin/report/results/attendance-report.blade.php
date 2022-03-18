@@ -8,8 +8,9 @@
     <table class="table">
         <thead>
             <tr>
-                <th>#</th>
+                <th>No.</th>
                 <th>NIC</th>
+                <th>Name</th>
                 <th>Date In</th>
                 <th>Time In</th>
             </tr>
@@ -23,6 +24,7 @@
             <tr>
                 <td>{{ $index++ }}</td>
                 <td>{{ $attendance->nic }}</td>
+                <td>{{ $attendance->fname }} {{ $attendance->lname }}</td>
                 <td>{{ $attendance->date_in }}</td>
                 <td>{{ $attendance->time_in }}</td>
             </tr>

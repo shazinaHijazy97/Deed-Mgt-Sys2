@@ -56,12 +56,12 @@ class ReportController extends Controller
         $dateTo = $request->date_to;
 
         $attendances = DB::table('attendances')
-                        // ->join('lawyers', 'lawyers.nic', '=', 'attendances.nic')
+                        ->join('lawyers', 'lawyers.nic', '=', 'attendances.nic')
                         // ->join('staff', 'staff.nic', '=', 'attendances.nic')
-                        // ->where('nic', $nic)
+                        ->where('attendances.nic', $nic)
                         ->whereBetween('date_in', [$dateFrom, $dateTo])
                         ->get();
-        // dd($attendances);
+                        
         $count = count($attendances);
         return view('admin.report.results.attendance-report', compact('attendances', 'count', 'nic', 'dateFrom', 'dateTo'));
     }
