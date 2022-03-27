@@ -78,6 +78,7 @@ Route::get('admin-appointmentReport', [ReportController::class, 'appointmentRepo
 Route::get('admin-caseReport', [ReportController::class, 'caseReport']);
 
 Route::post('post-attendance-report', [ReportController::class, 'checkAttendance']);
+Route::post('post-appointment-report', [ReportController::class, 'checkAppointment']);
 
 
 //Admin-Cases
