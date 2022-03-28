@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Lawyer;
 use App\Models\Staff;
+use App\Models\Client;
 use DB;
 
 class ReportController extends Controller
@@ -40,7 +41,10 @@ class ReportController extends Controller
 
     public function appointmentReport()
     {
-        return view('admin.report.appointmentReport');
+        $clients = Client::select('id','nic','fname','lname')->get();
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+
+        return view('admin.report.appointmentReport', compact('clients', 'lawyers'));
     }
 
     public function caseReport()
@@ -64,5 +68,23 @@ class ReportController extends Controller
                         
         $count = count($attendances);
         return view('admin.report.results.attendance-report', compact('attendances', 'count', 'nic', 'dateFrom', 'dateTo'));
+    }
+
+    public function checkAppointment(Request $request)
+    {
+        // dd($request);
+        $nic = $request->nic;
+        $dateFrom = $request->date_from;
+        $dateTo = $request->date_to;
+
+        $appointments = DB::table('appointments')
+                        ->join('lawyers', 'lawyers.nic', '=', 'appointments.nic')
+                        // ->join('staff', 'staff.nic', '=', 'attendances.nic')
+                        ->where('appointments.nic', $nic)
+                        ->whereBetween('date_in', [$dateFrom, $dateTo])
+                        ->get();
+                        
+        $count = count($appointments);
+        return view('admin.report.results.appointment-report', compact('appointments', 'count', 'nic', 'dateFrom', 'dateTo'));
     }
 }
