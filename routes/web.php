@@ -79,6 +79,10 @@ Route::get('admin-caseReport', [ReportController::class, 'caseReport']);
 
 Route::post('post-attendance-report', [ReportController::class, 'checkAttendance']);
 Route::post('post-appointment-report', [ReportController::class, 'checkAppointment']);
+Route::post('post-client-report', [ReportController::class, 'checkclientDetails']);
+Route::post('post-lawyer-report', [ReportController::class, 'checkLawyerDetails']);
+Route::post('post-deed-report', [ReportController::class, 'checkDeedDetails']);
+
 
 
 //Admin-Cases

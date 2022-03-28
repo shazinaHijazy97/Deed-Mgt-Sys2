@@ -7,23 +7,33 @@ use App\Models\Attendance;
 use App\Models\Lawyer;
 use App\Models\Staff;
 use App\Models\Client;
+use App\Models\DeedRequests;
 use DB;
 
 class ReportController extends Controller
 {
     public function clientReport()
     {
-        return view('admin.report.clientReport');
+        $clients = Client::select('id','nic','fname','lname')->get();
+        
+        return view('admin.report.clientReport', compact('clients'));
     }
 
     public function lawyerReport()
     {
-        return view('admin.report.lawyerReport');
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        
+        return view('admin.report.lawyerReport', compact('lawyers'));
     }
 
     public function deedReport()
     {
-        return view('admin.report.deedReport');
+        $clients = Client::select('id','nic','fname','lname')->get();
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $deedRequests = DeedRequests::select('client_id', 'deed_no', 'deed_type', 'request_date', 'payment_status')->get();
+
+
+        return view('admin.report.deedReport', compact('clients' , 'lawyers' , 'deedRequests'));
     }
 
     public function paymentReport()
