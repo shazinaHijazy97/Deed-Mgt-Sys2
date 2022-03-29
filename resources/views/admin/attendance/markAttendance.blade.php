@@ -34,17 +34,19 @@
   <form action = "{{route('admin-attendance.store')}}" method = "POST">
     @csrf
   <div class="form-group">
-    <label for="nic">Lawyer/Staff NIC</label>
-    <select name="nic" id="nic" class="form-control" >
-      @foreach ($lawyers as $lawyer)
-        <option value="{{$lawyer->nic}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
-      @endforeach
-      @foreach ($staffs as $staff)
-        <option value="{{$staff->nic}}">{{$staff->nic}} - {{$staff->fname}} {{$staff->lname}}</option>
-      @endforeach
-    </select>
-    <input type="hidden" id="date_in" name="date_in" value="<?php echo date('Y-m-d'); ?>">
-    <input type="hidden" id="time_in" name="time_in" value="<?php echo date('h:i:s'); ?>">
+    <div class = "col-md-6">
+      <label for="nic">Lawyer/Staff NIC</label>
+      <select name="nic" id="nic" class="form-control" >
+        @foreach ($lawyers as $lawyer)
+          <option value="{{$lawyer->nic}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+        @endforeach
+        @foreach ($staffs as $staff)
+          <option value="{{$staff->nic}}">{{$staff->nic}} - {{$staff->fname}} {{$staff->lname}}</option>
+        @endforeach
+      </select>
+      <input type="hidden" id="date_in" name="date_in" value="<?php echo date('Y-m-d'); ?>">
+      <input type="hidden" id="time_in" name="time_in" value="<?php echo date('h:i:s'); ?>">
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Mark Attendance</button>
 </form>
