@@ -65,6 +65,10 @@
     </select>
   </div>
   <div class="form-group">
+    <label for="filed_date">Filed Date</label>
+    <input type="date" class="form-control" id="filed_date" name="filed_date" placeholder="Filed Date">
+  </div>
+  <div class="form-group">
     <label for="note">Note</label>
     <input type="text" class="form-control" id="note" name="note" placeholder="Note">
   </div>

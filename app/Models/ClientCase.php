@@ -10,7 +10,7 @@ class ClientCase extends Model
     use HasFactory;
     protected $table = 'cases';
     protected $fillable = [
-        'client_id', 'title', 'case_type', 'lawyer_id', 'note',
+        'client_id', 'title', 'case_type', 'lawyer_id', 'filed_date', 'note',
     ];
 
     public function lawyer()

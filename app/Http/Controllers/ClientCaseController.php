@@ -87,7 +87,8 @@ class ClientCaseController extends Controller
             'title' =>'required',
             'lawyer_id' =>'required',
             'case_type' =>'required',
-            'note' =>'required',
+            'filed_date' =>'required',
+            'note' =>'required'
         ]);
         
         $clientCases = ClientCase::findOrFail($id)->update($request->all());

@@ -82,6 +82,8 @@ Route::post('post-appointment-report', [ReportController::class, 'checkAppointme
 Route::post('post-client-report', [ReportController::class, 'checkclientDetails']);
 Route::post('post-lawyer-report', [ReportController::class, 'checkLawyerDetails']);
 Route::post('post-deed-report', [ReportController::class, 'checkDeedDetails']);
+Route::post('post-payment-report', [ReportController::class, 'checkPaymentDetails']);
+Route::post('post-case-report', [ReportController::class, 'checkCaseDetails']);
 
 
 

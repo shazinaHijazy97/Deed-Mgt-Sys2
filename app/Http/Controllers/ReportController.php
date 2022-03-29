@@ -7,7 +7,9 @@ use App\Models\Attendance;
 use App\Models\Lawyer;
 use App\Models\Staff;
 use App\Models\Client;
+use App\Models\ClientCase;
 use App\Models\DeedRequests;
+use App\Models\Payment;
 use DB;
 
 class ReportController extends Controller
@@ -32,13 +34,16 @@ class ReportController extends Controller
         $lawyers = Lawyer::select('id','nic','fname','lname')->get();
         $deedRequests = DeedRequests::select('client_id', 'deed_no', 'deed_type', 'request_date', 'payment_status')->get();
 
-
         return view('admin.report.deedReport', compact('clients' , 'lawyers' , 'deedRequests'));
     }
 
     public function paymentReport()
     {
-        return view('admin.report.paymentReport');
+        $clients = Client::select('id','nic','fname','lname')->get();
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $payments = Payment::select('client_id', 'lawyer_id', 'date', 'payment_type', 'amount')->get();
+        
+        return view('admin.report.paymentReport' , compact('clients' , 'lawyers' , 'payments'));
     }
 
     public function attendenceReport()
@@ -59,7 +64,12 @@ class ReportController extends Controller
 
     public function caseReport()
     {
-        return view('admin.report.caseReport');
+        $clients = Client::select('id','nic','fname','lname')->get();
+        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $clientCases = ClientCase::select('client_id', 'title', 'case_type', 'lawyer_id' , 'filed_date')->get();
+
+        
+        return view('admin.report.caseReport' , compact('clients' , 'lawyers' , 'clientCases'));
     }
 
     public function checkAttendance(Request $request)

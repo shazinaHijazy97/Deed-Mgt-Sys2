@@ -3,8 +3,7 @@
 
 <div class="container">
     <h2>Client Report</h2>
-    <h4>{{$dateFrom}} - {{$dateTo}}</h4>
-
+    
     <table class="table">
         <thead>
             <tr>

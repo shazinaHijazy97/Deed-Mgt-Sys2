@@ -20,12 +20,13 @@
            <select name="lawyer_id" id="lawyer_id" class="form-control" >
             <option value="0">All Deed Requests</option>
               @foreach ($lawyers as $lawyer)
-            <option value="{{$lawyer->id}}">{{$client->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+            <option value="{{$lawyer->id}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
              @endforeach
            </select>
           </div>
        </div>
-       <div class="col-md-4">
+       <div class="row">
+         <div class="col-md-4">
     <label for="deed_type">Deed Type</label>
     <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
     <select name="deed_type" id="deed_type" class="form-control">
@@ -41,6 +42,7 @@
     <label for="request_date">Request Date</label>
     <input type="date" class="form-control" id="request_date" name="request_date" placeholder="Request Date">
   </div>
+</div>
   <div class="col-md-4">
     <label for="payment_status">Payment Status</label>
     <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->

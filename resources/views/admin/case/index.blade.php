@@ -26,6 +26,7 @@
       <th>Title</th>
       <th>Case Type</th>
       <th>Lawyer ID</th>
+      <th>Filed Date</th>
       <th>Note</th>
       <th>Action</th>
     </tr>
@@ -38,6 +39,7 @@
       <td>{{$case->title}}</td>
       <td>{{$case->case_type}}</td>
       <td>{{$case->lawyer_id}}</td>
+      <td>{{$case->filed_date}}</td>
       <td>{{$case->note}}</td>
       <td><a href="{{route('admin-client-case.edit',$case->id)}}" class="btn btn-primary">Edit</a>
       <button type="submit" class="btn btn-danger remove-user" data-id="{{$case->id}}" data-action="{{route('admin-client-case.destroy',$case->id)}}">Delete</button>
