@@ -35,39 +35,51 @@
   <form action = "{{route('admin-payment.store')}}" method = "POST">
     @csrf
   <div class="form-group">
-    <label for="client_id">Client NIC/Name</label>
-    <!-- <input type="text" class="form-control" id="client_id" name="client_id" aria-describedby="" placeholder="Client ID"> -->
-    <select name="client_id" id="client_id" class="form-control" >
-      @foreach ($clients as $client)
-        <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
-      @endforeach
-    </select>
+    <div class = "row">
+        <div class = "col-md-6">
+        <label for="client_id">Client NIC/Name</label>
+        <!-- <input type="text" class="form-control" id="client_id" name="client_id" aria-describedby="" placeholder="Client ID"> -->
+        <select name="client_id" id="client_id" class="form-control" >
+          @foreach ($clients as $client)
+            <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
+          @endforeach
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="lawyer_id">Lawyer NIC/Name</label>
+        <!-- <input type="text" class="form-control" id="lawyer_id" name="lawyer_id" aria-describedby="" placeholder="Lawyer ID"> -->
+        <select name="lawyer_id" id="lawyer_id" class="form-control" >
+          @foreach ($lawyers as $lawyer)
+            <option value="{{$lawyer->id}}">{{$client->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+          @endforeach
+        </select>
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="lawyer_id">Lawyer NIC/Name</label>
-    <!-- <input type="text" class="form-control" id="lawyer_id" name="lawyer_id" aria-describedby="" placeholder="Lawyer ID"> -->
-    <select name="lawyer_id" id="lawyer_id" class="form-control" >
-      @foreach ($lawyers as $lawyer)
-        <option value="{{$lawyer->id}}">{{$client->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
-      @endforeach
-    </select>
+    <div class = "row">
+        <div class = "col-md-6">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+      </div>
+      <div class="col-md-6">
+        <label for="payment_type">Payment Type</label>
+        <!-- <input type="text" class="form-control" id="appointment_status" name="appointment_status" placeholder="Appointment Status"> -->
+        <select name="payment_type" id="payment_type" class="form-control">
+          <option value="Active">Active</option>
+          <option value="Pending">Pending</option>
+          <option value="Cancelled">Cancelled</option>
+        </select>
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="date">Date</label>
-    <input type="date" class="form-control" id="date" name="date" placeholder="Date">
-  </div>
-  <div class="form-group">
-    <label for="payment_type">Payment Type</label>
-    <!-- <input type="text" class="form-control" id="appointment_status" name="appointment_status" placeholder="Appointment Status"> -->
-    <select name="payment_type" id="payment_type" class="form-control">
-      <option value="Active">Active</option>
-      <option value="Pending">Pending</option>
-      <option value="Cancelled">Cancelled</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="amount">Amount</label>
-    <input type="amount" class="form-control" id="amount" name="amount" placeholder="Amount">
+    <div class = "row">
+        <div class = "col-md-6">
+        <label for="amount">Amount</label>
+        <input type="amount" class="form-control" id="amount" name="amount" placeholder="Amount">
+      </div>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button type="submit" class="btn btn-primary">Cancel</button>

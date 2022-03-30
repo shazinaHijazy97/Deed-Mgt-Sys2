@@ -35,37 +35,49 @@
   <form action = "{{route('admin-notification.store')}}" method = "POST">
     @csrf
   <div class="form-group">
-    <label for="notice_subject">Notice Subject</label>
-    <input type="text" class="form-control" id="notice_subject" name="notice_subject" placeholder="Notice Subject">
+    <div class = "row">
+        <div class = "col-md-6">
+        <label for="notice_subject">Notice Subject</label>
+        <input type="text" class="form-control" id="notice_subject" name="notice_subject" placeholder="Notice Subject">
+      </div>
+      <div class="col-md-6">
+        <label for="notice_content">Notice Content</label>
+        <input type="text" class="form-control" id="notice_content" name="notice_content" placeholder="Notice Content">
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="notice_content">Notice Content</label>
-    <input type="text" class="form-control" id="notice_content" name="notice_content" placeholder="Notice Content">
+    <div class = "row">
+        <div class = "col-md-6">
+        <label for="notice_date">Date</label>
+        <input type="date" class="form-control" id="notice_date" name="notice_date" placeholder="Notice Date">
+      </div>
+      <div class="col-md-6">
+        <label for="notice_time">Notice Time</label>
+        <input type="time" class="form-control" id="notice_time" name="notice_time" placeholder="Notice Time">
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="notice_date">Date</label>
-    <input type="date" class="form-control" id="notice_date" name="notice_date" placeholder="Notice Date">
-  </div>
-  <div class="form-group">
-    <label for="notice_time">Notice Time</label>
-    <input type="time" class="form-control" id="notice_time" name="notice_time" placeholder="Notice Time">
-  </div>
-  <div class="form-group">
-    <label for="notice_type">Notice Type</label>
-    <select name="notice_type" id="notice_type" class="form-control">
-      <option value="Public">Public</option>
-      <option value="Announcement">Announcement</option>
-      <option value="Special">Special</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="recepient">Recepient</label>
-    <select name="recipient" id="recipient" class="form-control" >
-      <option value="Public">Public</option>
-      <option value="Clients">Clients</option>
-      <option value="Lawyers">Lawyers</option>
-      <option value="Clients + Lawyers">Clients + Lawyers</option>
-    </select>
+    <div class = "row">
+        <div class = "col-md-6">
+        <label for="notice_type">Notice Type</label>
+        <select name="notice_type" id="notice_type" class="form-control">
+          <option value="Public">Public</option>
+          <option value="Announcement">Announcement</option>
+          <option value="Special">Special</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="recepient">Recepient</label>
+        <select name="recipient" id="recipient" class="form-control" >
+          <option value="Public">Public</option>
+          <option value="Clients">Clients</option>
+          <option value="Lawyers">Lawyers</option>
+          <option value="Clients + Lawyers">Clients + Lawyers</option>
+        </select>
+      </div>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button type="submit" class="btn btn-primary">Cancel</button>

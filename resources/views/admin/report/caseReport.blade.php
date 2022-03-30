@@ -7,7 +7,7 @@
         @csrf
         <div class="form-group">
             <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
            <label for="client_id">Client NIC/Name</label>
            <select name="client_id" id="client_id" class="form-control" >
              <option value="0">All Case Requests</option>
@@ -16,7 +16,7 @@
                @endforeach
             </select>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-6">
             <label for="lawyer_id">Lawyer NIC/Name</label>
             <select name="lawyer_id" id="lawyer_id" class="form-control" >
             <option value="0">All Deed Requests</option>
@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <label for="case_type">Case Type</label>
                     <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
                     <select name="case_type" id="case_type" class="form-control">
@@ -39,7 +39,7 @@
                     <option value="Civil">Civil</option>
                     </select>
                 </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
     <label for="filed_date">Filed Date</label>
     <input type="date" class="form-control" id="filed_date" name="filed_date" placeholder="Filed Date">
   </div>
@@ -47,12 +47,12 @@
   </div>
     <div class="form-group">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
         <label for="date_from">Date From</label>
         <input type="date" class="form-control" id="date_from" name="date_from" placeholder="Date From">
         </div>
     <!-- <div class="form-group"> -->
-        <div class="col-md-4">
+        <div class="col-md-6">
         <label for="date_from">Date To</label>
         <input type="date" class="form-control" id="date_to" name="date_to" placeholder="Date To">
         </div>

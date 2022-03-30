@@ -35,38 +35,50 @@
   <form action = "{{url('admin-inventory')}}" method = "POST">
     @csrf
   <div class="form-group">
-    <label for="item_name">Item Name</label>
-    <input type="text" class="form-control" id="item_name" name="item_name" aria-describedby="" placeholder="Item Name">
+    <div class = "row">
+      <div class = "col-md-6">
+        <label for="item_name">Item Name</label>
+        <input type="text" class="form-control" id="item_name" name="item_name" aria-describedby="" placeholder="Item Name">
+      </div>
+      <div class="col-md-6">
+        <label for="item_category">Category</label>
+        <select name="item_category" id="item_category" class="form-control">
+          <option value="Office Table">Office Table</option>
+          <option value="Office Chair">Office Chair</option>
+          <option value="Computers">Computers</option>
+          <option value="Office Cupboards">Office Cupboards</option>
+          <option value="Printers">Printers</option>
+          <option value="Scanner">Scanner</option>
+          <option value="Photocopy Machine">Photocopy Machine</option>
+          <option value="Stationary Items">Stationary Items</option>
+          <option value="Technical Items">Technical Items</option>
+        </select>
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="item_category">Category</label>
-    <select name="item_category" id="item_category" class="form-control">
-      <option value="Office Table">Office Table</option>
-      <option value="Office Chair">Office Chair</option>
-      <option value="Computers">Computers</option>
-      <option value="Office Cupboards">Office Cupboards</option>
-      <option value="Printers">Printers</option>
-      <option value="Scanner">Scanner</option>
-      <option value="Photocopy Machine">Photocopy Machine</option>
-      <option value="Stationary Items">Stationary Items</option>
-      <option value="Technical Items">Technical Items</option>
-    </select>
+    <div class = "row">
+      <div class = "col-md-6">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity">
+      </div>
+      <div class="col-md-6">
+        <label for="service_date">Service Date</label>
+        <input type="date" class="form-control" id="service_date" name="service_date" placeholder="Service Date">
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="quantity">Quantity</label>
-    <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity">
-  </div>
-  <div class="form-group">
-    <label for="service_date">Service Date</label>
-    <input type="date" class="form-control" id="service_date" name="service_date" placeholder="Service Date">
-  </div>
-  <div class="form-group">
-    <label for="manufacturer">Manufacturer</label>
-    <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Manufacturer">
-  </div>
-  <div class="form-group">
-    <label for="manufacturer_contact">Manufacturer Contact</label>
-    <input type="text" class="form-control" id="manufacturer_contact" name="manufacturer_contact" placeholder="Manufacturer Contact">
+  <div class = "row">
+      <div class = "col-md-6">
+        <label for="manufacturer">Manufacturer</label>
+        <input type="text" class="form-control" id="manufacturer" name="manufacturer" placeholder="Manufacturer">
+      </div>
+      <div class="col-md-6">
+        <label for="manufacturer_contact">Manufacturer Contact</label>
+        <input type="text" class="form-control" id="manufacturer_contact" name="manufacturer_contact" placeholder="Manufacturer Contact">
+      </div>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
   <button type="submit" class="btn btn-primary">Cancel</button>

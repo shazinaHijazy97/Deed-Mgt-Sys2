@@ -36,38 +36,50 @@
     @csrf
     @method('PUT')
   <div class="form-group">
+  <div class = "row">
+      <div class = "col-md-6">
     <label for="item_name">Item Name</label>
     <input type="text" class="form-control" id="item_name" name="item_name" value="{{$inventory->item_name}}" aria-describedby="" placeholder="Item Name">
   </div>
-  <div class="form-group">
-    <label for="item_category">Item Category</label>
-    <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
-    <select name="item_category" id="item_category" class="form-control">
-      <option value="Office Table">Office Table</option>
-      <option value="Office Chair">Office Chair</option>
-      <option value="Computers">Computers</option>
-      <option value="Office Cupboards">Office Cupboards</option>
-      <option value="Printers">Printers</option>
-      <option value="Scanner">Scanner</option>
-      <option value="Photocopy Machine">Photocopy Machine</option>
-      <option value="Stationary Items">Stationary Items</option>
-    </select>
+  <div class="col-md-6">
+        <label for="item_category">Item Category</label>
+        <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
+        <select name="item_category" id="item_category" class="form-control">
+          <option value="Office Table">Office Table</option>
+          <option value="Office Chair">Office Chair</option>
+          <option value="Computers">Computers</option>
+          <option value="Office Cupboards">Office Cupboards</option>
+          <option value="Printers">Printers</option>
+          <option value="Scanner">Scanner</option>
+          <option value="Photocopy Machine">Photocopy Machine</option>
+          <option value="Stationary Items">Stationary Items</option>
+        </select>
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="quantity">Quantity</label>
-    <input type="text" class="form-control" id="quantity" name="quantity" value="{{$inventory->quantity}}" aria-describedby="" placeholder="Quantity">
+    <div class = "row">
+      <div class="col-md-6">
+        <label for="quantity">Quantity</label>
+        <input type="text" class="form-control" id="quantity" name="quantity" value="{{$inventory->quantity}}" aria-describedby="" placeholder="Quantity">
+      </div>
+      <div class="col-md-6">
+        <label for="service_date">Service Date</label>
+        <input type="date" class="form-control" id="service_date" name="service_date" value="{{$inventory->service_date}}" placeholder="Service Date">
+      </div>
+    </div>
   </div>
   <div class="form-group">
-    <label for="service_date">Service Date</label>
-    <input type="date" class="form-control" id="service_date" name="service_date" value="{{$inventory->service_date}}" placeholder="Service Date">
-  </div>
-  <div class="form-group">
-    <label for="manufacturer">Manufacturer</label>
-    <input type="text" class="form-control" id="manufacturer" name="manufacturer" value="{{$inventory->manufacturer}}" placeholder="Manufacturer">
-  </div>
-  <div class="form-group">
-    <label for="manufacturer_contact">Manufacturer Contact</label>
-    <input type="text" class="form-control" id="manufacturer_contact" name="manufacturer_contact" value="{{$inventory->manufacturer_contact}}" placeholder="Manufacturer Contact">
+  <div class = "row">
+      <div class="col-md-6">
+        <label for="manufacturer">Manufacturer</label>
+        <input type="text" class="form-control" id="manufacturer" name="manufacturer" value="{{$inventory->manufacturer}}" placeholder="Manufacturer">
+      </div>
+      <div class="col-md-6">
+        <label for="manufacturer_contact">Manufacturer Contact</label>
+        <input type="text" class="form-control" id="manufacturer_contact" name="manufacturer_contact" value="{{$inventory->manufacturer_contact}}" placeholder="Manufacturer Contact">
+      </div>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary">Edit</button>
   <button type="submit" class="btn btn-primary">Cancel</button>
