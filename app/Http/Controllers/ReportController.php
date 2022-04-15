@@ -74,37 +74,81 @@ class ReportController extends Controller
 
     public function checkAttendance(Request $request)
     {
-        // dd($request);
         $nic = $request->nic;
         $dateFrom = $request->date_from;
         $dateTo = $request->date_to;
+        
+        if ($nic != "0" && $dateFrom != null && $dateTo != null ) {
 
-        $attendances = DB::table('attendances')
+            $attendances = DB::table('attendances')
                         ->join('lawyers', 'lawyers.nic', '=', 'attendances.nic')
-                        // ->join('staff', 'staff.nic', '=', 'attendances.nic')
                         ->where('attendances.nic', $nic)
                         ->whereBetween('date_in', [$dateFrom, $dateTo])
                         ->get();
+            $count = count($attendances);
+
+        } else if ($nic == "0" && $dateFrom != null && $dateTo != null) {
+
+            $attendances = DB::table('attendances')
+            ->join('lawyers', 'lawyers.nic', '=', 'attendances.nic')
+            ->whereBetween('date_in', [$dateFrom, $dateTo])
+            ->get();
+            $count = count($attendances);
+
+        } else if ($nic != "0" && $dateFrom == null && $dateTo == null) {
+
+            $attendances = DB::table('attendances')
+            ->join('lawyers', 'lawyers.nic', '=', 'attendances.nic')
+            ->where('attendances.nic', $nic)
+            ->get();
+            $count = count($attendances);
+
+        } else {
+
+            $attendances = DB::table('attendances')
+            ->join('lawyers', 'lawyers.nic', '=', 'attendances.nic')
+            ->get();
+            $count = count($attendances);
+
+        }
                         
-        $count = count($attendances);
         return view('admin.report.results.attendance-report', compact('attendances', 'count', 'nic', 'dateFrom', 'dateTo'));
     }
 
     public function checkAppointment(Request $request)
     {
-        // dd($request);
-        $nic = $request->nic;
+
+        // $nic = $request->nic;
+        // $dateFrom = $request->date_from;
+        // $dateTo = $request->date_to;
+
+        // $appointments = DB::table('appointments')
+        //                 ->join('lawyers', 'lawyers.nic', '=', 'appointments.nic')
+        //                 ->where('appointments.nic', $nic)
+        //                 ->whereBetween('date_in', [$dateFrom, $dateTo])
+        //                 ->get();
+                        
+        // $count = count($appointments);
+
+        $clientId = $request->client_id;
+        $lawyerId = $request->lawyer_id;
         $dateFrom = $request->date_from;
         $dateTo = $request->date_to;
+        $status = $request->appointment_status;
 
-        $appointments = DB::table('appointments')
-                        ->join('lawyers', 'lawyers.nic', '=', 'appointments.nic')
-                        // ->join('staff', 'staff.nic', '=', 'attendances.nic')
-                        ->where('appointments.nic', $nic)
-                        ->whereBetween('date_in', [$dateFrom, $dateTo])
-                        ->get();
-                        
-        $count = count($appointments);
-        return view('admin.report.results.appointment-report', compact('appointments', 'count', 'nic', 'dateFrom', 'dateTo'));
+        if ($clientId != "0" && $lawyerId != "0" && $dateFrom != null && $dateTo != null && $status != "0") {
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.client_id', $clientId)
+                            ->where('appointments.lawyer_id', $lawyerId)
+                            ->whereBetween('appointments.date', [$dateFrom, $dateTo])
+                            ->where('appointments.appointment_status', $status)
+                            ->get();
+            $count = count($appointments);
+            dd($appointments);
+        }
+
+        return view('admin.report.results.appointment-report', compact('appointments', 'count', 'clientId', 'lawyerId', 'dateFrom', 'dateTo', 'status'));
     }
 }

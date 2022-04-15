@@ -44,6 +44,7 @@
           <div class="col-md-6">
             <label for="appointment_status">Appointment Status</label>
             <select name="appointment_status" id="appointment_status" class="form-control">
+              <option value="0">All</option>
               <option value="Active">Active</option>
               <option value="Pending">Pending</option>
               <option value="Cancelled">Cancelled</option>

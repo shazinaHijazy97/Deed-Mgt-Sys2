@@ -13,6 +13,8 @@
                 <th>Lawyer</th>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Status</th>
+                <th>Note</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +27,10 @@
                 <td>{{ $index++ }}</td>
                 <td>{{$appointment->client->nic}} - {{$appointment->client->fname}} {{$appointment->client->lname}}</td>
                 <td>{{$appointment->lawyer->nic}} - {{$appointment->lawyer->fname}} {{$appointment->lawyer->lname}}</td>
-                <!-- <td>{{ $appointment->client }}</td> -->
-                <!-- <td>{{ $appointment->lawyer }}</td> -->
                 <td>{{ $appointment->date }}</td>
                 <td>{{ $appointment->time }}</td>
+                <td>{{ $appointment->status }}</td>
+                <td>{{ $appointment->note }}</td>
             </tr>
         @endforeach
         </tbody>
