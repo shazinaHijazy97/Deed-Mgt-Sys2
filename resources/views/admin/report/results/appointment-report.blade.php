@@ -25,11 +25,11 @@
         @foreach($appointments as $appointment)
             <tr>
                 <td>{{ $index++ }}</td>
-                <td>{{$appointment->client->nic}} - {{$appointment->client->fname}} {{$appointment->client->lname}}</td>
-                <td>{{$appointment->lawyer->nic}} - {{$appointment->lawyer->fname}} {{$appointment->lawyer->lname}}</td>
+                <td>{{ $appointment->client_id }}</td>
+                <td>{{ $appointment->lawyer_id }}</td>
                 <td>{{ $appointment->date }}</td>
                 <td>{{ $appointment->time }}</td>
-                <td>{{ $appointment->status }}</td>
+                <td>{{ $appointment->appointment_status }}</td>
                 <td>{{ $appointment->note }}</td>
             </tr>
         @endforeach
