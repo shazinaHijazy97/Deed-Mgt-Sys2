@@ -24,11 +24,11 @@
         @foreach($payments as $payment)
             <tr>
                 <td>{{ $index++ }}</td>
-                <td>{{$payments->client->nic}} - {{$payments->client->fname}} {{$payments->client->lname}}</td>
-                <td>{{$payments->lawyer->nic}} - {{$payments->lawyer->fname}} {{$payments->lawyer->lname}}</td>
-                <td>{{ $payments->date }}</td>
-                <td>{{ $payments->payment_type }}</td>
-                <td>{{ $payments->amount }}</td>
+                <td>{{ $payment->client_id }}</td>
+                <td>{{ $payment->lawyer_id }}</td>
+                <td>{{ $payment->date }}</td>
+                <td>{{ $payment->payment_type }}</td>
+                <td>{{ $payment->amount }}</td>
             </tr>
         @endforeach
         </tbody>

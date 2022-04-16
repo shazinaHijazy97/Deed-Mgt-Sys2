@@ -290,4 +290,30 @@ class ReportController extends Controller
 
         return view('admin.report.results.appointment-report', compact('appointments', 'count', 'clientId', 'lawyerId', 'dateFrom', 'dateTo', 'status'));
     }
-}
+
+    public function checkPaymentDetails(Request $request ){
+
+        $clientId = $request->client_id;
+        $lawyerId = $request->lawyer_id;
+        $paymentType = $request->payment_type;
+        $dateFrom = $request->date_from;
+        $dateTo = $request->date_to;
+
+
+        if ($clientId != "0" && $lawyerId != "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
+            
+            $payments = DB::table('payments')
+                            ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                            ->where('payments.client_id', $clientId)
+                            ->where('payments.lawyer_id', $lawyerId)
+                            ->where('payments.payment_type', $paymentType)
+                            ->whereBetween('appointments.date', [$dateFrom, $dateTo])
+                            ->get();
+            $count = count($payments);
+
+    }
+
+    return view('admin.report.results.payment-report', compact('payments', 'count', 'clientId', 'lawyerId', 'paymentType', 'dateFrom', 'dateTo'));
+
+}}

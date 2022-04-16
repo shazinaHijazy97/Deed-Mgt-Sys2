@@ -3,7 +3,7 @@
 
 <div class="container">
     <h1>Payments Management Reports</h1>
-    <form action = "{{url('post-payments-report')}}" method = "POST">
+    <form action = "{{url('post-payment-report')}}" method = "POST">
         @csrf
         <div class="form-group">
           <div class="row">
@@ -33,7 +33,8 @@
               <label for="payment_type">Payment Type</label>
               <!-- <input type="text" class="form-control" id="appointment_status" name="appointment_status" placeholder="Appointment Status"> -->
               <select name="payment_type" id="payment_type" class="form-control">
-                <option value="Active">Active</option>
+              <option value="0">All</option>  
+              <option value="Active">Active</option>
                 <option value="Pending">Pending</option>
                 <option value="Cancelled">Cancelled</option>
               </select>
