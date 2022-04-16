@@ -136,6 +136,40 @@ class ReportController extends Controller
                             ->get();
             $count = count($appointments);
 
+        } else if ($clientId != "0" && $lawyerId != "0" && $dateFrom != null && $dateTo != null && $status == "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.client_id', $clientId)
+                            ->where('appointments.lawyer_id', $lawyerId)
+                            ->whereBetween('appointments.date', [$dateFrom, $dateTo])
+                            ->get();
+            $count = count($appointments);
+
+        } else if ($clientId != "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status != "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.client_id', $clientId)
+                            ->where('appointments.lawyer_id', $lawyerId)
+                            ->where('appointments.appointment_status', $status)
+                            ->get();
+            $count = count($appointments);
+
+        }else if ($clientId != "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status == "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.client_id', $clientId)
+                            ->where('appointments.lawyer_id', $lawyerId)
+                            ->get();
+            $count = count($appointments);
+    
+    
+
         } else if ($clientId == "0" && $lawyerId != "0" && $dateFrom != null && $dateTo != null && $status != "0") {
 
             $appointments = DB::table('appointments')
@@ -146,6 +180,27 @@ class ReportController extends Controller
                             ->where('appointments.appointment_status', $status)
                             ->get();
             $count = count($appointments);
+
+        } else if ($clientId == "0" && $lawyerId != "0" && $dateFrom != null && $dateTo != null && $status == "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.lawyer_id', $lawyerId)
+                            ->whereBetween('appointments.date', [$dateFrom, $dateTo])
+                            ->get();
+            $count = count($appointments);
+    
+
+        } else if ($clientId != "0" && $lawyerId == "0" && $dateFrom != null && $dateTo != null && $status == "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.client_id', $clientId)
+                            ->whereBetween('appointments.date', [$dateFrom, $dateTo])
+                            ->get();
+            $count = count($appointments);    
 
         } else if ($clientId != "0" && $lawyerId == "0" && $dateFrom != null && $dateTo != null && $status != "0") {
 
@@ -166,7 +221,17 @@ class ReportController extends Controller
                             ->where('appointments.client_id', $clientId)
                             ->where('appointments.appointment_status', $status)
                             ->get();
-            $count = count($appointments);    
+            $count = count($appointments);  
+            
+        } else if ($clientId != "0" && $lawyerId == "0" && $dateFrom == null && $dateTo == null && $status == "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.client_id', $clientId)
+                            ->get();
+            $count = count($appointments);
+    
 
         }   else if ($clientId == "0" && $lawyerId == "0" && $dateFrom != null && $dateTo != null && $status != "0") {
             $appointments = DB::table('appointments')
@@ -177,6 +242,34 @@ class ReportController extends Controller
                             ->get();
             $count = count($appointments); 
 
+        } else if ($clientId == "0" && $lawyerId == "0" && $dateFrom != null && $dateTo != null && $status == "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->whereBetween('appointments.date', [$dateFrom, $dateTo])
+                            ->get();
+            $count = count($appointments);
+
+        } else if ($clientId == "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status != "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.lawyer_id', $lawyerId)
+                            ->where('appointments.appointment_status', $status)
+                            ->get();
+            $count = count($appointments);
+            
+        } else if ($clientId == "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status == "0") {
+            
+            $appointments = DB::table('appointments')
+                            ->join('clients', 'clients.id', '=' , 'appointments.client_id')
+                            ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
+                            ->where('appointments.lawyer_id', $lawyerId)
+                            ->get();
+            $count = count($appointments);
+    
         }  else if ($clientId == "0" && $lawyerId == "0" && $dateFrom == null && $dateTo == null && $status != "0") {
             $appointments = DB::table('appointments')
                             ->join('clients', 'clients.id', '=' , 'appointments.client_id')
