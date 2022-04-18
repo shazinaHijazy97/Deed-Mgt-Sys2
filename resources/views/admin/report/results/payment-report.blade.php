@@ -34,7 +34,7 @@
         </tbody>
     </table>
 
-    <h4>Total = {{ $count }}</h4>
+    <h4>Total = {{ $total }}</h4>
     
 </div>
 

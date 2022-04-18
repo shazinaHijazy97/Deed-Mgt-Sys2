@@ -302,18 +302,21 @@ class ReportController extends Controller
 
         if ($clientId != "0" && $lawyerId != "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
             
-            $payments = DB::table('payments')
+            $query = DB::table('payments')
                             ->join('clients', 'clients.id', '=' , 'payments.client_id')
                             ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
                             ->where('payments.client_id', $clientId)
                             ->where('payments.lawyer_id', $lawyerId)
                             ->where('payments.payment_type', $paymentType)
-                            ->whereBetween('appointments.date', [$dateFrom, $dateTo])
-                            ->get();
-            $count = count($payments);
+                            ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+            $payments = $query->get();
+            $total = $query->sum('payments.amount');
+
+
 
     }
 
-    return view('admin.report.results.payment-report', compact('payments', 'count', 'clientId', 'lawyerId', 'paymentType', 'dateFrom', 'dateTo'));
+    return view('admin.report.results.payment-report', compact('payments', 'total', 'clientId', 'lawyerId', 'paymentType', 'dateFrom', 'dateTo'));
 
 }}
