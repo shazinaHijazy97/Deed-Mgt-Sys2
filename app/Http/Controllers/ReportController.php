@@ -315,8 +315,173 @@ class ReportController extends Controller
 
 
 
+    } else if ($clientId != "0" && $lawyerId != "0" && $paymentType != "0" && $dateFrom == null && $dateTo == null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.client_id', $clientId)
+                        ->where('payments.lawyer_id', $lawyerId)
+                        ->where('payments.payment_type', $paymentType);
+                        
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+    
+    } else if ($clientId != "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.client_id', $clientId)
+                        ->where('payments.lawyer_id', $lawyerId)
+                        ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId != "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom == null && $dateTo == null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.client_id', $clientId)
+                        ->where('payments.lawyer_id', $lawyerId);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId != "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.client_id', $clientId)
+                        ->where('payments.payment_type', $paymentType)
+                        ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId != "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom == null && $dateTo == null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.client_id', $clientId)
+                        ->where('payments.payment_type', $paymentType); 
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId != "0" && $lawyerId == "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.client_id', $clientId)
+                        ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId != "0" && $lawyerId == "0" && $paymentType == "0" && $dateFrom == null && $dateTo == null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.client_id', $clientId);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId == "0" && $lawyerId != "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.lawyer_id', $lawyerId)
+                        ->where('payments.payment_type', $paymentType)
+                        ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId == "0" && $lawyerId != "0" && $paymentType != "0" && $dateFrom == null && $dateTo == null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.lawyer_id', $lawyerId)
+                        ->where('payments.payment_type', $paymentType);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId == "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.lawyer_id', $lawyerId)
+                        ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId == "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom == null && $dateTo == null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.lawyer_id', $lawyerId); 
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId == "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.payment_type', $paymentType)
+                        ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId == "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom == null && $dateTo == null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->where('payments.payment_type', $paymentType);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else if ($clientId == "0" && $lawyerId == "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
+                        ->whereBetween('payments.date', [$dateFrom, $dateTo]);
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
+    } else {
+            
+        $query = DB::table('payments')
+                        ->join('clients', 'clients.id', '=' , 'payments.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id');
+
+        $payments = $query->get();
+        $total = $query->sum('payments.amount');
+
     }
 
     return view('admin.report.results.payment-report', compact('payments', 'total', 'clientId', 'lawyerId', 'paymentType', 'dateFrom', 'dateTo'));
+
 
 }}
