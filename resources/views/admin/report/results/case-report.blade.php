@@ -23,11 +23,10 @@
         @foreach($clientCases as $case)
             <tr>
                 <td>{{ $index++ }}</td>
-                <td>{{$clientCases->client_id}}</td>
-                <td>{{$clientCases->title}}</td>
-                <td>{{$clientCases->case_type}}</td>
-                <td>{{$clientCases->lawyer_id}}</td>
-                <td>{{$clientCases->filed_date}}</td>
+                <td>{{$case->client_id}}</td>
+                <td>{{$case->title}}</td>
+                <td>{{$case->case_type}}</td>
+                <td>{{$case->lawyercaseclientCases->filed_date}}</td>
             </tr>
         @endforeach
         </tbody>
