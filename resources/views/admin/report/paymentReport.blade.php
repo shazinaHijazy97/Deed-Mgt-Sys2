@@ -48,7 +48,7 @@
             <input type="date" class="form-control" id="date_from" name="date_from" placeholder="Date From">
             </div>
             <div class="col-md-6">
-            <label for="date_from">Date To</label>
+            <label for="date_to">Date To</label>
             <input type="date" class="form-control" id="date_to" name="date_to" placeholder="Date To">
             </div>
           </div>

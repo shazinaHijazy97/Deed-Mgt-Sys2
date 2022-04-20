@@ -33,6 +33,7 @@
                     <label for="case_type">Case Type</label>
                     <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
                     <select name="case_type" id="case_type" class="form-control">
+                    <option value="0">All</option>
                     <option value="Property">Property</option>
                     <option value="Criminal">Criminal</option>
                     <option value="Divorce">Divorce</option>
@@ -40,20 +41,20 @@
                     </select>
                 </div>
         <div class="col-md-6">
-    <label for="filed_date">Filed Date</label>
-    <input type="date" class="form-control" id="filed_date" name="filed_date" placeholder="Filed Date">
-  </div>
-  </div>
-  </div>
-    <div class="form-group">
-    <div class="row">
+            <label for="filed_date">Filed Date</label>
+            <input type="date" class="form-control" id="filed_date" name="filed_date" placeholder="Filed Date">
+        </div>
+        </div>
+        </div>
+        <div class="form-group">
+        <div class="row">
         <div class="col-md-6">
         <label for="date_from">Date From</label>
         <input type="date" class="form-control" id="date_from" name="date_from" placeholder="Date From">
         </div>
     <!-- <div class="form-group"> -->
         <div class="col-md-6">
-        <label for="date_from">Date To</label>
+        <label for="date_to">Date To</label>
         <input type="date" class="form-control" id="date_to" name="date_to" placeholder="Date To">
         </div>
     <!-- </div> -->
