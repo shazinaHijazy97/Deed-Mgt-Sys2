@@ -503,7 +503,7 @@ class ReportController extends Controller
                             ->where('cases.case_type', $caseType)
                             ->where('cases.lawyer_id', $lawyerId)
                             ->where('cases.filed_date', $filedDate)
-                            ->whereBetween('cases.date', [$dateFrom, $dateTo])
+                            ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
                             ->get();
             $count = count($clientCases);
     }

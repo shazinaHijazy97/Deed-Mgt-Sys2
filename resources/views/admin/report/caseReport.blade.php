@@ -46,8 +46,8 @@
         </div>
         </div>
         </div>
-        <div class="form-group">
-        <div class="row">
+    <div class="form-group">
+    <div class="row">
         <div class="col-md-6">
         <label for="date_from">Date From</label>
         <input type="date" class="form-control" id="date_from" name="date_from" placeholder="Date From">
