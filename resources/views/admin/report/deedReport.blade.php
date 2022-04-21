@@ -16,7 +16,7 @@
                   @endforeach
                 </select>
             </div>
-            <div class="col-md-6">
+            <!-- <div class="col-md-6">
             <label for="lawyer_id">Lawyer NIC/Name</label>
             <select name="lawyer_id" id="lawyer_id" class="form-control" >
               <option value="0">All Deed Requests</option>
@@ -24,15 +24,12 @@
               <option value="{{$lawyer->id}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
               @endforeach
             </select>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-         <div class="row">
+            </div> -->
           <div class="col-md-6">
               <label for="deed_type">Deed Type</label>
               <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
               <select name="deed_type" id="deed_type" class="form-control">
+                <option value="0">All</option>
                 <option value="Property">Property</option>
                 <option value="House">House</option>
                 <option value="Land">Land</option>
@@ -41,18 +38,19 @@
                 <option value="Partnership">Partnership</option>
               </select>
             </div>
-            <div class="col-md-6">
+            </div>
+            </div>
+            <div class="form-group">
+         <div class="row">
+          <div class="col-md-6">
               <label for="request_date">Request Date</label>
               <input type="date" class="form-control" id="request_date" name="request_date" placeholder="Request Date">
             </div>
-          </div>
-        </div>
-      <div class="form-group">
-        <div class="row">
           <div class="col-md-6">
             <label for="payment_status">Payment Status</label>
             <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
             <select name="payment_status" id="payment_status" class="form-control">
+              <option value="0">All</option>
               <option value="Completed">Completed</option>
               <option value="Pending">Pending</option>
               <option value="Cancel">Cancel</option>

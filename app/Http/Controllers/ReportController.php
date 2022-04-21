@@ -510,5 +510,30 @@ class ReportController extends Controller
 
     return view('admin.report.results.case-report', compact('clientCases', 'count', 'clientId', 'caseType' , 'lawyerId', 'filedDate' , 'dateFrom', 'dateTo'));
 
+    }
 
-}}
+    public function checkDeedDetails(Request $request){
+
+        $clientId = $request->client_id;
+        $deedType = $request->deed_type;
+        $requestDate = $request->request_date;
+        $paymentStatus = $request->payment_status;
+        $dateFrom = $request->date_from;
+        $dateTo = $request->date_to;
+
+        if ($clientId != "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+            $deedRequests = DB::table('deed_requests')
+                            ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                            ->where('deed_requests.client_id', $clientId)
+                            ->where('deed_requests.deed_type', $deedType)
+                            ->where('deed_requests.request_date', $requestDate)
+                            ->where('deed_requests.payment_status', $paymentStatus)
+                            ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                            ->get();
+            $count = count($deedRequests);
+    }
+
+    return view('admin.report.results.deed-report', compact('deedRequests', 'count', 'clientId' , 'deedType', 'requestDate' , 'paymentStatus' , 'dateFrom', 'dateTo'));
+}
+}

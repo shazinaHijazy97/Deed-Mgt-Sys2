@@ -8,6 +8,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Index</th>
                 <th>Client ID</th>
                 <th>Deed No</th>
                 <th>Deed Type</th>
