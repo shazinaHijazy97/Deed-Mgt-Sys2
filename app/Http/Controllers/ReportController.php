@@ -505,7 +505,143 @@ class ReportController extends Controller
                             ->where('cases.filed_date', $filedDate)
                             ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
                             ->get();
+                            
             $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType != "0" && $lawyerId != "0" && $filedDate != null && $dateFrom == null && $dateTo == null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.case_type', $caseType)
+                        ->where('cases.lawyer_id', $lawyerId)
+                        ->where('cases.filed_date', $filedDate)
+                        ->get();
+
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType != "0" && $lawyerId != "0" && $filedDate == null && $dateFrom != null && $dateTo != null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.case_type', $caseType)
+                        ->where('cases.lawyer_id', $lawyerId)
+                        ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType != "0" && $lawyerId != "0" && $filedDate == null && $dateFrom == null && $dateTo == null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.case_type', $caseType)
+                        ->where('cases.lawyer_id', $lawyerId)
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType != "0" && $lawyerId == "0" && $filedDate != null && $dateFrom != null && $dateTo != null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.case_type', $caseType)
+                        ->where('cases.filed_date', $filedDate)
+                        ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType != "0" && $lawyerId == "0" && $filedDate != null && $dateFrom == null && $dateTo == null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.case_type', $caseType)
+                        ->where('cases.filed_date', $filedDate)
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType != "0" && $lawyerId == "0" && $filedDate == null && $dateFrom != null && $dateTo != null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.case_type', $caseType)
+                        ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType != "0" && $lawyerId == "0" && $filedDate == null && $dateFrom == null && $dateTo == null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.case_type', $caseType)
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType == "0" && $lawyerId != "0" && $filedDate != null && $dateFrom != null && $dateTo != null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.lawyer_id', $lawyerId)
+                        ->where('cases.filed_date', $filedDate)
+                        ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType == "0" && $lawyerId != "0" && $filedDate != null && $dateFrom == null && $dateTo == null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.lawyer_id', $lawyerId)
+                        ->where('cases.filed_date', $filedDate)
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType == "0" && $lawyerId != "0" && $filedDate == null && $dateFrom != null && $dateTo != null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.lawyer_id', $lawyerId)
+                        ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
+                        ->get();
+                        
+        $count = count($clientCases);
+
+    } else if ($clientId != "0" &&  $caseType == "0" && $lawyerId != "0" && $filedDate == null && $dateFrom == null && $dateTo == null) {
+            
+        $clientCases = DB::table('cases')
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->where('cases.client_id', $clientId)
+                        ->where('cases.lawyer_id', $lawyerId)
+                        ->get();
+                        
+        $count = count($clientCases);
+
     }
 
     return view('admin.report.results.case-report', compact('clientCases', 'count', 'clientId', 'caseType' , 'lawyerId', 'filedDate' , 'dateFrom', 'dateTo'));
