@@ -16,9 +16,9 @@ class DeedRequestsController extends Controller
      */
     public function index()
     {
-        $deedRequests = DeedRequests::latest()->paginate(5);
+        $deedRequests = DeedRequests::all();
 
-        return view('admin.deed.index', compact('deedRequests'))->with('i', (request()->input('page', 1) -1) * 5);
+        return view('admin.deed.index', compact('deedRequests'));
     }
 
     /**

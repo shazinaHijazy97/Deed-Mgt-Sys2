@@ -876,9 +876,379 @@ class ReportController extends Controller
                             ->where('deed_requests.payment_status', $paymentStatus)
                             ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
                             ->get();
+
             $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+                        
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+            $deedRequests = DB::table('deed_requests')
+                            ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                            ->where('deed_requests.client_id', $clientId)
+                            ->where('deed_requests.deed_type', $deedType)
+                            ->where('deed_requests.request_date', $requestDate)
+                            ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                            ->get();
+
+            $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus == "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate == null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId != "0" &&  $deedType == "0" && $requestDate == null && $paymentStatus == "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.client_id', $clientId)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType != "0" && $requestDate == null && $paymentStatus == "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.deed_type', $deedType)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType == "0" && $requestDate != null && $paymentStatus == "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.request_date', $requestDate)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType == "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType == "0" && $requestDate == null && $paymentStatus != "0" && $dateFrom == null && $dateTo == null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->where('deed_requests.payment_status', $paymentStatus)
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else if ($clientId == "0" &&  $deedType == "0" && $requestDate == null && $paymentStatus == "0" && $dateFrom != null && $dateTo != null) {
+            
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
+                        ->get();
+
+        $count = count($deedRequests);
+
+    } else {
+
+        $deedRequests = DB::table('deed_requests')
+                        ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
+                        ->get();
+
+        $count = count($deedRequests);
     }
 
     return view('admin.report.results.deed-report', compact('deedRequests', 'count', 'clientId' , 'deedType', 'requestDate' , 'paymentStatus' , 'dateFrom', 'dateTo'));
-}
+    }
+    
+    public function checkClientDetails(Request $request){
+        
+        $nic = $request->nic;
+
+        if ($nic != "0"){
+
+            $clients = DB::table('clients')
+                        ->where('clients.nic', $nic)
+                        ->get();
+
+            $count = count($clients);
+
+        } else {
+
+            $clients = DB::table('clients')
+            ->get();
+
+            $count = count($clients);
+        }
+
+        return view('admin.report.results.client-report' , compact('clients' , 'count' , 'nic'));
+    }
+
+    public function checkLawyerDetails(Request $request){
+        
+        $nic = $request->nic;
+
+        if ($nic != "0"){
+
+            $lawyers = DB::table('lawyers')
+                        ->where('lawyers.nic', $nic)
+                        ->get();
+
+            $count = count($lawyers);
+
+        } else {
+
+            $lawyers = DB::table('lawyers')
+            ->get();
+
+            $count = count($lawyers);
+        }
+
+        return view('admin.report.results.lawyer-report' , compact('lawyers' , 'count' , 'nic'));
+    }
 }
