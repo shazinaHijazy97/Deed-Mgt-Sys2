@@ -24,8 +24,8 @@
         @foreach($payments as $payment)
             <tr>
                 <td>{{ $index++ }}</td>
-                <td>{{ $payment->client_id }}</td>
-                <td>{{ $payment->lawyer_id }}</td>
+                <td>{{ $payment->clientFname }} {{ $payment->clientLname }}</td>
+                <td>{{ $payment->lawyerFname }} {{ $payment->lawyerLname }}</td>
                 <td>{{ $payment->date }}</td>
                 <td>{{ $payment->payment_type }}</td>
                 <td>{{ $payment->amount }}</td>

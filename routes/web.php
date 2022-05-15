@@ -36,7 +36,6 @@ Route::get('/admin-dashboard', [DashboardController::class, 'index']);
 Route::post('system-login', [LoginController::class, 'systemLogin'])->name('system-login');
 Route::get('singout', [LoginController::class, 'signOut'])->name('system-logout');
 
-
 // Admin-Client
 Route::resource('admin-clients', ClientController::class);
 Route::get('/admin-client-register',[ ClientController::class, 'clientRegister']);

@@ -9,7 +9,6 @@
             <tr>
                 <th>No.</th>
                 <th>First Name</th>
-                <th>Last Name</th>
                 <th>Gender</th>
                 <th>NIC</th>
                 <th>Contact</th>

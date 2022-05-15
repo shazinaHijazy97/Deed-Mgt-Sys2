@@ -476,7 +476,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'payments.client_id')
                         ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id');
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         }
