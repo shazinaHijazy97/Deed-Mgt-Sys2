@@ -24,7 +24,7 @@
         @foreach($deedRequests as $deedRequest)
             <tr>
                 <td>{{ $index++ }}</td>
-                <td>{{$deedRequest->client_id}}</td>
+                <td>{{$deedRequest->clientFname }} {{$deedRequest->clientLname }}</td>
                 <td>{{$deedRequest->deed_no}}</td>
                 <td>{{$deedRequest->deed_type}}</td>
                 <td>{{$deedRequest->request_date}}</td>

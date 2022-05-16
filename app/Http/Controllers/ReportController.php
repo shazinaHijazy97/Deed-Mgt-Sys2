@@ -133,7 +133,8 @@ class ReportController extends Controller
                             ->where('appointments.lawyer_id', $lawyerId)
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+
             $count = count($appointments);
 
         } else if ($clientId != "0" && $lawyerId != "0" && $dateFrom != null && $dateTo != null && $status == "0") {
@@ -144,7 +145,8 @@ class ReportController extends Controller
                             ->where('appointments.client_id', $clientId)
                             ->where('appointments.lawyer_id', $lawyerId)
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
 
         } else if ($clientId != "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status != "0") {
@@ -155,7 +157,7 @@ class ReportController extends Controller
                             ->where('appointments.client_id', $clientId)
                             ->where('appointments.lawyer_id', $lawyerId)
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
             $count = count($appointments);
 
         }else if ($clientId != "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status == "0") {
@@ -165,7 +167,8 @@ class ReportController extends Controller
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.client_id', $clientId)
                             ->where('appointments.lawyer_id', $lawyerId)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
     
     
@@ -178,7 +181,8 @@ class ReportController extends Controller
                             ->where('appointments.lawyer_id', $lawyerId)
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
 
         } else if ($clientId == "0" && $lawyerId != "0" && $dateFrom != null && $dateTo != null && $status == "0") {
@@ -188,7 +192,8 @@ class ReportController extends Controller
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.lawyer_id', $lawyerId)
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
     
 
@@ -199,7 +204,8 @@ class ReportController extends Controller
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.client_id', $clientId)
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);    
 
         } else if ($clientId != "0" && $lawyerId == "0" && $dateFrom != null && $dateTo != null && $status != "0") {
@@ -210,7 +216,8 @@ class ReportController extends Controller
                             ->where('appointments.client_id', $clientId)
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);  
             
         } else if ($clientId != "0" && $lawyerId == "0" && $dateFrom == null && $dateTo == null && $status != "0") {
@@ -220,7 +227,8 @@ class ReportController extends Controller
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.client_id', $clientId)
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);  
             
         } else if ($clientId != "0" && $lawyerId == "0" && $dateFrom == null && $dateTo == null && $status == "0") {
@@ -229,7 +237,8 @@ class ReportController extends Controller
                             ->join('clients', 'clients.id', '=' , 'appointments.client_id')
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.client_id', $clientId)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
     
 
@@ -239,7 +248,8 @@ class ReportController extends Controller
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments); 
 
         } else if ($clientId == "0" && $lawyerId == "0" && $dateFrom != null && $dateTo != null && $status == "0") {
@@ -248,7 +258,8 @@ class ReportController extends Controller
                             ->join('clients', 'clients.id', '=' , 'appointments.client_id')
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->whereBetween('appointments.date', [$dateFrom, $dateTo])
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
 
         } else if ($clientId == "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status != "0") {
@@ -258,7 +269,8 @@ class ReportController extends Controller
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.lawyer_id', $lawyerId)
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
             
         } else if ($clientId == "0" && $lawyerId != "0" && $dateFrom == null && $dateTo == null && $status == "0") {
@@ -267,7 +279,8 @@ class ReportController extends Controller
                             ->join('clients', 'clients.id', '=' , 'appointments.client_id')
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.lawyer_id', $lawyerId)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments);
     
         }  else if ($clientId == "0" && $lawyerId == "0" && $dateFrom == null && $dateTo == null && $status != "0") {
@@ -275,14 +288,15 @@ class ReportController extends Controller
                             ->join('clients', 'clients.id', '=' , 'appointments.client_id')
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
                             ->where('appointments.appointment_status', $status)
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
             $count = count($appointments); 
             
         } else  {
             $appointments = DB::table('appointments')
                             ->join('clients', 'clients.id', '=' , 'appointments.client_id')
                             ->join('lawyers', 'lawyers.id', '=' , 'appointments.lawyer_id')
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'appointments.date', 'appointments.time', 'appointments.appointment_status', 'appointments.note']);
+                            
             $count = count($appointments); 
             
         }   
@@ -310,7 +324,7 @@ class ReportController extends Controller
                             ->where('payments.payment_type', $paymentType)
                             ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
 
@@ -325,7 +339,7 @@ class ReportController extends Controller
                         ->where('payments.payment_type', $paymentType);
                         
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
     
         } else if ($clientId != "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
@@ -337,7 +351,7 @@ class ReportController extends Controller
                         ->where('payments.lawyer_id', $lawyerId)
                         ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId != "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom == null && $dateTo == null ) {
@@ -348,7 +362,7 @@ class ReportController extends Controller
                         ->where('payments.client_id', $clientId)
                         ->where('payments.lawyer_id', $lawyerId);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId != "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
@@ -360,7 +374,7 @@ class ReportController extends Controller
                         ->where('payments.payment_type', $paymentType)
                         ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId != "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom == null && $dateTo == null ) {
@@ -371,7 +385,7 @@ class ReportController extends Controller
                         ->where('payments.client_id', $clientId)
                         ->where('payments.payment_type', $paymentType); 
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId != "0" && $lawyerId == "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
@@ -382,7 +396,7 @@ class ReportController extends Controller
                         ->where('payments.client_id', $clientId)
                         ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId != "0" && $lawyerId == "0" && $paymentType == "0" && $dateFrom == null && $dateTo == null ) {
@@ -392,7 +406,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
                         ->where('payments.client_id', $clientId);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId == "0" && $lawyerId != "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
@@ -404,7 +418,7 @@ class ReportController extends Controller
                         ->where('payments.payment_type', $paymentType)
                         ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId == "0" && $lawyerId != "0" && $paymentType != "0" && $dateFrom == null && $dateTo == null ) {
@@ -415,7 +429,7 @@ class ReportController extends Controller
                         ->where('payments.lawyer_id', $lawyerId)
                         ->where('payments.payment_type', $paymentType);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId == "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
@@ -426,7 +440,7 @@ class ReportController extends Controller
                         ->where('payments.lawyer_id', $lawyerId)
                         ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId == "0" && $lawyerId != "0" && $paymentType == "0" && $dateFrom == null && $dateTo == null ) {
@@ -436,7 +450,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
                         ->where('payments.lawyer_id', $lawyerId); 
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId == "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom != null && $dateTo != null ) {
@@ -447,7 +461,7 @@ class ReportController extends Controller
                         ->where('payments.payment_type', $paymentType)
                         ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId == "0" && $lawyerId == "0" && $paymentType != "0" && $dateFrom == null && $dateTo == null ) {
@@ -457,7 +471,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
                         ->where('payments.payment_type', $paymentType);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else if ($clientId == "0" && $lawyerId == "0" && $paymentType == "0" && $dateFrom != null && $dateTo != null ) {
@@ -467,7 +481,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'payments.lawyer_id')
                         ->whereBetween('payments.date', [$dateFrom, $dateTo]);
 
-            $payments = $query->get();
+            $payments = $query->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'payments.date', 'payments.payment_type', 'payments.amount']);
             $total = $query->sum('payments.amount');
 
         } else {
@@ -504,7 +518,8 @@ class ReportController extends Controller
                             ->where('cases.lawyer_id', $lawyerId)
                             ->where('cases.filed_date', $filedDate)
                             ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
+
                             
             $count = count($clientCases);
 
@@ -517,7 +532,8 @@ class ReportController extends Controller
                         ->where('cases.case_type', $caseType)
                         ->where('cases.lawyer_id', $lawyerId)
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
+
 
         $count = count($clientCases);
 
@@ -530,7 +546,7 @@ class ReportController extends Controller
                         ->where('cases.case_type', $caseType)
                         ->where('cases.lawyer_id', $lawyerId)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -542,7 +558,7 @@ class ReportController extends Controller
                         ->where('cases.client_id', $clientId)
                         ->where('cases.case_type', $caseType)
                         ->where('cases.lawyer_id', $lawyerId)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -555,7 +571,7 @@ class ReportController extends Controller
                         ->where('cases.case_type', $caseType)
                         ->where('cases.filed_date', $filedDate)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -567,7 +583,7 @@ class ReportController extends Controller
                         ->where('cases.client_id', $clientId)
                         ->where('cases.case_type', $caseType)
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -579,7 +595,7 @@ class ReportController extends Controller
                         ->where('cases.client_id', $clientId)
                         ->where('cases.case_type', $caseType)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -590,7 +606,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.client_id', $clientId)
                         ->where('cases.case_type', $caseType)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -603,7 +619,7 @@ class ReportController extends Controller
                         ->where('cases.lawyer_id', $lawyerId)
                         ->where('cases.filed_date', $filedDate)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -615,7 +631,7 @@ class ReportController extends Controller
                         ->where('cases.client_id', $clientId)
                         ->where('cases.lawyer_id', $lawyerId)
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -627,7 +643,7 @@ class ReportController extends Controller
                         ->where('cases.client_id', $clientId)
                         ->where('cases.lawyer_id', $lawyerId)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -638,7 +654,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.client_id', $clientId)
                         ->where('cases.lawyer_id', $lawyerId)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -650,7 +666,7 @@ class ReportController extends Controller
                         ->where('cases.client_id', $clientId)
                         ->where('cases.filed_date', $filedDate)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -661,7 +677,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.client_id', $clientId)
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -672,7 +688,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.client_id', $clientId)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -682,7 +698,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'cases.client_id')
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.client_id', $clientId)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -695,7 +711,7 @@ class ReportController extends Controller
                         ->where('cases.lawyer_id', $lawyerId)
                         ->where('cases.filed_date', $filedDate)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -707,7 +723,7 @@ class ReportController extends Controller
                         ->where('cases.case_type', $caseType)
                         ->where('cases.lawyer_id', $lawyerId)
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -719,7 +735,7 @@ class ReportController extends Controller
                         ->where('cases.case_type', $caseType)
                         ->where('cases.lawyer_id', $lawyerId)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -731,7 +747,7 @@ class ReportController extends Controller
                         ->where('cases.case_type', $caseType)
                         ->where('cases.filed_date', $filedDate)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -742,7 +758,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.case_type', $caseType)
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -753,7 +769,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.case_type', $caseType)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -763,7 +779,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'cases.client_id')
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.case_type', $caseType)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -775,7 +791,7 @@ class ReportController extends Controller
                         ->where('cases.lawyer_id', $lawyerId)
                         ->where('cases.filed_date', $filedDate)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -786,7 +802,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.lawyer_id', $lawyerId)
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -797,7 +813,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.lawyer_id', $lawyerId)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -807,7 +823,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'cases.client_id')
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.lawyer_id', $lawyerId)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -818,7 +834,7 @@ class ReportController extends Controller
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.filed_date', $filedDate)
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -828,7 +844,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'cases.client_id')
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->where('cases.filed_date', $filedDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
                         
         $count = count($clientCases);
 
@@ -838,16 +854,15 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'cases.client_id')
                         ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
                         ->whereBetween('cases.filed_date', [$dateFrom, $dateTo])
-                        ->get();
-                        
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);        
         $count = count($clientCases);
 
     } else {
 
         $clientCases = DB::table('cases')
-        ->join('clients', 'clients.id', '=' , 'cases.client_id')
-        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
-        ->get();
+                        ->join('clients', 'clients.id', '=' , 'cases.client_id')
+                        ->join('lawyers', 'lawyers.id', '=' , 'cases.lawyer_id')
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname','lawyers.fname AS lawyerFname','lawyers.lname AS lawyerLname', 'cases.title', 'cases.case_type', 'cases.filed_date']);
 
         $count = count($clientCases);
 
@@ -875,7 +890,7 @@ class ReportController extends Controller
                             ->where('deed_requests.request_date', $requestDate)
                             ->where('deed_requests.payment_status', $paymentStatus)
                             ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
             $count = count($deedRequests);
 
@@ -887,7 +902,7 @@ class ReportController extends Controller
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.request_date', $requestDate)
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
                         
         $count = count($deedRequests);
 
@@ -899,7 +914,7 @@ class ReportController extends Controller
                             ->where('deed_requests.deed_type', $deedType)
                             ->where('deed_requests.request_date', $requestDate)
                             ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                            ->get();
+                            ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
             $count = count($deedRequests);
 
@@ -910,7 +925,7 @@ class ReportController extends Controller
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.request_date', $requestDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -922,7 +937,7 @@ class ReportController extends Controller
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.payment_status', $paymentStatus)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -933,7 +948,7 @@ class ReportController extends Controller
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -944,7 +959,7 @@ class ReportController extends Controller
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.deed_type', $deedType)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -954,7 +969,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.deed_type', $deedType)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -966,7 +981,7 @@ class ReportController extends Controller
                         ->where('deed_requests.request_date', $requestDate)
                         ->where('deed_requests.payment_status', $paymentStatus)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -977,7 +992,7 @@ class ReportController extends Controller
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.request_date', $requestDate)
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -988,7 +1003,7 @@ class ReportController extends Controller
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.request_date', $requestDate)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -998,7 +1013,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.request_date', $requestDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1009,7 +1024,7 @@ class ReportController extends Controller
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.payment_status', $paymentStatus)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1019,7 +1034,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.client_id', $clientId)
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1029,7 +1044,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.client_id', $clientId)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1038,7 +1053,7 @@ class ReportController extends Controller
         $deedRequests = DB::table('deed_requests')
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.client_id', $clientId)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1050,7 +1065,7 @@ class ReportController extends Controller
                         ->where('deed_requests.request_date', $requestDate)
                         ->where('deed_requests.payment_status', $paymentStatus)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1061,7 +1076,7 @@ class ReportController extends Controller
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.request_date', $requestDate)
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1072,7 +1087,7 @@ class ReportController extends Controller
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.request_date', $requestDate)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1082,7 +1097,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.request_date', $requestDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1093,7 +1108,7 @@ class ReportController extends Controller
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.payment_status', $paymentStatus)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1103,7 +1118,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.deed_type', $deedType)
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1113,7 +1128,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.deed_type', $deedType)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1122,7 +1137,7 @@ class ReportController extends Controller
         $deedRequests = DB::table('deed_requests')
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.deed_type', $deedType)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1133,7 +1148,7 @@ class ReportController extends Controller
                         ->where('deed_requests.request_date', $requestDate)
                         ->where('deed_requests.payment_status', $paymentStatus)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1143,7 +1158,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.request_date', $requestDate)
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1153,7 +1168,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.request_date', $requestDate)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1162,7 +1177,7 @@ class ReportController extends Controller
         $deedRequests = DB::table('deed_requests')
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.request_date', $requestDate)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1172,7 +1187,7 @@ class ReportController extends Controller
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.payment_status', $paymentStatus)
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1181,7 +1196,7 @@ class ReportController extends Controller
         $deedRequests = DB::table('deed_requests')
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->where('deed_requests.payment_status', $paymentStatus)
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1190,7 +1205,7 @@ class ReportController extends Controller
         $deedRequests = DB::table('deed_requests')
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
                         ->whereBetween('deed_requests.request_date', [$dateFrom, $dateTo])
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
 
@@ -1198,7 +1213,7 @@ class ReportController extends Controller
 
         $deedRequests = DB::table('deed_requests')
                         ->join('clients', 'clients.id', '=' , 'deed_requests.client_id')
-                        ->get();
+                        ->get(['clients.fname AS clientFname','clients.lname AS clientLname', 'deed_requests.deed_no', 'deed_requests.deed_type', 'deed_requests.request_date', 'deed_requests.payment_status']);
 
         $count = count($deedRequests);
     }

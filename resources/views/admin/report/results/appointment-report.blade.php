@@ -25,8 +25,8 @@
         @foreach($appointments as $appointment)
             <tr>
                 <td>{{ $index++ }}</td>
-                <td>{{ $appointment->client_id }}</td>
-                <td>{{ $appointment->lawyer_id }}</td>
+                <td>{{ $appointment->clientFname }} {{$appointment->clientLname }}</td>
+                <td>{{ $appointment->lawyerFname  }} {{$appointment->lawyerLname }}</td>
                 <td>{{ $appointment->date }}</td>
                 <td>{{ $appointment->time }}</td>
                 <td>{{ $appointment->appointment_status }}</td>
