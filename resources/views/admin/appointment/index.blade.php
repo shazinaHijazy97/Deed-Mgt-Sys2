@@ -21,16 +21,18 @@
   <div class="container-fluid">
 
   <table class="table" id="appointment-table">
-    <tr>
-      <th>ID</th>
-      <th>Client</th>
-      <th>Lawyer</th>
-      <th>Date</th>
-      <th>Time</th>
-      <th>Appointment Status</th>
-      <th>Note</th>
-      <th>Action</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Client</th>
+        <th>Lawyer</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Appointment Status</th>
+        <th>Note</th>
+        <th>Action</th>
+      </tr>
+  </thead>
     
     @foreach ($appointments as $appointment)
 
@@ -81,6 +83,29 @@
     });
   });
   </script>
+
+    <script>
+      $(document).ready(function () {
+    var table = $('#appointment-table').DataTable({
+      paging: false,
+          info: false,
+        initComplete: function () {
+            // Apply the search
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+ 
+                    $('input', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+    });
+});
+    </script>
 </section>
 
 @endsection
