@@ -30,6 +30,9 @@ use App\Http\Controllers\ClientCaseController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('about-us', [HomeController::class, 'aboutUs']);
+Route::get('services', [HomeController::class, 'services']);
+Route::get('contact', [HomeController::class, 'contact']);
 Route::get('/admin-dashboard', [DashboardController::class, 'index']);
 
 // Authentication
