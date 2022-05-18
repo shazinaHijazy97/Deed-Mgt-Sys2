@@ -87,10 +87,13 @@
     <script>
       $(document).ready(function () {
     var table = $('#appointment-table').DataTable({
+      dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
       paging: false,
           info: false,
         initComplete: function () {
-            // Apply the search
             this.api()
                 .columns()
                 .every(function () {
