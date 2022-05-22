@@ -38,7 +38,7 @@
             <div class="align-items-center">
                 <div class="d-flex flex-column justify-content-end float-right mt-5" ></div>
                 <div id="contact" class="container-fluid text-white pt-5" style="background:rgba(1,1,1,0.5);">
-                    <h2 class="text-center">CONTACT</h2>
+                    <h1 class="text-start">CONTACT</h1>
                         <div class="row">
                             <div class="col-sm-5">
                             <p>Contact us and we'll get back to you within 24 hours.</p>
