@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('home.contact');
     }
+
+    public function forgotPassword()
+    {
+        return view('home.forgot-password');
+    }
 }

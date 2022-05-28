@@ -21,7 +21,8 @@
   <div class="container-fluid">
 
   <table class="table" id="notification-table">
-    <tr>
+  <thead>  
+  <tr>
       <th>ID</th>
       <th>Notice Subject</th>
       <th>Notice Content</th>
@@ -31,10 +32,11 @@
       <th>Recipient</th>
       <th>Action</th>
     </tr>
+  </thead>
     
     @foreach ($notifications as $notification)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$notification->id}}</td>
       <td>{{$notification->notice_subject}}</td>
       <td>{{$notification->notice_content}}</td>
@@ -81,6 +83,27 @@
     });
   });
   </script>
+  <script>
+      $(document).ready(function () {
+    var table = $('#notification-table').DataTable({
+      paging: false,
+          info: false,
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+ 
+                    $('input', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+    });
+});
+    </script>
 </section>
 
 @endsection

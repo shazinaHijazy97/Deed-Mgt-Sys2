@@ -39,7 +39,12 @@
     <div class = "row">
       <div class = "col-md-6">
         <label for="client_id">Client ID</label>
-        <input type="text" class="form-control" id="client_id" name="client_id" value="{{$deedRequests->client_id}}" aria-describedby="" placeholder="Client ID">
+        <select name="client_id" id="client_id" class="form-control" >
+            <option value="{{$client->id}}" selected>{{$client->id}}</option>
+          @foreach ($clients as $client)
+            <option value="{{$client->id}}">{{$client->nic}} - {{$client->Fname}} {{$client->Lname}}</option>
+          @endforeach
+        </select>
       </div>
       <div class="col-md-6">
         <label for="deed_no">Deed No</label>

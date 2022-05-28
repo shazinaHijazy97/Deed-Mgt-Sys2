@@ -10,7 +10,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item">Admin</li>
-              <li class="breadcrumb-item active">Inventory Deatails</li>
+              <li class="breadcrumb-item active">Inventory Details</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

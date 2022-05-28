@@ -12,10 +12,10 @@
                 <select name="nic" id="nic" class="form-control" >
                     <option value="0">All Attendance</option>
                 @foreach ($lawyers as $lawyer)
-                    <option value="{{$lawyer->nic}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+                    <option value="{{$lawyer->nic}}">Lawyer {{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
                 @endforeach
                 @foreach ($staffs as $staff)
-                    <option value="{{$staff->nic}}">{{$staff->nic}} - {{$staff->fname}} {{$staff->lname}}</option>
+                    <option value="{{$staff->nic}}">Staff {{$staff->nic}} - {{$staff->fname}} {{$staff->lname}}</option>
                 @endforeach
                 </select>
             </div>

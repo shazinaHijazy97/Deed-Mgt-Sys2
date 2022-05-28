@@ -32,7 +32,7 @@
 
     @foreach ($attendances as $attendance)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$attendance->id}}</td>
       <td>{{$attendance->lawyer->fname ?? $attendance->staff->fname}} {{$attendance->lawyer->lname ?? $attendance->staff->lname}}</td>
       <td>{{$attendance->nic}}</td>
@@ -53,10 +53,34 @@
   </table>
 
   </div>
+
+  <script type="text/javascript">
+
+    // $(document).ready(function() {
+    //   $('#attendance-table').DataTable();
+    // });
+
+    // $(document).ready(function () {
+    //     var table = $('#attendance-table"').DataTable({
+    //       paging: false,
+    //       info: false,
+    //       initComplete: function () {
+    //           this.api()
+    //               .columns()
+    //               .every(function () {
+    //                   var that = this;
+  
+    //                   $('input', function () {
+    //                       if (that.search() !== this.value) {
+    //                           that.search(this.value).draw();
+    //                       }
+    //                   });
+    //               });
+    //         },
+    //     });
+    // });
+
+    </script>
+    
 </section>
-<script>
-  $(document).ready(function() {
-      $('#attendance-table').DataTable();
-  } );
-</script>
 @endsection

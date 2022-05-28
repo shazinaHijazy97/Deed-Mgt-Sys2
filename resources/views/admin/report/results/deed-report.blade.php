@@ -4,8 +4,10 @@
 <div class="container">
     <h2>Deed Report</h2>
     <h4>{{$dateFrom}} - {{$dateTo}}</h4>
+    <input type="button" class="btn btn-success mt-2 mb-3" onclick="generate()" value="Export To PDF"/>
 
-    <table class="table">
+
+    <table class="table" id="table">
         <thead>
             <tr>
                 <th>Index</th>
@@ -22,7 +24,7 @@
         @endphp
 
         @foreach($deedRequests as $deedRequest)
-            <tr>
+            <tr class="table-light">
                 <td>{{ $index++ }}</td>
                 <td>{{$deedRequest->clientFname }} {{$deedRequest->clientLname }}</td>
                 <td>{{$deedRequest->deed_no}}</td>
@@ -37,5 +39,17 @@
     <h4>Total = {{ $count }}</h4>
     
 </div>
+
+<script>
+    function generate() {  
+    var doc = new jsPDF()
+    doc.text(15, 10, "DEED LAW GROUP - DEED REPORT"); 
+    doc.autoTable({ 
+      html: '#table', 
+      theme: 'plain'
+      })
+    doc.save('DeedReport.pdf')
+}
+</script>
 
 @endsection

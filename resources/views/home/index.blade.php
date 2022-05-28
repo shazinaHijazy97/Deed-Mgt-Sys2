@@ -52,7 +52,7 @@
                         @endif
                         <button type="submit" class="submit-button btn btn-primary fadeIn fourth" >LOG IN </button>
                         <br>
-                        <a class="underlineHover" href="#">FORGOT PASSWORD</a>
+                        <a class="underlineHover" href="forgot-password">FORGOT PASSWORD</a>
                         </form>
 
                         <!-- Remind Passowrd -->

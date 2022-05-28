@@ -4,8 +4,10 @@
 <div class="container">
     <h2>Appointment Report</h2>
     <h4>{{$dateFrom}} - {{$dateTo}}</h4>
+    <input type="button" class="btn btn-success mt-2 mb-3" onclick="generate()" value="Export To PDF"/>
 
-    <table class="table">
+
+    <table class="table" id="table">
         <thead>
             <tr>
                 <th>No.</th>
@@ -23,7 +25,7 @@
         @endphp
 
         @foreach($appointments as $appointment)
-            <tr>
+            <tr class="table-light">
                 <td>{{ $index++ }}</td>
                 <td>{{ $appointment->clientFname }} {{$appointment->clientLname }}</td>
                 <td>{{ $appointment->lawyerFname  }} {{$appointment->lawyerLname }}</td>
@@ -39,5 +41,17 @@
     <h4>Total = {{ $count }}</h4>
     
 </div>
+
+<script>
+    function generate() {  
+    var doc = new jsPDF()
+    doc.text(15, 10, "DEED LAW GROUP - APPOINTMENTS REPORT"); 
+    doc.autoTable({ 
+      html: '#table', 
+      theme: 'plain'
+      })
+    doc.save('AppointmentReport.pdf')
+}
+</script>
 
 @endsection

@@ -3,11 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Attendance;
+use App\Models\Lawyer;
+use App\Models\Staff;
+use App\Models\Client;
+use App\Models\ClientCase;
+use App\Models\DeedRequests;
+use App\Models\Payment;
+use DB;
+use Illuminate\Support\Carbon;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.index');
+        $startMonth = Carbon::now()->startOfMonth();
+        $endMonth = Carbon::now()->endOfMonth(); 
+        $monthlyEarning = Payment::select('amount')->whereBetween('date',[$startMonth,$endMonth])->sum('amount');
+
+        $startYear = Carbon::now()->startOfYear();
+        $endYear = Carbon::now()->endOfYear(); 
+        $annualEarning = Payment::select('amount')->whereBetween('date',[$startYear,$endYear])->sum('amount');
+
+        // dd('startMonth='.$startMonth.' endMonth='.$endMonth.' startYear='.$startYear.' endYear='.$endYear);
+
+        $client = Client::count('id');
+        $lawyer = Lawyer::count('id');
+        $pendingDeeds = DeedRequests::select('id')->where('payment_status', '=' ,'Pending')->count('id');
+
+        return view('admin.dashboard.index', compact('monthlyEarning', 'client', 'lawyer', 'annualEarning', 'pendingDeeds'));
     }
+
 }

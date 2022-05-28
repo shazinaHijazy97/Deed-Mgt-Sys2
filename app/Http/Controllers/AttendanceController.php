@@ -16,7 +16,7 @@ class AttendanceController extends Controller
      */
     public function index()
     {
-        $attendances = Attendance::with(['lawyer','staff'])->get();
+        $attendances = Attendance::with(['lawyer','staff'])->orderBy('id','DESC')->get();
         // $attendances = Attendance::all();
         // dd($attendances);
 

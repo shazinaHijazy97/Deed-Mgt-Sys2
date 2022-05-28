@@ -36,7 +36,7 @@
     
     @foreach ($appointments as $appointment)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$appointment->id}}</td>
       <td>{{$appointment->client->nic}} - {{$appointment->client->fname}} {{$appointment->client->lname}}</td>
       <td>{{$appointment->lawyer->nic}} - {{$appointment->lawyer->fname}} {{$appointment->lawyer->lname}}</td>
@@ -55,7 +55,7 @@
 
   </div>
 
-  <script type="text/javascript">
+<script type="text/javascript">
   $("body").on("click", ".remove-user", function(){
     var current_object = $(this);
     swal({
@@ -82,15 +82,9 @@
       }
     });
   });
-  </script>
 
-    <script>
-      $(document).ready(function () {
+  $(document).ready(function () {
     var table = $('#appointment-table').DataTable({
-      dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
       paging: false,
           info: false,
         initComplete: function () {
@@ -108,7 +102,8 @@
         },
     });
 });
-    </script>
+
+</script>
 </section>
 
 @endsection

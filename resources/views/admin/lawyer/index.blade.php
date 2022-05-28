@@ -20,8 +20,9 @@
 <section class="content">
   <div class="container-fluid">
 
-  <table class="table">
-    <tr>
+  <table class="table" id="lawyer-table">
+  <thead>  
+  <tr>
       <th>ID</th>
       <th>First Name</th>
       <th>Last Name</th>
@@ -32,10 +33,11 @@
       <th>Email</th>
       <th>Action</th>
     </tr>
+  </thead>
 
     @foreach ($lawyers as $lawyer)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$lawyer->id}}</td>
       <td>{{$lawyer->fname}}</td>
       <td>{{$lawyer->lname}}</td>
@@ -82,6 +84,27 @@
     });
   });
   </script>
+  <script>
+      $(document).ready(function () {
+    var table = $('#lawyer-table').DataTable({
+      paging: false,
+          info: false,
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+ 
+                    $('input', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+    });
+});
+    </script>
 </section>
 
 @endsection

@@ -14,4 +14,10 @@ class DeedRequests extends Model
     protected $fillable = [
         'client_id', 'deed_no', 'deed_type', 'request_date', 'payment_status', 'note', 'created_by', 'updated_by'
     ];
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class,'client_id','id');
+    }
+    
 }

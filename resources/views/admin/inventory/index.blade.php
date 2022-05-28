@@ -21,7 +21,9 @@
   <div class="container-fluid">
 
   <table class="table" id="inventory-table">
-    <tr>
+    
+  <thead>
+  <tr>
       <th>ID</th>
       <th>Item Name</th>
       <th>Item Category</th>
@@ -31,10 +33,11 @@
       <th>Manufacurer Contact</th>
       <th>Action</th>
     </tr>
+  </thead>
     
     @foreach ($inventory as $inventory)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$inventory->id}}</td>
       <td>{{$inventory->item_name}}</td>
       <td>{{$inventory->item_category}}</td>
@@ -81,6 +84,27 @@
     });
   });
   </script>
+  <script>
+      $(document).ready(function () {
+    var table = $('#inventory-table').DataTable({
+      paging: false,
+          info: false,
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+ 
+                    $('input', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+    });
+});
+    </script>
 </section>
 
 @endsection

@@ -21,7 +21,8 @@
   <div class="container-fluid">
 
   <table class="table" id="payment-table">
-    <tr>
+  <thead>  
+  <tr>
       <th>ID</th>
       <th>Client</th>
       <th>Lawyer</th>
@@ -30,10 +31,11 @@
       <th>Amount</th>
       <th>Action</th>
     </tr>
+  </thead>
     
     @foreach ($payments as $payment)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$payment->id}}</td>
       <td>{{$payment->client->nic}} - {{$payment->client->fname}} {{$payment->client->lname}}</td>
       <td>{{$payment->lawyer->nic}} - {{$payment->lawyer->fname}} {{$payment->lawyer->lname}}</td>
@@ -80,5 +82,26 @@
   });
   </script>
 </section>
+<script>
+      $(document).ready(function () {
+    var table = $('#payment-table').DataTable({
+      paging: false,
+          info: false,
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+ 
+                    $('input', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+    });
+});
+    </script>
 
 @endsection

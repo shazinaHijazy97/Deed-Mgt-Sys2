@@ -40,6 +40,7 @@
         <div class = "col-md-6">
         <label for="client_id">Client NIC/Name</label>
         <select name="client_id" id="client_id" class="form-control" >
+            <option value="{{$clientCases->client_id}}" selected>{{$clientCases->client->fname}} {{$clientCases->client->lname}}</option>
           @foreach ($clients as $client)
             <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
           @endforeach
@@ -65,6 +66,7 @@
   <div class="col-md-6">
         <label for="lawyer_id">Lawyer NIC/Name</label>
         <select name="lawyer_id" id="lawyer_id" class="form-control" >
+        <option value="{{$clientCases->lawyer_id}}" selected>{{$clientCases->lawyer->fname}} {{$clientCases->lawyer->lname}}</option>
           @foreach ($lawyers as $lawyer)
             <option value="{{$lawyer->id}}">{{$client->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
           @endforeach

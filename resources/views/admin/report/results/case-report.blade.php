@@ -4,8 +4,10 @@
 <div class="container">
     <h2>Case Report</h2>
     <h4>{{$dateFrom}} - {{$dateTo}}</h4>
+    <input type="button" class="btn btn-success mt-2 mb-3" onclick="generate()" value="Export To PDF"/>
 
-    <table class="table">
+
+    <table class="table" id="table">
         <thead>
             <tr>
             <th>Index</th>
@@ -22,7 +24,7 @@
         @endphp
 
         @foreach($clientCases as $case)
-            <tr>
+            <tr class="table-light">
                 <td>{{ $index++ }}</td>
                 <td>{{$case->clientFname }} {{$case->clientLname }}</td>
                 <td>{{$case->title}}</td>
@@ -37,5 +39,17 @@
     <h4>Total = {{ $count }}</h4>
     
 </div>
+
+<script>
+    function generate() {  
+    var doc = new jsPDF()
+    doc.text(15, 10, "DEED LAW GROUP - CASE REPORT"); 
+    doc.autoTable({ 
+      html: '#table', 
+      theme: 'plain'
+      })
+    doc.save('CaseReport.pdf')
+}
+</script>
 
 @endsection

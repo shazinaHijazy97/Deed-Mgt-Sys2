@@ -19,8 +19,9 @@
 <section class="content">
   <div class="container-fluid">
 
-  <table class="table">
-    <tr>
+  <table class="table" id="deed-table">
+  <thead>  
+  <tr>
       <th>ID</th>
       <th>Client ID</th>
       <th>Deed No</th>
@@ -30,12 +31,13 @@
       <th>Note</th>
       <th>Action</th>
     </tr>
+  </thead>
 
     @foreach ($deedRequests as $deedRequest)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$deedRequest->id}}</td>
-      <td>{{$deedRequest->client_id}}</td>
+      <td>{{$deedRequest->client->fname }} {{$deedRequest->client->lname }}</td>
       <td>{{$deedRequest->deed_no}}</td>
       <td>{{$deedRequest->deed_type}}</td>
       <td>{{$deedRequest->request_date}}</td>
@@ -79,6 +81,28 @@
     });
   });
   </script>
+
+<script>
+      $(document).ready(function () {
+    var table = $('#deed-table').DataTable({
+      paging: false,
+          info: false,
+        initComplete: function () {
+            this.api()
+                .columns()
+                .every(function () {
+                    var that = this;
+ 
+                    $('input', function () {
+                        if (that.search() !== this.value) {
+                            that.search(this.value).draw();
+                        }
+                    });
+                });
+        },
+    });
+});
+    </script>
 </section>
 
 @endsection

@@ -20,25 +20,27 @@
   <div class="container-fluid">
 
   <table class="table" id="cases-table">
-    <tr>
+  <thead>  
+  <tr>
       <th>ID</th>
-      <th>Client ID</th>
+      <th>Client Name</th>
       <th>Title</th>
       <th>Case Type</th>
-      <th>Lawyer ID</th>
+      <th>Lawyer Name</th>
       <th>Filed Date</th>
       <th>Note</th>
       <th>Action</th>
     </tr>
+  </thead>
 
     @foreach ($clientCases as $case)
 
-    <tr>
+    <tr class="table-light">
       <td>{{$case->id}}</td>
-      <td>{{$case->client_id}}</td>
+      <td>{{$case->client->nic}} - {{$case->client->fname}} {{$case->client->lname}}</td>
       <td>{{$case->title}}</td>
       <td>{{$case->case_type}}</td>
-      <td>{{$case->lawyer_id}}</td>
+      <td>{{$case->lawyer->nic}} - {{$case->lawyer->fname}} {{$case->lawyer->lname}}</td>
       <td>{{$case->filed_date}}</td>
       <td>{{$case->note}}</td>
       <td><a href="{{route('admin-client-case.edit',$case->id)}}" class="btn btn-primary">Edit</a>
@@ -79,6 +81,28 @@
     });
   });
   </script>
+
+  <script>
+        $(document).ready(function () {
+      var table = $('#cases-table').DataTable({
+        paging: false,
+            info: false,
+          initComplete: function () {
+              this.api()
+                  .columns()
+                  .every(function () {
+                      var that = this;
+  
+                      $('input', function () {
+                          if (that.search() !== this.value) {
+                              that.search(this.value).draw();
+                          }
+                      });
+                  });
+          },
+      });
+  });
+      </script>
 </section>
 
 @endsection

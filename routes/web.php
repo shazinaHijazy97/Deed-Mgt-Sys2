@@ -33,6 +33,8 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('about-us', [HomeController::class, 'aboutUs']);
 Route::get('services', [HomeController::class, 'services']);
 Route::get('contact', [HomeController::class, 'contact']);
+Route::get('forgot-password', [HomeController::class, 'forgotPassword']);
+
 Route::get('/admin-dashboard', [DashboardController::class, 'index']);
 
 // Authentication

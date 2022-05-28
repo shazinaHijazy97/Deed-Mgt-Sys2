@@ -4,8 +4,10 @@
 <div class="container">
     <h2>Payment Report</h2>
     <h4>{{$dateFrom}} - {{$dateTo}}</h4>
+    <input type="button" class="btn btn-success mt-2 mb-3" onclick="generate()" value="Export To PDF"/>
 
-    <table class="table">
+
+    <table class="table" id= "table">
         <thead>
             <tr>
                 <th>No.</th>
@@ -22,7 +24,7 @@
         @endphp
 
         @foreach($payments as $payment)
-            <tr>
+            <tr class="table-light">
                 <td>{{ $index++ }}</td>
                 <td>{{ $payment->clientFname }} {{ $payment->clientLname }}</td>
                 <td>{{ $payment->lawyerFname }} {{ $payment->lawyerLname }}</td>
@@ -38,4 +40,16 @@
     
 </div>
 
+<script>
+    function generate() {  
+    var doc = new jsPDF()
+    doc.text(15, 10, "DEED LAW GROUP - PAYMENTS REPORT"); 
+    doc.autoTable({ 
+      html: '#table', 
+      theme: 'plain'
+      })
+    doc.save('PaymentReport.pdf')
+}
+
+</script>
 @endsection

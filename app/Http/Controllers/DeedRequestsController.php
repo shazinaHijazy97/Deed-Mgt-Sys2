@@ -28,7 +28,7 @@ class DeedRequestsController extends Controller
      */
     public function create()
     {
-        $clients = Client::select('id','nic','fname','lname')->get();
+        $clients = Client::select('id','nic','fname AS Fname','lname AS Lname')->get();
         return view('admin.deed.deedRequests',compact('clients'));
     }
 
@@ -42,6 +42,7 @@ class DeedRequestsController extends Controller
     {
         $request->validate([
             'client_id' =>'required',
+            'nic' =>'required',
             'deed_no' =>'required',
             'deed_type' =>'required',
             'request_date' =>'required',
@@ -74,7 +75,9 @@ class DeedRequestsController extends Controller
     public function edit($id)
     {
         $deedRequests = DeedRequests::find($id);
-        return view('admin.deed.edit')->with('deedRequests' ,$deedRequests);
+        $clients = Client::select('id','nic','fname AS Fname','lname AS Lname')->get();
+        // dd($deedRequests->id);
+        return view('admin.deed.edit')->with('deedRequests' ,'clients');
     }
 
     /**
@@ -88,6 +91,7 @@ class DeedRequestsController extends Controller
     {
         $request->validate([
             'client_id' =>'required',
+            'nic' =>'required',
             'deed_no' =>'required',
             'deed_type' =>'required',
             'request_date' =>'required',
