@@ -15,6 +15,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ClientCaseController;
+use App\Http\Controllers\ClientPortalController;
 
 
 
@@ -96,27 +97,20 @@ Route::resource('admin-client-case', ClientCaseController::class);
 //Client Module
 Route::get('/client-dashboard', [DashboardController::class, 'clientDashboard']);
 
-// Route::resource('admin-clients', ClientController::class);
-// Route::get('/admin-client-register',[ ClientController::class, 'clientRegister']);
-
-// Route::resource('admin-lawyers', LawyerController::class);
-// Route::get('/admin-lawyer-register',[ LawyerController::class, 'lawyerRegister']);
-
-// Route::resource('admin-staff', StaffController::class);
-// Route::get('/admin-staff-register',[ StaffController::class, 'staffRegister']);
-
-// Route::resource('admin-deed-requests', DeedRequestsController::class);
-// Route::get('/admin-deed-deedRequests',[ DeedRequestsController::class, 'deedRequests']);
-
-// Route::resource('admin-attendance', AttendanceController::class);
-// // Admin-Appointments
-// Route::resource('admin-appointment', AppointmentController::class);
-
-// Route::resource('admin-payment', PaymentController::class);
-
-// Route::resource('admin-notification', NotificationController::class);
-
-// Route::resource('admin-inventory', InventoryController::class);
+Route::get('/client-clients', [ ClientPortalController::class, 'client']);
+Route::get('/client-client-register',[ ClientPortalController::class, 'clientRegister']);
+Route::get('/client-lawyers', [ ClientPortalController::class, 'lawyerDetails']);
+Route::get('/client-deed-requests', [ ClientPortalController::class, 'deedRequests']);
+Route::get('/client-deed-deedRequests',[ ClientPortalController::class, 'postDeedRequest']);
+Route::post('/client-deed-requests-post/{request}',[ ClientPortalController::class, 'deedStore']);
+Route::get('/client-appointment', [ ClientPortalController::class, 'makeAppointment']);
+Route::post('/client-appointment/{request}', [ ClientPortalController::class, 'appointmentStore']);
+Route::get('/client-appointment-view', [ ClientPortalController::class, 'viewAppointment']);
+Route::get('/client-payment', [ ClientPortalController::class, 'payments']);
+Route::get('/client-notification', [ ClientPortalController::class, 'notifications']);
+Route::get('/client-client-case', [ ClientPortalController::class, 'cases']);
+Route::get('/client-client-case-view', [ ClientPortalController::class, 'casesView']);
+Route::post('/client-client-case/{request}', [ ClientPortalController::class, 'caseStore']);
 
 //Lawyer Module
 Route::get('/lawyer-dashboard', [DashboardController::class, 'lawyerDashboard']);

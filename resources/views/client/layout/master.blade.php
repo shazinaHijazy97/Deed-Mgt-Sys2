@@ -160,7 +160,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('client-deed-requests.create')}}" class="nav-link">
+                <a href="{{url('client-deed-deedRequests')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deed Requests</p>
                 </a>
@@ -177,13 +177,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('client-client-case.create')}}" class="nav-link">
+                <a href="{{url('client-client-case')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Case Request</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('client-client-case')}}" class="nav-link">
+                <a href="{{url('client-client-case-view')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Case Request Details</p>
                 </a>
@@ -200,13 +200,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="{{route('client-appointment.create')}}" class="nav-link">
+              <a href="{{url('client-appointment')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Make Appointments</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('client-appointment')}}" class="nav-link">
+                <a href="{{url('client-appointment-view')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Appointments</p>
                 </a>

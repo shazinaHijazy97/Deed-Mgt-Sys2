@@ -40,9 +40,9 @@
       <div class = "col-md-6">
         <label for="client_id">Client ID</label>
         <select name="client_id" id="client_id" class="form-control" >
-            <option value="{{$client->id}}" selected>{{$client->id}}</option>
+            <option value="{{$deedRequests->_client_id}}" selected>{{$deedRequests->client_id}}</option>
           @foreach ($clients as $client)
-            <option value="{{$client->id}}">{{$client->nic}} - {{$client->Fname}} {{$client->Lname}}</option>
+            <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
           @endforeach
         </select>
       </div>

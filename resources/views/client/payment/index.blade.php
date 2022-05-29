@@ -1,4 +1,4 @@
-@extends('admin.layout.master')
+@extends('client.layout.master')
 @section('content')
 
 <div class="content-header">
@@ -9,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item">Client</li>
               <li class="breadcrumb-item active">View Payments</li>
             </ol>
           </div><!-- /.col -->
@@ -23,13 +23,12 @@
   <table class="table" id="payment-table">
   <thead>  
   <tr>
-      <th>ID</th>
+      <th>Payment ID</th>
       <th>Client</th>
       <th>Lawyer</th>
       <th>Date</th>
       <th>Payment Type</th>
       <th>Amount</th>
-      <th>Action</th>
     </tr>
   </thead>
     
@@ -37,14 +36,11 @@
 
     <tr class="table-light">
       <td>{{$payment->id}}</td>
-      <td>{{$payment->client->nic}} - {{$payment->client->fname}} {{$payment->client->lname}}</td>
-      <td>{{$payment->lawyer->nic}} - {{$payment->lawyer->fname}} {{$payment->lawyer->lname}}</td>
+      <td>{{$payment->client->fname}} {{$payment->client->lname}}</td>
+      <td>{{$payment->lawyer->fname}} {{$payment->lawyer->lname}}</td>
       <td>{{$payment->date}}</td>
       <td>{{$payment->payment_type}}</td>
       <td>{{$payment->amount}}</td>
-      <td><a href="{{route('admin-payment.edit',$payment->id)}}" class="btn btn-primary">Edit</a>
-      <button type="submit" class="btn btn-danger remove-user" data-id="{{$payment->id}}" data-action="{{route('admin-payment.destroy',$payment->id)}}">Delete</button>
-      <!-- <td>EDIT | DELETE</td> -->
     </tr>
 
     @endforeach

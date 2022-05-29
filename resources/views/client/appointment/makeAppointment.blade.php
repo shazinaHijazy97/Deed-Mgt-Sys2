@@ -1,4 +1,4 @@
-@extends('admin.layout.master')
+@extends('client.layout.master')
 @section('content')
 
 <div class="content-header">
@@ -9,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item">Client</li>
               <li class="breadcrumb-item active">Make Appointments</li>
             </ol>
           </div><!-- /.col -->
@@ -32,25 +32,17 @@
     </div>
   @endif
 
-  <form action = "{{route('admin-appointment.store')}}" method = "POST">
+  <form action = "{{url('client-appointment/{request}')}}" method = "POST">
     @csrf
   <div class="form-group">
     <div class = "row">
-      <div class = "col-md-6">
-        <label for="client_id">Client NIC/Name</label>
-        <!-- <input type="text" class="form-control" id="client_id" name="client_id" aria-describedby="" placeholder="Client ID"> -->
-        <select name="client_id" id="client_id" class="form-control" >
-          @foreach ($clients as $client)
-            <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
-          @endforeach
-        </select>
-      </div>
+      <input type="hidden" value="{{Auth::guard('client')->id()}}" name="client_id">
       <div class="col-md-6">
         <label for="lawyer_id">Lawyer NIC/Name</label>
         <!-- <input type="text" class="form-control" id="lawyer_id" name="lawyer_id" aria-describedby="" placeholder="Lawyer ID"> -->
         <select name="lawyer_id" id="lawyer_id" class="form-control" >
           @foreach ($lawyers as $lawyer)
-            <option value="{{$lawyer->id}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}} - {{$lawyer->practicing_area}}</option>
+            <option value="{{$lawyer->id}}">{{$lawyer->fname}} {{$lawyer->lname}} - {{$lawyer->practicing_area}}</option>
           @endforeach
         </select>
       </div>
@@ -89,15 +81,7 @@
   </div>
   <div class="form-group">
     <div class = "row">
-      <div class = "col-md-6">
-        <label for="appointment_status">Appointment Status</label>
-        <!-- <input type="text" class="form-control" id="appointment_status" name="appointment_status" placeholder="Appointment Status"> -->
-        <select name="appointment_status" id="appointment_status" class="form-control">
-          <option value="Active">Active</option>
-          <option value="Pending">Pending</option>
-          <option value="Cancelled">Cancelled</option>
-        </select>
-      </div>
+      <input type="hidden" value="Pending" name="appointment_status">
       <div class="col-md-6">
         <label for="note">Note</label>
         <input type="text" class="form-control" id="note" name="note" placeholder="Note">

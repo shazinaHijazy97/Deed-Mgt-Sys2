@@ -1,4 +1,4 @@
-@extends('admin.layout.master')
+@extends('client.layout.master')
 @section('content')
 
 <div class="content-header">
@@ -9,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item">Client</li>
               <li class="breadcrumb-item active">Case Details</li>
             </ol>
           </div><!-- /.col -->
@@ -32,18 +32,11 @@
     </div>
   @endif
 
-  <form action = "{{route('admin-client-case.store')}}" method = "POST">
+  <form action = "{{url('client-client-case/{request}')}}" method = "POST">
     @csrf
   <div class="form-group">
     <div class = "row">
-      <div class = "col-md-6">
-        <label for="client_id">Client</label>
-        <select name="client_id" id="client_id" class="form-control" >
-          @foreach ($clients as $client)
-            <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
-          @endforeach
-        </select>
-      </div>
+    <input type="hidden" value="{{Auth::guard('client')->id()}}" name="client_id" >
       <div class="col-md-6">
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title" name="title" aria-describedby="" placeholder="Title" required>
@@ -66,7 +59,7 @@
         <label for="lawyer_id">Lawyer</label>
         <select name="lawyer_id" id="lawyer_id" class="form-control" >
           @foreach ($lawyers as $lawyer)
-            <option value="{{$lawyer->id}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+            <option value="{{$lawyer->id}}">{{$lawyer->fname}} {{$lawyer->lname}} - {{$lawyer->practicing_area}}</option>
           @endforeach
         </select>
       </div>

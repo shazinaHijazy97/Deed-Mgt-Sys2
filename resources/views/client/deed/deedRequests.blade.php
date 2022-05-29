@@ -1,4 +1,4 @@
-@extends('admin.layout.master')
+@extends('client.layout.master')
 @section('content')
 
 <div class="content-header">
@@ -9,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item">Client</li>
               <li class="breadcrumb-item active">Request Details</li>
             </ol>
           </div><!-- /.col -->
@@ -32,18 +32,11 @@
     </div>
   @endif
 
-  <form action = "{{url('admin-deed-requests')}}" method = "POST">
+  <form action = "{{url('client-deed-requests-post/{request}')}}" method = "POST">
     @csrf
   <div class="form-group">
     <div class = "row">
-      <div class = "col-md-6">
-        <label for="client_id">Client</label>
-        <select name="client_id" id="client_id" class="form-control" >
-          @foreach ($clients as $client)
-            <option value="{{$client->id}}">{{$client->nic}} - {{$client->Fname}} {{$client->Lname}}</option>
-          @endforeach
-        </select>
-      </div>
+      <input type="hidden" name = "client_id" value="{{Auth::guard('client')->id()}}">
       <div class="col-md-6">
         <label for="deed_no">Deed No</label>
         <input type="text" class="form-control" id="deed_no" name="deed_no" aria-describedby="" placeholder="Deed No">
@@ -70,23 +63,7 @@
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <div class = "row">
-      <div class = "col-md-6">
-        <label for="payment_status">Payment Status</label>
-        <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
-        <select name="payment_status" id="payment_status" class="form-control">
-          <option value="Completed">Completed</option>
-          <option value="Pending">Pending</option>
-          <option value="Cancel">Cancel</option>
-        </select>
-      </div>
-      <div class="col-md-6">
-        <label for="note">Note</label>
-        <input type="text" class="form-control" id="note" name="note" placeholder="Note">
-      </div>
-    </div>
-  </div>
+  <input type="hidden" name = "payment_status" value="Pending">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
