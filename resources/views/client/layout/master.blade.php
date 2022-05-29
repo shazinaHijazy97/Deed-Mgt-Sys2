@@ -63,7 +63,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('/admin-dashboard')}}" class="nav-link">Home</a>
+        <a href="{{url('/client-dashboard')}}" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -87,7 +87,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{url('/admin-dashboard')}}" class="brand-link">
+    <a href="{{url('/client-dashboard')}}" class="brand-link">
       <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
       <span class="brand-text font-weight-light">🏛️<b>DEED LAW GROUP</b>🏛️</span>
     </a>
@@ -100,7 +100,7 @@
           <img src="dist/img/user.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->fname}} {{Auth::user()->lname}}</a>
+          <a href="#" class="d-block">{{Auth::guard('client')->user()->fname}} {{Auth::guard('client')->user()->lname}}</a>
         </div>
       </div>
 
@@ -120,7 +120,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-clients')}}" class="nav-link">
+                <a href="{{url('client-clients')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Client Details</p>
                 </a>
@@ -137,7 +137,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-lawyers')}}" class="nav-link">
+                <a href="{{url('client-lawyers')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lawyer Details</p>
                 </a>
@@ -154,13 +154,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-deed-requests')}}" class="nav-link">
+                <a href="{{url('client-deed-requests')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deed Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{route('admin-deed-requests.create')}}" class="nav-link">
+                <a href="{{route('client-deed-requests.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deed Requests</p>
                 </a>
@@ -177,13 +177,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{route('admin-client-case.create')}}" class="nav-link">
+                <a href="{{route('client-client-case.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Add Case Request</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-client-case')}}" class="nav-link">
+                <a href="{{url('client-client-case')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Case Request Details</p>
                 </a>
@@ -200,13 +200,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="{{route('admin-appointment.create')}}" class="nav-link">
+              <a href="{{route('client-appointment.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Make Appointments</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-appointment')}}" class="nav-link">
+                <a href="{{url('client-appointment')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Appointments</p>
                 </a>
@@ -223,7 +223,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-payment')}}" class="nav-link">
+                <a href="{{url('client-payment')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Payments</p>
                 </a>
@@ -240,7 +240,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-notification')}}" class="nav-link">
+                <a href="{{url('client-notification')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Notification</p>
                 </a>

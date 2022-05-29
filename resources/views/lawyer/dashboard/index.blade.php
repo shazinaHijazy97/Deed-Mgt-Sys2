@@ -1,4 +1,4 @@
-@extends('client.layout.master')
+@extends('lawyer.layout.master')
 @section('content')
 
     <div class="content-header">

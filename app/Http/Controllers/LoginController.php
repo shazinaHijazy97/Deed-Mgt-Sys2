@@ -24,8 +24,16 @@ class LoginController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('admin-dashboard')
-                            ->withSuccess('Signed In');
+            //Authentication passed..
+            return redirect()->intended('admin-dashboard')->withSuccess('Signed In');
+
+        } else if (Auth::guard('lawyer')->attempt($credentials)) {
+            //Authentication passed..
+            return redirect()->intended('lawyer-dashboard');
+
+        } else if (Auth::guard('client')->attempt($credentials)) {
+            //Authentication passed..
+            return redirect()->intended('client-dashboard');
         }
 
         return redirect("/")->withSuccess('Login details are invalid');

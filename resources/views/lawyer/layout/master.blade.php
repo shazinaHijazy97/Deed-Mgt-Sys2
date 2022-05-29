@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DEED LAW GROUP | Lawyer</title>
+  <title>DEED LAW GROUP | LAWYER</title>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- Google Font: Source Sans Pro -->
@@ -63,7 +63,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('/admin-dashboard')}}" class="nav-link">Home</a>
+        <a href="{{url('/lawyer-dashboard')}}" class="nav-link">Home</a>
       </li>
     </ul>
 
@@ -87,7 +87,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{url('/admin-dashboard')}}" class="brand-link">
+    <a href="{{url('/lawyer-dashboard')}}" class="brand-link">
       <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
       <span class="brand-text font-weight-light">🏛️<b>DEED LAW GROUP</b>🏛️</span>
     </a>
@@ -100,7 +100,7 @@
           <img src="dist/img/user.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{Auth::user()->fname}} {{Auth::user()->lname}}</a>
+          <a href="#" class="d-block">{{Auth::guard('lawyer')->user()->fname}} {{Auth::guard('lawyer')->user()->lname}}</a>
         </div>
       </div>
 

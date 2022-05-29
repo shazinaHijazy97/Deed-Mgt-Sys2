@@ -96,5 +96,27 @@ Route::resource('admin-client-case', ClientCaseController::class);
 //Client Module
 Route::get('/client-dashboard', [DashboardController::class, 'clientDashboard']);
 
+// Route::resource('admin-clients', ClientController::class);
+// Route::get('/admin-client-register',[ ClientController::class, 'clientRegister']);
+
+// Route::resource('admin-lawyers', LawyerController::class);
+// Route::get('/admin-lawyer-register',[ LawyerController::class, 'lawyerRegister']);
+
+// Route::resource('admin-staff', StaffController::class);
+// Route::get('/admin-staff-register',[ StaffController::class, 'staffRegister']);
+
+// Route::resource('admin-deed-requests', DeedRequestsController::class);
+// Route::get('/admin-deed-deedRequests',[ DeedRequestsController::class, 'deedRequests']);
+
+// Route::resource('admin-attendance', AttendanceController::class);
+// // Admin-Appointments
+// Route::resource('admin-appointment', AppointmentController::class);
+
+// Route::resource('admin-payment', PaymentController::class);
+
+// Route::resource('admin-notification', NotificationController::class);
+
+// Route::resource('admin-inventory', InventoryController::class);
+
 //Lawyer Module
 Route::get('/lawyer-dashboard', [DashboardController::class, 'lawyerDashboard']);
