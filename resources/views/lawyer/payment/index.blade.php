@@ -1,4 +1,4 @@
-@extends('client.layout.master')
+@extends('lawyer.layout.master')
 @section('content')
 
 <div class="content-header">
@@ -9,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Client</li>
+              <li class="breadcrumb-item">Lawyer</li>
               <li class="breadcrumb-item active">View Payments</li>
             </ol>
           </div><!-- /.col -->
@@ -48,6 +48,5 @@
   </table>
 
   </div>
-
 
 @endsection

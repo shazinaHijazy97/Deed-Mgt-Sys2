@@ -120,7 +120,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-lawyers')}}" class="nav-link">
+                <a href="{{url('lawyer-lawyers')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lawyer Details</p>
                 </a>
@@ -137,7 +137,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-deed-requests')}}" class="nav-link">
+                <a href="{{url('lawyer-deed-requests')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Deed Details</p>
                 </a>
@@ -154,7 +154,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-client-case')}}" class="nav-link">
+                <a href="{{url('lawyer-lawyer-case-view')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Case Request Details</p>
                 </a>
@@ -171,7 +171,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-appointment')}}" class="nav-link">
+                <a href="{{url('lawyer-appointment-view')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Appointments</p>
                 </a>
@@ -188,7 +188,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-payment')}}" class="nav-link">
+                <a href="{{url('lawyer-payment')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Payments</p>
                 </a>
@@ -205,7 +205,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('admin-notification')}}" class="nav-link">
+                <a href="{{url('lawyer-notification')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Notification</p>
                 </a>

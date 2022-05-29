@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 15, 2022 at 12:15 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Generation Time: May 29, 2022 at 09:45 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,9 +44,9 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `client_id`, `lawyer_id`, `date`, `time`, `appointment_status`, `note`, `created_at`, `updated_at`) VALUES
-(2, '1', '4', '2022-01-23', '08:00:00', 'Pending', 'Urgent', '2022-01-23 09:02:36', '2022-01-23 09:02:36'),
+(2, '1', '4', '2022-01-23', '08:00:00', 'Active', 'Urgent', '2022-01-23 09:02:36', '2022-05-29 00:48:26'),
 (3, '1', '4', '2022-01-23', '09:04:00', 'Pending', 'Urgent', '2022-01-23 09:03:36', '2022-01-23 09:03:36'),
-(4, '6', '18', '2022-02-07', '16:15:00', 'Pending', 'None', '2022-02-16 02:50:29', '2022-02-16 02:50:29'),
+(4, '1', '4', '2022-02-07', '16:15:00', 'Active', NULL, '2022-02-16 02:50:29', '2022-05-29 09:07:43'),
 (5, '2', '19', '2022-02-17', '16:30:00', 'Active', 'Documents sent', '2022-02-16 05:40:39', '2022-02-16 05:40:39'),
 (6, '6', '16', '2022-02-17', '08:00:00', 'Active', 'Urgent', '2022-02-16 05:41:59', '2022-02-16 05:41:59'),
 (7, '14', '10', '2022-02-17', '10:45:00', 'Active', 'None', '2022-02-16 05:50:41', '2022-02-16 05:50:41'),
@@ -63,7 +63,10 @@ INSERT INTO `appointments` (`id`, `client_id`, `lawyer_id`, `date`, `time`, `app
 (18, '6', '14', '2022-02-17', '16:00:00', 'Active', 'Urgent', '2022-02-16 06:22:48', '2022-02-16 06:22:48'),
 (19, '15', '9', '2022-02-28', '10:00:00', 'Pending', 'None', '2022-02-16 06:23:34', '2022-02-16 06:23:34'),
 (20, '18', '11', '2022-02-23', '08:00:00', 'Active', 'None', '2022-02-16 06:25:48', '2022-02-16 06:25:48'),
-(21, '7', '15', '2022-02-28', '17:30:00', 'Pending', 'None', '2022-02-16 06:26:37', '2022-02-16 06:26:37');
+(21, '7', '15', '2022-02-28', '17:30:00', 'Pending', 'None', '2022-02-16 06:26:37', '2022-02-16 06:26:37'),
+(22, '7', '5', '2022-05-29', '08:30:00', 'Pending', 'None', '2022-05-29 07:29:20', '2022-05-29 07:29:20'),
+(23, '3', '6', '2022-06-02', '16:30:00', 'Active', 'None', '2022-05-29 07:34:01', '2022-05-29 07:34:01'),
+(24, '3', '6', '2022-07-02', '16:30:00', 'Pending', NULL, '2022-05-29 12:38:36', '2022-05-29 12:38:36');
 
 -- --------------------------------------------------------
 
@@ -104,7 +107,9 @@ INSERT INTO `attendances` (`id`, `nic`, `date_in`, `time_in`, `created_at`, `upd
 (17, '965773456V', '2022-02-16', '10:58:37', '2022-02-16 05:28:48', '2022-02-16 05:28:48'),
 (18, '984567223V', '2022-02-16', '11:12:05', '2022-02-16 05:42:14', '2022-02-16 05:42:14'),
 (19, '9815567857V', '2022-02-16', '11:58:53', '2022-02-16 06:29:15', '2022-02-16 06:29:15'),
-(20, '985321268V', '2022-02-16', '11:59:26', '2022-02-16 06:29:35', '2022-02-16 06:29:35');
+(20, '985321268V', '2022-02-16', '11:59:26', '2022-02-16 06:29:35', '2022-02-16 06:29:35'),
+(21, '623829917V', '2022-05-29', '03:39:38', '2022-05-28 22:09:42', '2022-05-28 22:09:42'),
+(22, '623829917V', '2022-05-29', '04:00:50', '2022-05-28 22:30:53', '2022-05-28 22:30:53');
 
 -- --------------------------------------------------------
 
@@ -130,10 +135,10 @@ CREATE TABLE `cases` (
 
 INSERT INTO `cases` (`id`, `client_id`, `title`, `case_type`, `lawyer_id`, `filed_date`, `note`, `created_at`, `updated_at`) VALUES
 (1, '1', 'Property Transfer', 'Property', '4', '2022-02-18', 'None', '2022-02-14 08:14:58', '2022-04-21 09:26:45'),
-(3, '1', 'Divorce Agreement', 'Divorce', '4', '2022-02-10', 'None', '2022-02-14 09:46:44', '2022-04-19 23:32:45'),
-(4, '1', 'Property Selling', 'Property', '4', '2022-03-15', 'Urgent', '2022-02-16 09:01:56', '2022-04-20 03:46:13'),
+(3, '3', 'Divorce Agreement', 'Property', '4', '2022-02-10', 'None', '2022-02-14 09:46:44', '2022-05-27 10:26:03'),
+(4, '6', 'Property Selling', 'Property', '4', '2022-03-15', 'Urgent', '2022-02-16 09:01:56', '2022-05-27 10:25:46'),
 (5, '1', 'Leas Agreement', 'Property', '4', '2022-03-02', 'Shop for 5 years', '2022-02-16 09:03:25', '2022-04-21 09:33:11'),
-(6, '12', 'Child Custody', 'Divorce', '16', '2022-04-05', 'Drunken Father', '2022-02-16 09:04:19', '2022-04-21 11:05:29'),
+(6, '12', 'Child Custody', 'Property', '16', '2022-04-03', 'Drunken Father', '2022-02-16 09:04:19', '2022-05-28 06:34:50'),
 (7, '9', 'Hit and Run', 'Civil', '4', NULL, 'Claiming Insurance as compensation', '2022-02-16 09:07:55', '2022-02-16 09:07:55'),
 (8, '1', 'Death of 40 Year old Woman', 'Property', '4', '2022-04-06', 'Stabbed to death in an apartment', '2022-02-16 09:10:34', '2022-04-21 10:54:49'),
 (9, '1', 'Property Transfer', 'Property', '4', '2022-02-01', 'Details sent', '2022-02-16 09:11:28', '2022-04-21 10:18:27'),
@@ -148,7 +153,9 @@ INSERT INTO `cases` (`id`, `client_id`, `title`, `case_type`, `lawyer_id`, `file
 (18, '17', 'Intentional Harm', 'Criminal', '12', NULL, 'Hitting with sharp object', '2022-02-16 09:41:11', '2022-02-16 09:41:11'),
 (19, '1', 'Petition against executives of the company', 'Civil', '4', '2022-03-16', 'Corruption of the management', '2022-02-16 09:43:17', '2022-04-21 09:42:24'),
 (20, '1', 'Partnership Agreement', 'Property', '4', '2022-03-12', 'Business partnership', '2022-02-16 09:45:41', '2022-04-21 10:22:11'),
-(22, '1', 'Hit and Run', 'Civil', '19', '2022-03-26', 'none', '2022-04-21 09:44:48', '2022-04-21 10:57:27');
+(22, '1', 'Hit and Run', 'Civil', '19', '2022-03-26', 'none', '2022-04-21 09:44:48', '2022-04-21 10:57:27'),
+(23, '1', 'Deed of Gift', 'Property', '17', '2022-05-30', 'None', '2022-05-29 09:03:22', '2022-05-29 09:05:09'),
+(24, '3', 'gfs', 'Divorce', '16', '2022-05-29', 'None', '2022-05-29 12:24:14', '2022-05-29 12:24:14');
 
 -- --------------------------------------------------------
 
@@ -177,9 +184,9 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `fname`, `lname`, `gender`, `nic`, `contact`, `address`, `email`, `password`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Hansani', 'Senevirathne', 'Female', '901452547V', '0775478965', 'Moratuwa', 'hansi@gmail.com', '$2a$12$L4gJs3/.ksJSS8le92alp.lO38QKY2pqv8q7dmdVGa34RDIE1hpfy', '1', '1', NULL, NULL),
-(2, 'Gayani', 'Priyanthika', 'Female', '942569876v', '07843756313', 'Kalutara', 'gayani@gmail.com', 'Gayani123', NULL, NULL, '2021-09-24 08:55:36', '2021-09-24 08:55:36'),
-(3, 'Chamoda', 'Jayamini', 'Female', '972551973V', '0712758360', 'Badulla', 'chamoda@gmail.com', 'Chamoda123', NULL, NULL, '2021-09-24 08:59:21', '2021-09-24 08:59:21'),
+(1, 'Hansani', 'Senevirathne', 'Male', '901452547V', '0775478965', 'Moratuwa', 'hansi@gmail.com', '$2a$12$L4gJs3/.ksJSS8le92alp.lO38QKY2pqv8q7dmdVGa34RDIE1hpfy', '1', '1', NULL, '2022-05-29 00:50:48'),
+(2, 'Gayani', 'Priyanthika', 'Male', '942569876v', '07843756313', 'Kalutara', 'gayani@gmail.com', 'Gayani123', NULL, NULL, '2021-09-24 08:55:36', '2022-05-27 09:13:43'),
+(3, 'Chamoda', 'Jayamini', 'Female', '972551973V', '0712758360', 'Badulla', 'chamoda@gmail.com', '$2a$12$MWuezaEXEPl3s414E6mG2el908S7TzcEpybGhL1VkIbYFByUTKbxW', NULL, NULL, '2021-09-24 08:59:21', '2021-09-24 08:59:21'),
 (6, 'Minoshi', 'Ukuwela', 'Male', '788123639V', '0721089357', 'Colombo', 'minoshi@gmail.com', 'Minoshi123', NULL, NULL, '2022-01-03 03:28:22', '2022-01-03 04:29:55'),
 (7, 'Kaveesha', 'Vidurangi', 'Male', '627355429V', '0726200410', 'Kandy', 'kaveesha@gmail.com', 'Kaveesha123', NULL, NULL, '2022-01-03 03:30:29', '2022-01-03 04:30:15'),
 (8, 'Nimesh', 'Nayanajith', 'Male', '977420458V', '0770320179', 'Matara', 'nimesh@gmail.com', 'Nimesh123', NULL, NULL, '2022-01-03 03:34:46', '2022-01-03 03:41:31'),
@@ -194,7 +201,10 @@ INSERT INTO `clients` (`id`, `fname`, `lname`, `gender`, `nic`, `contact`, `addr
 (17, 'Harin', 'Lakshan', 'Male', '942853900V', '0763470146', 'Polonnaruwa', 'harin@gmail.com', 'Harin123', NULL, NULL, '2022-01-03 04:21:10', '2022-01-03 04:21:10'),
 (18, 'Kamal', 'Gunathilaka', 'Male', '932580951V', '0777038906', 'Monaragala', 'kamal@gmail.com', 'Kamal123', NULL, NULL, '2022-01-03 04:23:46', '2022-01-03 04:23:46'),
 (19, 'Rameshi', 'Siriwardana', 'Female', '678289236V', '0789903719', 'Hambantota', 'rameshi@gmail.com', 'Rameshi123', NULL, NULL, '2022-01-03 04:25:44', '2022-01-03 04:25:44'),
-(20, 'Ishini', 'Aarachchi', 'Female', '872690346V', '0726882902', 'Colombo', 'ishini@gmail.com', 'Ishini123', NULL, NULL, '2022-01-03 04:27:07', '2022-01-03 04:27:07');
+(20, 'Ishini', 'Aarachchi', 'Female', '872690346V', '0726882902', 'Colombo', 'ishini@gmail.com', 'Ishini123', NULL, NULL, '2022-01-03 04:27:07', '2022-01-03 04:27:07'),
+(21, 'Sandeepa', 'Loku', 'Male', '19978541256', '0779284076', 'Kurunegala', 'sandeepau@gmail.com', '$2y$10$1cpBWcJEDJHu6m/1Ri2Pou50CVjhScPl.b9R9AZ0.hUGO6n7/wqVe', NULL, NULL, '2022-05-29 13:27:57', '2022-05-29 13:27:57'),
+(22, 'Randika', 'Nonis', 'Male', '85452154562V', '0715845689', 'Piliyandala', 'randika@gmail.com', '$2y$10$JZPoDI8HlRqf/ls8aDoBOu7WEowL5Tr/R14Sm0QiI3wmu9NMlfO/.', NULL, NULL, '2022-05-29 13:33:23', '2022-05-29 13:33:23'),
+(23, 'Dinusha', 'Silva', 'Male', '88954215687V', '0714587896', 'Katubedda', 'dinusha@gmail.com', '$2y$10$A3GBoh8GmAkQ9ZnoJ.7LqOthWU3pYxmZ.zJB0MF7jsOnPTZUzuMvK', NULL, NULL, '2022-05-29 13:34:53', '2022-05-29 13:34:53');
 
 -- --------------------------------------------------------
 
@@ -209,7 +219,7 @@ CREATE TABLE `deed_requests` (
   `deed_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `request_date` date NOT NULL,
   `payment_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `note` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_by` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -223,7 +233,7 @@ CREATE TABLE `deed_requests` (
 INSERT INTO `deed_requests` (`id`, `client_id`, `deed_no`, `deed_type`, `request_date`, `payment_status`, `note`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, '3', '8855', 'Land', '2021-11-30', 'Completed', 'Urgent', NULL, NULL, '2021-11-30 07:00:41', '2021-11-30 07:00:41'),
 (2, '2', '4588', 'Partnership', '2022-02-17', 'Completed', 'None', NULL, NULL, '2022-02-16 08:24:01', '2022-02-16 08:24:01'),
-(3, '3', '3276', 'Gift', '2022-02-20', 'Completed', 'None', NULL, NULL, '2022-02-16 08:24:46', '2022-02-16 08:24:46'),
+(3, '3', '3276', 'Property', '2022-02-20', 'Completed', 'None', NULL, NULL, '2022-02-16 08:24:46', '2022-05-27 09:14:38'),
 (4, '20', '9012', 'Property', '2022-02-21', 'Pending', 'Urgent', NULL, NULL, '2022-02-16 08:25:44', '2022-02-16 08:25:44'),
 (5, '19', '6643', 'House', '2022-02-23', 'Pending', 'None', NULL, NULL, '2022-02-16 08:27:12', '2022-02-16 08:27:12'),
 (6, '6', '5892', 'Land', '2022-02-28', 'Completed', 'Two copies needed', NULL, NULL, '2022-02-16 08:28:51', '2022-02-16 08:28:51'),
@@ -241,7 +251,9 @@ INSERT INTO `deed_requests` (`id`, `client_id`, `deed_no`, `deed_type`, `request
 (18, '7', '7397', 'Partnership', '2022-02-20', 'Completed', 'Two copies needed', NULL, NULL, '2022-02-16 08:56:39', '2022-02-16 08:56:39'),
 (19, '9', '6058', 'House', '2022-02-18', 'Completed', 'History should be checked', NULL, NULL, '2022-02-16 08:57:22', '2022-04-21 11:32:44'),
 (20, '20', '1544', 'House', '2022-02-23', 'Pending', 'None', NULL, NULL, '2022-02-16 08:58:03', '2022-02-16 08:58:03'),
-(21, '17', '3488', 'Transfer', '2022-04-22', 'Completed', 'Urgent', NULL, NULL, '2022-04-22 01:03:56', '2022-04-22 01:03:56');
+(21, '17', '3488', 'Transfer', '2022-04-22', 'Completed', 'Urgent', NULL, NULL, '2022-04-22 01:03:56', '2022-04-22 01:03:56'),
+(22, '3', '2339', 'Property', '2022-05-31', 'Pending', NULL, NULL, NULL, '2022-05-29 11:58:14', '2022-05-29 11:58:14'),
+(23, '3', '9012', 'Land', '2022-06-03', 'Pending', NULL, NULL, NULL, '2022-05-29 12:02:31', '2022-05-29 12:02:31');
 
 -- --------------------------------------------------------
 
@@ -302,6 +314,7 @@ CREATE TABLE `lawyers` (
   `lname` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gender` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nic` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `practicing_area` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `contact` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -316,24 +329,27 @@ CREATE TABLE `lawyers` (
 -- Dumping data for table `lawyers`
 --
 
-INSERT INTO `lawyers` (`id`, `fname`, `lname`, `gender`, `nic`, `address`, `contact`, `email`, `password`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(4, 'Kasuni', 'Humasha', 'Female', '623829917V', 'Galle', '0717863452', 'kasuni@gmail.com', 'Kasuni123', NULL, NULL, '2021-11-02 04:32:39', '2021-11-02 04:32:39'),
-(5, 'Sachintha', 'Achala', 'Male', '987329077V', 'Gampaha', '0753846587', 'sachintha@gmail.com', 'Sachintha123', NULL, NULL, '2021-11-02 04:36:26', '2021-11-26 09:08:38'),
-(6, 'Pasan', 'Bandara', 'Male', '965777457V', 'Rathnapura', '0752238467', 'pasan@gmail.com', 'Pasan123', NULL, NULL, '2022-01-02 06:37:10', '2022-01-02 07:04:58'),
-(7, 'Bimal', 'Jayawardana', 'Male', '988734377V', 'Matara', '0789445748', 'bimal@gmail.com', 'Bimal123', NULL, NULL, '2022-01-02 07:04:24', '2022-01-02 07:04:24'),
-(8, 'Anura', 'Jayathilaka', 'Male', '986567554V', 'Gampaha', '0784563328', 'anura@gmail.com', 'Anura123', NULL, NULL, '2022-01-02 07:06:13', '2022-01-02 07:06:13'),
-(9, 'Kalpana', 'Sawindi', 'Female', '984567223V', 'Matara', '0768944589', 'kalpana@gmail.com', 'Kalpana123', NULL, NULL, '2022-01-02 07:07:51', '2022-01-02 07:07:51'),
-(10, 'Manoj', 'Peiris', 'Male', '989667345V', 'Gampaha', '0769984254', 'manoj@gmail.com', 'Manoj123', NULL, NULL, '2022-01-03 02:04:56', '2022-01-03 02:04:56'),
-(11, 'Minoli', 'Jayawansha', 'Female', '908766787V', 'Kalutara', '0768894567', 'minoli@gmail.com', 'Minoli123', NULL, NULL, '2022-01-03 02:15:49', '2022-01-03 02:15:49'),
-(12, 'Supun', 'Malshan', 'Male', '987654867V', 'Badulla', '0789887653', 'supun@gmail.com', 'Supun123', NULL, NULL, '2022-01-03 02:20:32', '2022-01-03 02:20:32'),
-(13, 'Fiham', 'Rajabdeen', 'Male', '987665437V', 'Negambo', '0756775432', 'fiham@gmail.com', 'Fiham123', NULL, NULL, '2022-01-03 02:23:14', '2022-01-03 02:23:14'),
-(14, 'Anusha', 'Silva', 'Female', '9876675432', 'Matara', '0789956345', 'anusha@gmail.com', 'Anusha123', NULL, NULL, '2022-01-03 02:25:47', '2022-01-03 02:25:47'),
-(15, 'Shiham', 'Gause', 'Male', '976998345V', 'Trincomalee', '0782228845', 'shiham@gmail.com', 'Shiham123', NULL, NULL, '2022-01-03 03:13:10', '2022-01-03 03:13:10'),
-(16, 'Girija', 'Ayyar', 'Male', '97556249V', 'Jaffna', '07134588265', 'girija@gmail.com', 'Girija123', NULL, NULL, '2022-01-03 03:15:21', '2022-01-03 03:15:21'),
-(17, 'Vignesh', 'Kumar', 'Male', '946648732V', 'Nuwaraeliya', '0713212987', 'vignesh@gmail.com', 'Vignesh123', NULL, NULL, '2022-01-03 03:17:19', '2022-01-03 03:17:19'),
-(18, 'Mahroof', 'Mohamed', 'Male', '945883105V', 'Colombo', '0753725986', 'mahroof@gmail.com', 'Mahroof123', NULL, NULL, '2022-01-03 03:21:01', '2022-01-03 03:21:01'),
-(19, 'Yousuf', 'Nasar', 'Male', '987334275V', 'Kandy', '0715588255', 'yousuf@gmail.com', 'Yousuf123', NULL, NULL, '2022-01-03 03:23:01', '2022-01-03 03:23:01'),
-(20, 'Hiroshani', 'Kulathunga', 'Female', '984891205V', 'Hambantota', '0773284100', 'hiroshani@gmail.com', 'Hiroshani123', NULL, NULL, '2022-01-03 03:25:04', '2022-01-03 03:25:04');
+INSERT INTO `lawyers` (`id`, `fname`, `lname`, `gender`, `nic`, `practicing_area`, `address`, `contact`, `email`, `password`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(4, 'Kasuni', 'Humasha', 'Male', '623829917V', 'Defence', 'Galle', '0717863452', 'kasuni@gmail.com', '$2a$12$BrtDIV.aCj/3U8QsK.umteGHUtV4GP7vpsmgXLxfHus3ihplcivfW', NULL, NULL, '2021-11-02 04:32:39', '2022-05-29 00:40:10'),
+(5, 'Sachintha', 'Achala', 'Male', '987329077V', 'Business', 'Gampaha', '0753846587', 'sachintha@gmail.com', 'Sachintha123', NULL, NULL, '2021-11-02 04:36:26', '2022-05-29 00:40:19'),
+(6, 'Pasan', 'Bandara', 'Male', '965777457V', 'Intellectual Property', 'Ampara', '0752238467', 'pasan@gmail.com', 'Pasan123', NULL, NULL, '2022-01-02 06:37:10', '2022-05-29 00:40:00'),
+(7, 'Bimal', 'Jayawardana', 'Male', '988734377V', 'Family', 'Matara', '0789445748', 'bimal@gmail.com', 'Bimal123', NULL, NULL, '2022-01-02 07:04:24', '2022-05-29 00:39:51'),
+(8, 'Anura', 'Jayathilaka', 'Male', '986567554V', 'Defence', 'Gampaha', '0784563328', 'anura@gmail.com', 'Anura123', NULL, NULL, '2022-01-02 07:06:13', '2022-05-29 00:39:37'),
+(9, 'Kalpana', 'Sawindi', 'Male', '984567223V', 'Business', 'Matara', '0768944589', 'kalpana@gmail.com', 'Kalpana123', NULL, NULL, '2022-01-02 07:07:51', '2022-05-29 00:39:21'),
+(10, 'Manoj', 'Peiris', 'Male', '989667345V', 'Civil Rights', 'Gampaha', '0769984254', 'manoj@gmail.com', 'Manoj123', NULL, NULL, '2022-01-03 02:04:56', '2022-05-29 00:38:57'),
+(11, 'Minoli', 'Jayawansha', 'Male', '908766787V', 'Labour', 'Kalutara', '0768894567', 'minoli@gmail.com', 'Minoli123', NULL, NULL, '2022-01-03 02:15:49', '2022-05-29 00:38:42'),
+(12, 'Supun', 'Malshan', 'Male', '987654867V', 'Bancruptcy', 'Badulla', '0789887653', 'supun@gmail.com', 'Supun123', NULL, NULL, '2022-01-03 02:20:32', '2022-05-29 00:38:24'),
+(13, 'Fiham', 'Rajabdeen', 'Male', '987665437V', 'Labour', 'Negambo', '0756775432', 'fiham@gmail.com', 'Fiham123', NULL, NULL, '2022-01-03 02:23:14', '2022-05-29 00:38:06'),
+(14, 'Anusha', 'Silva', 'Male', '9876675432', 'Finance and Securities', 'Matara', '0789956345', 'anusha@gmail.com', 'Anusha123', NULL, NULL, '2022-01-03 02:25:47', '2022-05-29 00:37:50'),
+(15, 'Shiham', 'Gause', 'Male', '976998345V', 'Intellectual Property', 'Trincomalee', '0782228845', 'shiham@gmail.com', 'Shiham123', NULL, NULL, '2022-01-03 03:13:10', '2022-05-29 00:37:36'),
+(16, 'Girija', 'Ayyar', 'Male', '97556249V', 'Defence', 'Jaffna', '07134588265', 'girija@gmail.com', 'Girija123', NULL, NULL, '2022-01-03 03:15:21', '2022-05-29 00:37:21'),
+(17, 'Vignesh', 'Kumar', 'Male', '946648732V', 'Family', 'Nuwaraeliya', '0713212987', 'vignesh@gmail.com', 'Vignesh123', NULL, NULL, '2022-01-03 03:17:19', '2022-05-29 00:37:00'),
+(18, 'Mahroof', 'Mohamed', 'Male', '945883105V', 'Labour', 'Colombo', '0753725986', 'mahroof@gmail.com', 'Mahroof123', NULL, NULL, '2022-01-03 03:21:01', '2022-05-29 00:36:45'),
+(19, 'Yousuf', 'Nasar', 'Male', '987334275V', 'Civil Rights', 'Kandy', '0715588255', 'yousuf@gmail.com', 'Yousuf123', NULL, NULL, '2022-01-03 03:23:01', '2022-05-29 00:30:51'),
+(20, 'Hiroshani', 'Kulathunga', 'Male', '984891205V', 'Intellectual Property', 'Hambantota', '0773284100', 'hiroshani@gmail.com', 'Hiroshani123', NULL, NULL, '2022-01-03 03:25:04', '2022-05-28 23:19:33'),
+(21, 'Kunal', 'Peiris', 'Male', '987665439v', 'Business', 'Galle', '0776653158', 'kunal@gmail.com', 'Kunal123', NULL, NULL, '2022-05-23 07:35:15', '2022-05-28 23:19:10'),
+(22, 'Gihani', 'Charundya', 'Female', '977827183V', 'Defence', 'Gampaha', '0789223710', 'gihani@gmail.com', 'Gihani123', NULL, NULL, '2022-05-28 23:09:09', '2022-05-28 23:09:09'),
+(23, 'Thowfeek', 'Khan', 'Male', '854125478V', 'Business', 'Maradana', '0779854785', 'thowfeek@gmail.com', '$2y$10$wCc7st2anifizqe7GOhx6OQwvwn9NoDWmwlU6k84d5BOCcKm7Ie4K', NULL, NULL, '2022-05-29 13:42:14', '2022-05-29 13:42:14');
 
 -- --------------------------------------------------------
 
@@ -389,8 +405,6 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `notice_subject`, `notice_content`, `notice_date`, `notice_time`, `notice_type`, `recipient`, `created_at`, `updated_at`) VALUES
-(7, 'Hello Ladies', '50% discount for ladies', '2022-02-10', '21:29:00', 'Special', NULL, '2022-02-06 09:28:56', '2022-02-06 09:28:56'),
-(8, 'Hello Girls', '70% discount for girls', '2022-02-06', '20:32:00', 'Special', 'Public', '2022-02-06 09:33:18', '2022-02-06 09:33:18'),
 (9, 'New Branch Opening', 'New Branch is opening  in Bambalapitiya on 1st of March', '2022-02-20', '10:00:00', 'Public', 'Public', '2022-02-16 04:11:27', '2022-02-16 04:11:27'),
 (10, 'Office Closure for New Year', 'Office will be closed from 10th April to 20th April for New Year', '2022-04-05', '12:00:00', 'Announcement', 'Public', '2022-02-16 04:15:09', '2022-02-16 04:15:28'),
 (11, 'Appointment fee Change', 'Appointment fee will be increased by Rs. 500 from Next Month', '2022-01-25', '17:30:00', 'Announcement', 'Clients', '2022-02-16 04:18:19', '2022-02-16 04:18:19'),
@@ -460,7 +474,8 @@ INSERT INTO `payments` (`id`, `client_id`, `lawyer_id`, `date`, `payment_type`, 
 (17, '20', '20', '2022-02-17', 'Pending', '300.00', NULL, NULL, '2022-02-16 05:31:44', '2022-02-16 05:31:44'),
 (18, '11', '18', '2022-02-10', 'Cancelled', '500.00', NULL, NULL, '2022-02-16 05:37:07', '2022-02-16 05:37:07'),
 (19, '10', '16', '2022-02-23', 'Active', '500.00', NULL, NULL, '2022-02-16 05:38:40', '2022-02-16 05:38:40'),
-(20, '2', '13', '2022-02-18', 'Pending', '1000.00', NULL, NULL, '2022-02-16 05:39:11', '2022-02-16 05:39:11');
+(20, '2', '13', '2022-02-18', 'Pending', '1000.00', NULL, NULL, '2022-02-16 05:39:11', '2022-02-16 05:39:11'),
+(21, '6', '10', '2022-05-28', 'Pending', '1000.00', NULL, NULL, '2022-05-28 09:24:30', '2022-05-28 09:24:30');
 
 -- --------------------------------------------------------
 
@@ -656,31 +671,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `deed_requests`
 --
 ALTER TABLE `deed_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -692,7 +707,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `lawyers`
 --
 ALTER TABLE `lawyers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -710,7 +725,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`

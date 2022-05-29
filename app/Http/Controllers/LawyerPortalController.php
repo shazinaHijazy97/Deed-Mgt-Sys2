@@ -21,7 +21,7 @@ class LawyerPortalController extends Controller
     }
 
     public function deedRequests() {
-        $deedRequests = DeedRequests::where("lawyer_id", "=",Auth::guard('lawyer')->id())->get();
+        $deedRequests = DeedRequests::all();
         return view('lawyer.deed.index', compact('deedRequests'));
     }
 

@@ -16,6 +16,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ClientCaseController;
 use App\Http\Controllers\ClientPortalController;
+use App\Http\Controllers\LawyerPortalController;
 
 
 
@@ -115,3 +116,10 @@ Route::post('/client-client-case/{request}', [ ClientPortalController::class, 'c
 
 //Lawyer Module
 Route::get('/lawyer-dashboard', [DashboardController::class, 'lawyerDashboard']);
+
+Route::get('/lawyer-lawyers', [ LawyerPortalController::class, 'lawyer']);
+Route::get('/lawyer-deed-requests', [ LawyerPortalController::class, 'deedRequests']);
+Route::get('/lawyer-appointment-view', [ LawyerPortalController::class, 'viewAppointment']);
+Route::get('/lawyer-payment', [ LawyerPortalController::class, 'payments']);
+Route::get('/lawyer-notification', [ LawyerPortalController::class, 'notifications']);
+Route::get('/lawyer-lawyer-case-view', [ LawyerPortalController::class, 'casesView']);
