@@ -50,7 +50,21 @@ class LawyerController extends Controller
             'password' =>'required',
         ]);
 
-        Lawyer::create($request->all());
+        // Lawyer::create($request->all());
+
+        $array = [
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'gender' => $request->gender,
+            'nic' => $request->nic,
+            'practicing_area' => $request->practicing_area,
+            'contact' => $request->contact,
+            'address' => $request->address,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+
+        Lawyer::create($array);
 
         return redirect()->route('admin-lawyers.index')->with('success','Lawyer created successfully');
     }

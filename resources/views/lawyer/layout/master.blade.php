@@ -114,23 +114,6 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Client
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('admin-clients')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Client Details</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
                 Lawyer
                 <i class="fas fa-angle-left right"></i>
               </p>
@@ -159,12 +142,6 @@
                   <p>Deed Details</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{route('admin-deed-requests.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Deed Requests</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -176,12 +153,6 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('admin-client-case.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Case Request</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="{{url('admin-client-case')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -199,12 +170,6 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-              <a href="{{route('admin-appointment.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Make Appointments</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="{{url('admin-appointment')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>

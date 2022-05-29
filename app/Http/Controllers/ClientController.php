@@ -49,7 +49,20 @@ class ClientController extends Controller
             'password' =>'required',
         ]);
 
-        Client::create($request->all());
+        $array = [
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'gender' => $request->gender,
+            'nic' => $request->nic,
+            'contact' => $request->contact,
+            'address' => $request->address,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+
+        Client::create($array);
+        
+        // Client::create($request->all());
         return redirect()->intended('admin-clients')->with('success', 'Client created successfully');
 
     }

@@ -35,6 +35,7 @@ Route::get('about-us', [HomeController::class, 'aboutUs']);
 Route::get('services', [HomeController::class, 'services']);
 Route::get('contact', [HomeController::class, 'contact']);
 Route::get('forgot-password', [HomeController::class, 'forgotPassword']);
+Route::get('client-register', [HomeController::class, 'clientRegister']);
 
 Route::get('/admin-dashboard', [DashboardController::class, 'index']);
 
@@ -98,7 +99,7 @@ Route::resource('admin-client-case', ClientCaseController::class);
 Route::get('/client-dashboard', [DashboardController::class, 'clientDashboard']);
 
 Route::get('/client-clients', [ ClientPortalController::class, 'client']);
-Route::get('/client-client-register',[ ClientPortalController::class, 'clientRegister']);
+Route::post('/client-client-register/{request}',[ ClientPortalController::class, 'clientRegister']);
 Route::get('/client-lawyers', [ ClientPortalController::class, 'lawyerDetails']);
 Route::get('/client-deed-requests', [ ClientPortalController::class, 'deedRequests']);
 Route::get('/client-deed-deedRequests',[ ClientPortalController::class, 'postDeedRequest']);

@@ -19,9 +19,28 @@ class ClientPortalController extends Controller
         return view('client.client.index',compact('client'));
         
     }
-    
-    public function clientRegister() {
-        //
+
+    public function clientRegister(Request $request)
+    {
+
+        $array = [
+            'fname' => $request->fname,
+            'lname' => $request->lname,
+            'gender' => $request->gender,
+            'nic' => $request->nic,
+            'contact' => $request->contact,
+            'address' => $request->address,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ];
+
+        Client::create($array);
+        // return redirect()->intended('/')->with('success', 'Client created successfully');
+        echo "<script>";
+        echo "alert('Registered Successfully. Please Login!');";
+        echo "window.history.go(-2);";
+        echo "</script>";
+
     }
 
     public function lawyerDetails() {

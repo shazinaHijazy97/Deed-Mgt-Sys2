@@ -57,8 +57,8 @@
 
                         <!-- Remind Passowrd -->
                         <!-- <div id="formFooter"> -->
-                        
-                        <button type="" class="btn btn-dark fadeIn fourth mb-4" >REGISTER</button>
+                        <a href="{{url('client-register')}}">
+                        <button type="" class="btn btn-dark fadeIn fourth mb-4" >REGISTER</button></a>
                         <!-- <a class="underlineHover" href="#">REGISTER</a> -->
                         <!-- </div> -->
 
