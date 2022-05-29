@@ -46,7 +46,7 @@
       </div>
       <div class="col-md-6">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" aria-describedby="" placeholder="Title">
+        <input type="text" class="form-control" id="title" name="title" aria-describedby="" placeholder="Title" required>
       </div>
     </div>
   </div>
@@ -76,16 +76,15 @@
     <div class = "row">
       <div class = "col-md-6">
         <label for="filed_date">Filed Date</label>
-        <input type="date" class="form-control" id="filed_date" name="filed_date" placeholder="Filed Date">
+        <input type="date" class="form-control" id="filed_date" name="filed_date" placeholder="Filed Date" required>
       </div>
       <div class="col-md-6">
         <label for="note">Note</label>
-        <input type="text" class="form-control" id="note" name="note" placeholder="Note">
+        <input type="text" class="form-control" id="note" name="note" placeholder="Note" >
       </div>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
 </div>
 </div>

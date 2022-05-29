@@ -39,7 +39,7 @@
     <tr class="table-light">
       <td>{{$appointment->id}}</td>
       <td>{{$appointment->client->nic}} - {{$appointment->client->fname}} {{$appointment->client->lname}}</td>
-      <td>{{$appointment->lawyer->nic}} - {{$appointment->lawyer->fname}} {{$appointment->lawyer->lname}}</td>
+      <td>{{$appointment->lawyer->nic}} - {{$appointment->lawyer->fname}} {{$appointment->lawyer->lname}} - {{$appointment->lawyer->practicing_area}}</td>
       <td>{{$appointment->date}}</td>
       <td>{{$appointment->time}}</td>
       <td>{{$appointment->appointment_status}}</td>

@@ -1,15 +1,15 @@
-@extends('admin.layout.master')
+@extends('client.layout.master')
 @section('content')
 
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Admin Dashboard</h1>
+            <h1 class="m-0">Client Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item">Admin</li>
+              <li class="breadcrumb-item">Client</li>
               <li class="breadcrumb-item active">Dashboard</li>
             </ol>
           </div><!-- /.col -->
@@ -27,7 +27,7 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>{{$monthlyEarning}}<sup style="font-size: 20px">LKR</sup></h3>
+                <h3>1<sup style="font-size: 20px">LKR</sup></h3>
 
                 <p>Earnings (Monthly)</p>
               </div>
@@ -42,7 +42,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>{{$client}}</h3>
+                <h3>1</h3>
 
                 <p>Clients</p>
               </div>
@@ -57,7 +57,7 @@
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>{{$lawyer}}</h3>
+                <h3>1</h3>
 
                 <p>Lawyers</p>
               </div>
@@ -72,7 +72,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$pendingDeeds}}</h3>
+                <h3>1</h3>
 
                 <p>Pending Deeds</p>
               </div>
@@ -86,39 +86,12 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>{{$annualEarning}}</h3>
+                <h3>1</h3>
 
                 <p>Earnings (Annual)</p>
               </div>
               <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>{{$pendingAppointments}}</h3>
-
-                <p>Pending Appointments</p>
-              </div>
-              <div class="icon">
                 <i class="ion ion-pie-graph"></i>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>{{$dailyAttendance}}</h3>
-
-                <p>Daily Attendance</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
               </div>
               
             </div>

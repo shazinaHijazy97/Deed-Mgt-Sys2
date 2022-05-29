@@ -40,7 +40,7 @@
         <div class = "col-md-6">
           <label for="client_id">Client NIC/Name</label>
           <!-- <input type="text" class="form-control" id="client_id" name="client_id" aria-describedby="" placeholder="Client ID"> -->
-          <select name="client_id" id="client_id" class="form-control" >
+          <select name="client_id" id="client_id" class="form-control">
             @foreach ($clients as $client)
               <option value="{{$client->id}}">{{$client->nic}} - {{$client->fname}} {{$client->lname}}</option>
             @endforeach
@@ -49,9 +49,9 @@
         <div class="col-md-6">
           <label for="lawyer_id">Lawyer NIC/Name</label>
           <!-- <input type="text" class="form-control" id="lawyer_id" name="lawyer_id" aria-describedby="" placeholder="Lawyer ID"> -->
-          <select name="lawyer_id" id="lawyer_id" class="form-control" >
+          <select name="lawyer_id" id="lawyer_id" class="form-control">
             @foreach ($lawyers as $lawyer)
-              <option value="{{$lawyer->id}}">{{$client->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+              <option value="{{$lawyer->id}}">{{$client->nic}} - {{$lawyer->fname}} {{$lawyer->lname}} - {{$lawyer->practicing_area}}</option>
             @endforeach
           </select>
         </div>
@@ -61,11 +61,11 @@
     <div class ="row">
       <div class = "col-md-6">
         <label for="date">Date</label>
-        <input type="date" class="form-control" id="date" name="date" value="{{$appointment->date}}" placeholder="Date">
+        <input type="date" class="form-control" id="date" name="date" value="{{$appointment->date}}" placeholder="Date" required>
       </div>
       <div class="col-md-6">
         <label for="time">Time</label>
-        <input type="time" class="form-control" id="time" name="time" value="{{$appointment->time}}" placeholder="Time">
+        <input type="time" class="form-control" id="time" name="time" value="{{$appointment->time}}" placeholder="Time" required>
       </div>
     </div>
   </div>
@@ -87,7 +87,6 @@
     </div>
   </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-  <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
 </div>
 </div>

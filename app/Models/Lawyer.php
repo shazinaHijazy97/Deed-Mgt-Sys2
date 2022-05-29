@@ -12,6 +12,6 @@ class Lawyer extends Model
     protected $table = 'lawyers';
 
     protected $fillable = [
-        'fname', 'lname', 'gender', 'nic', 'contact', 'address', 'email', 'password', 'created_by', 'updated_by'
+        'fname', 'lname', 'gender', 'nic', 'practicing_area', 'contact', 'address', 'email', 'password', 'created_by', 'updated_by'
     ];
 }

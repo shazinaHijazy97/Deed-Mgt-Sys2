@@ -63,6 +63,27 @@
       </div>
     </div>
   </div>
+
+  <div class="form-group">
+      <div class = "row">
+      <div class = "col-md-6">
+        <label for="practicing_area">Practicing Area</label>
+        <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
+        <select name="practicing_area" id="practicing_area" class="form-control">
+          <option value="{{$lawyer->practicing_area}}">{{$lawyer->practicing_area}}</option>
+          <option value="Business">Business</option>
+          <option value="Bancruptcy">Bancruptcy</option>
+          <option value="Defence">Defence</option>
+          <option value="Family">Family</option>
+          <option value="Labour">Labour</option>
+          <option value="Intellectual Property">Intellectual Property</option>
+          <option value="Finance and Securities">Finance and Securities</option>
+          <option value="Civil Rights">Civil Rights</option>
+        </select>
+      </div>
+      </div>
+    </div>
+
   <div class="form-group">
     <div class = "row">
       <div class = "col-md-6">
@@ -81,14 +102,9 @@
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" value="{{$lawyer->email}}" placeholder="Email">
       </div>
-      <div class="col-md-6">
-        <label for="password">Password</label>
-        <input type="text" class="form-control" id="password" name="password" value="{{$lawyer->password}}" placeholder="Password">
-      </div>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Edit</button>
-  <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
 </div>
 </div>

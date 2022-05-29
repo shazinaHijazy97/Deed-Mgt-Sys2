@@ -6,6 +6,7 @@ use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Lawyer;
 use App\Models\Client;
+use Illuminate\Support\Facades\DB;
 
 class AppointmentController extends Controller
 {
@@ -28,7 +29,7 @@ class AppointmentController extends Controller
      */
     public function create()
     {
-        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $lawyers = Lawyer::select('id','nic','fname','lname','practicing_area')->get();
         $clients = Client::select('id','nic','fname','lname')->get();
     
         return view('admin.appointment.makeAppointment',compact('lawyers', 'clients'));
@@ -42,8 +43,29 @@ class AppointmentController extends Controller
      */
     public function store(Request $request)
     {
-        Appointment::create($request->all());
-        return redirect()->intended('admin-appointment')->with('success', 'Appointment Made successfully');
+        $lawyer = $request->lawyer_id;
+        $date = $request->date;
+        $time = $request->time;
+
+        $availability = Appointment::where("lawyer_id", "=", $lawyer)
+        ->where("date", "=", $date)
+        ->where("time", "=", $time) 
+        ->get();
+
+        if ($availability == '[]') {
+            // dd("Time slot is available ".$availability);
+            Appointment::create($request->all());
+            return redirect()->intended('admin-appointment')->with('success', 'Appointment Made successfully');
+
+        } else {
+            // dd("time slot is not available ".$availability);.
+            echo "<script>";
+            echo "alert('Appointment Time Slot Is Not Available!');";
+            echo "window.history.back();";
+            echo "</script>";
+
+        }
+
     }
 
     /**
@@ -65,7 +87,7 @@ class AppointmentController extends Controller
      */
     public function edit($id)
     {
-        $lawyers = Lawyer::select('id','nic','fname','lname')->get();
+        $lawyers = Lawyer::select('id','nic','fname','lname','practicing_area')->get();
         $clients = Client::select('id','nic','fname','lname')->get();
 
         $appointment = Appointment::with(['lawyer','client'])->find($id);
@@ -91,7 +113,6 @@ class AppointmentController extends Controller
                 'date' =>'required',
                 'time' =>'required',
                 'appointment_status' =>'required',
-                'note' =>'required',
             ]
         ); 
 

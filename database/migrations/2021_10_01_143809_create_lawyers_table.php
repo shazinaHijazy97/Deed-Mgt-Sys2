@@ -19,6 +19,7 @@ class CreateLawyersTable extends Migration
             $table->string('lname');
             $table->string('gender');
             $table->string('nic');
+            $table->string('practicing_area');
             $table->string('address');
             $table->string('contact');
             $table->string('email')->unique();

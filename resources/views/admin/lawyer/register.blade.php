@@ -61,7 +61,26 @@
         <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC">
       </div>
     </div>
-  </div>
+    </div>
+
+    <div class="form-group">
+      <div class = "row">
+      <div class = "col-md-6">
+        <label for="practicing_area">Practicing Area</label>
+        <!-- <input type="text" class="form-control" id="gender" placeholder="Gender"> -->
+        <select name="practicing_area" id="practicing_area" class="form-control">
+          <option value="Business">Business</option>
+          <option value="Bancruptcy">Bancruptcy</option>
+          <option value="Defence">Defence</option>
+          <option value="Family">Family</option>
+          <option value="Labour">Labour</option>
+          <option value="Intellectual Property">Intellectual Property</option>
+          <option value="Finance and Securities">Finance and Securities</option>
+          <option value="Civil Rights">Civil Rights</option>
+        </select>
+      </div>
+      </div>
+    </div>
   <div class="form-group">
     <div class = "row">
       <div class = "col-md-6">
@@ -87,7 +106,6 @@
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
 </div>
 </div>

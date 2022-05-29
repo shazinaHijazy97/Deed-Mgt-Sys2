@@ -82,7 +82,6 @@
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
 </div>
 </div>

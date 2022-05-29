@@ -28,6 +28,7 @@
       <th>Last Name</th>
       <th>Gender</th>
       <th>NIC</th>
+      <th>Practicing Area</th>
       <th>Contact</th>
       <th>Address</th>
       <th>Email</th>
@@ -43,6 +44,7 @@
       <td>{{$lawyer->lname}}</td>
       <td>{{$lawyer->gender}}</td>
       <td>{{$lawyer->nic}}</td>
+      <td>{{$lawyer->practicing_area}}</td>
       <td>{{$lawyer->contact}}</td>
       <td>{{$lawyer->address}}</td>
       <td>{{$lawyer->email}}</td>

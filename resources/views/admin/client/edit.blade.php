@@ -81,14 +81,15 @@
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" value="{{$client->email}}" placeholder="Email">
       </div>
+      {{--
       <div class="col-md-6">
         <label for="password">Password</label>
         <input type="text" class="form-control" id="password" name="password" value="{{$client->password}}" placeholder="Password">
       </div>
+      --}}
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Edit</button>
-  <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
 </div>
 </div>

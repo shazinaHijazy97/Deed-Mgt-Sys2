@@ -38,11 +38,11 @@
     <div class ="row">
       <div class = "col-md-6">
         <label for="fname">First Name</label>
-        <input type="text" class="form-control" id="fname" name="fname" aria-describedby="" placeholder="First Name">
+        <input type="text" class="form-control" id="fname" name="fname" aria-describedby="" placeholder="First Name" required>
       </div>
       <div class="col-md-6">
         <label for="lname">Last Name</label>
-        <input type="text" class="form-control" id="lname" name="lname" aria-describedby="" placeholder="Last Name">
+        <input type="text" class="form-control" id="lname" name="lname" aria-describedby="" placeholder="Last Name" required>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
       </div>
       <div class="col-md-6">
         <label for="nic">NIC</label>
-        <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC">
+        <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC" required>
       </div>
     </div>
   </div>
@@ -66,11 +66,11 @@
     <div class = "row">
       <div class = "col-md-6">
         <label for="contact">Contact</label>
-        <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact">
+        <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact" required>
       </div>
       <div class="col-md-6">
         <label for="address">Address</label>
-        <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+        <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
       </div>
     </div>
   </div>
@@ -78,16 +78,15 @@
     <div class = "row">
       <div class = "col-md-6">
         <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
       </div>
       <div class="col-md-6">
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
       </div>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  <button type="submit" class="btn btn-primary">Cancel</button>
 </form>
 </div>
 </div>

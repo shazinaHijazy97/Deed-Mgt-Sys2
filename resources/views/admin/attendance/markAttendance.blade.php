@@ -57,7 +57,11 @@
 </section>
 
 <script>
-    $('#nic').select2();
+    $('#nic').select2({
+      width: '100%',
+      placeholder: "Select Attendee"
+    });
+
 </script>
 
 @endsection

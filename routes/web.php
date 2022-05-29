@@ -89,7 +89,12 @@ Route::post('post-deed-report', [ReportController::class, 'checkDeedDetails']);
 Route::post('post-payment-report', [ReportController::class, 'checkPaymentDetails']);
 Route::post('post-case-report', [ReportController::class, 'checkCaseDetails']);
 
-
-
 //Admin-Cases
 Route::resource('admin-client-case', ClientCaseController::class);
+
+
+//Client Module
+Route::get('/client-dashboard', [DashboardController::class, 'clientDashboard']);
+
+//Lawyer Module
+Route::get('/lawyer-dashboard', [DashboardController::class, 'lawyerDashboard']);

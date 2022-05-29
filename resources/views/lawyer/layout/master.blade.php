@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DEED LAW GROUP | ADMIN</title>
+  <title>DEED LAW GROUP | Lawyer</title>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <!-- Google Font: Source Sans Pro -->
@@ -31,7 +31,7 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
-  <link href="{{url('assets/css/select2.min.css')}}" rel="stylesheet"/>
+  <link href="{{url('assets/css/select2.min.css')}}" rel="stylesheet">
   <script src="{{url('assets/js/select2.min.js')}}"></script>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <script src= "https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -48,10 +48,8 @@
   <script src="{{url('js/jspdf.min.js')}}"></script>
   <script src="{{url('js/jspdf.plugin.autotable.min.js')}}"></script>
   <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
-  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -127,12 +125,6 @@
                   <p>Client Details</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{url('admin-client-register')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Client Registration</p>
-                </a>
-              </li>
             </ul>
           </li>
         <li class="nav-item">
@@ -148,58 +140,6 @@
                 <a href="{{url('admin-lawyers')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Lawyer Details</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-lawyer-register')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lawyer Registration</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Staff
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('admin-staff')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Staff Details</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-staff-register')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Staff Registration</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Cases
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{route('admin-client-case.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Case Request</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-client-case')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Case Request Details</p>
                 </a>
               </li>
             </ul>
@@ -231,21 +171,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Attendance
+                Cases
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="{{route('admin-attendance.create')}}" class="nav-link">
+                <a href="{{route('admin-client-case.create')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Mark Attendance</p>
+                  <p>Add Case Request</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{url('admin-attendance')}}" class="nav-link">
+                <a href="{{url('admin-client-case')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>View Attendances</p>
+                  <p>Case Request Details</p>
                 </a>
               </li>
             </ul>
@@ -283,12 +223,6 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="{{route('admin-payment.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Make Payments</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{url('admin-payment')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Payments</p>
@@ -306,91 +240,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-              <a href="{{route('admin-notification.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Post Notifiction</p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{url('admin-notification')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>View Notification</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Inventory
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-              <a href="{{route('admin-inventory.create')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Add Inventory</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-inventory')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View Inventory</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Management Reports
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{url('admin-clientReport')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Client Reports</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-lawyerReport')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lawyer Reports</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-paymentReport')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Payment Reports</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-caseReport')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Case Reports</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-deedReport')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Deed Reports</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-attendenceReport')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Attendance Reports</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{url('admin-appointmentReport')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Appointment Reports</p>
                 </a>
               </li>
             </ul>
@@ -410,7 +262,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; Zahra Shazina 2022. </strong>
+    <strong>Copyright &copy; Zahra Shazina 2022.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0

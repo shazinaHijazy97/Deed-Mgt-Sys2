@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use App\Models\Attendance;
 use App\Models\Lawyer;
@@ -25,13 +26,29 @@ class DashboardController extends Controller
         $endYear = Carbon::now()->endOfYear(); 
         $annualEarning = Payment::select('amount')->whereBetween('date',[$startYear,$endYear])->sum('amount');
 
+        $startDay = Carbon::now()->startOfDay();
+        $endDay = Carbon::now()->endOfDay(); 
+        $dailyAttendance = Attendance::select('id')->whereBetween('date_in',[$startDay,$endDay])->count('id');
+
         // dd('startMonth='.$startMonth.' endMonth='.$endMonth.' startYear='.$startYear.' endYear='.$endYear);
 
         $client = Client::count('id');
         $lawyer = Lawyer::count('id');
         $pendingDeeds = DeedRequests::select('id')->where('payment_status', '=' ,'Pending')->count('id');
+        $pendingAppointments = Appointment::select('id')->where('appointment_status', '=' ,'Pending')->count('id');
 
-        return view('admin.dashboard.index', compact('monthlyEarning', 'client', 'lawyer', 'annualEarning', 'pendingDeeds'));
+
+        return view('admin.dashboard.index', compact('monthlyEarning', 'client', 'lawyer', 'annualEarning', 'pendingDeeds', 'pendingAppointments', 'dailyAttendance'));
+    }
+
+    public function clientDashboard()
+    {
+        return view('client.dashboard.index');
+    }
+
+    public function lawyerDashboard()
+    {
+        return view('lawyer.dashboard.index');
     }
 
 }
