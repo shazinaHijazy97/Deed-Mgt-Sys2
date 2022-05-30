@@ -92,6 +92,13 @@
 </div>
 
   </div>
+  <script>
+    $('#gender').select2({
+      width: '100%',
+    });
+
+</script>
+
 </section>
 
 @endsection

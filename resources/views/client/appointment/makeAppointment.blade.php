@@ -104,7 +104,7 @@
     today = yyyy + '-' + mm + '-' + dd;
     $('#date').attr('min',today);
 
-    $('#client_id').select2({
+    $('#time').select2({
       width: '100%',
     });
     $('#lawyer_id').select2({

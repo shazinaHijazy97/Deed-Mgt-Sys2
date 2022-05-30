@@ -39,11 +39,11 @@
       <div class = "row">
         <div class = "col-md-6">
         <label for="notice_subject">Notice Subject</label>
-        <input type="text" class="form-control" id="notice_subject" name="notice_subject" value="{{$notifications->notice_subject}}" placeholder="Notice Subject">
+        <input type="text" class="form-control" id="notice_subject" name="notice_subject" value="{{$notifications->notice_subject}}" placeholder="Notice Subject" required>
       </div>
       <div class="col-md-6">
         <label for="notice_content">Notice Content</label>
-        <input type="text" class="form-control" id="notice_content" name="notice_content" value="{{$notifications->notice_content}}" placeholder="Notice Content">
+        <input type="text" class="form-control" id="notice_content" name="notice_content" value="{{$notifications->notice_content}}" placeholder="Notice Content" required>
       </div>
     </div>
   </div>
@@ -51,11 +51,11 @@
     <div class = "row">
         <div class = "col-md-6">
         <label for="notice_date">Date</label>
-        <input type="date" class="form-control" id="notice_date" name="notice_date" value="{{$notifications->notice_date}}" placeholder="Notice Date">
+        <input type="date" class="form-control" id="notice_date" name="notice_date" value="{{$notifications->notice_date}}" placeholder="Notice Date" required>
       </div>
       <div class="col-md-6">
         <label for="notice_time">Notice Time</label>
-        <input type="time" class="form-control" id="notice_time" name="notice_time" value="{{$notifications->notice_time}}" placeholder="Notice Time">
+        <input type="time" class="form-control" id="notice_time" name="notice_time" value="{{$notifications->notice_time}}" placeholder="Notice Time" required>
       </div>
     </div>
   </div>

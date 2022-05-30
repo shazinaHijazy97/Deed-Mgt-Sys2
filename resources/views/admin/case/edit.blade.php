@@ -68,7 +68,7 @@
         <select name="lawyer_id" id="lawyer_id" class="form-control" >
         <option value="{{$clientCases->lawyer_id}}" selected>{{$clientCases->lawyer->fname}} {{$clientCases->lawyer->lname}}</option>
           @foreach ($lawyers as $lawyer)
-            <option value="{{$lawyer->id}}">{{$client->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
+            <option value="{{$lawyer->id}}">{{$lawyer->nic}} - {{$lawyer->fname}} {{$lawyer->lname}}</option>
           @endforeach
         </select>
       </div>
@@ -92,6 +92,17 @@
 </div>
 
   </div>
+  <script>
+    $('#client_id').select2({
+      width: '100%',
+    });
+    $('#lawyer_id').select2({
+      width: '100%',
+    });
+    $('#case_type').select2({
+      width: '100%',
+    });
+</script>
 </section>
 
 @endsection

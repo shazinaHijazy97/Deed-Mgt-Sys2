@@ -46,7 +46,7 @@
       </div>
       <div class="col-md-6">
         <label for="deed_no">Deed No</label>
-        <input type="text" class="form-control" id="deed_no" name="deed_no" aria-describedby="" placeholder="Deed No">
+        <input type="text" class="form-control" id="deed_no" name="deed_no" aria-describedby="" placeholder="Deed No" required>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@
       </div>
       <div class="col-md-6">
         <label for="request_date">Request Date</label>
-        <input type="date" class="form-control" id="request_date" name="request_date" placeholder="Request Date">
+        <input type="date" class="form-control" id="request_date" name="request_date" placeholder="Request Date" required>
       </div>
     </div>
   </div>
@@ -101,7 +101,15 @@
     var yyyy = today.getFullYear();
 
     today = yyyy + '-' + mm + '-' + dd;
-    $('#requet_date').attr('min',today);
+    $('#request_date').attr('min',today);
+
+    $('#client_id').select2({
+      width: '100%',
+    });
+
+    $('#deed_type').select2({
+      width: '100%',
+    });
 </script>
 </section>
 

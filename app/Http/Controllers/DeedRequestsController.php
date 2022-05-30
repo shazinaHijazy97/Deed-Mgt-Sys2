@@ -42,12 +42,10 @@ class DeedRequestsController extends Controller
     {
         $request->validate([
             'client_id' =>'required',
-            'nic' =>'required',
             'deed_no' =>'required',
             'deed_type' =>'required',
             'request_date' =>'required',
             'payment_status' =>'required',
-            'note' =>'required',
         ]);
 
         DeedRequests::create($request->all());
@@ -91,12 +89,10 @@ class DeedRequestsController extends Controller
     {
         $request->validate([
             'client_id' =>'required',
-            'nic' =>'required',
             'deed_no' =>'required',
             'deed_type' =>'required',
             'request_date' =>'required',
             'payment_status' =>'required',
-            'note' =>'required',
         ]);
         
         $deedRequests = DeedRequests::findOrFail($id)->update($request->all());

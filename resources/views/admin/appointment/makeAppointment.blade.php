@@ -126,6 +126,10 @@
     $('#lawyer_id').select2({
       width: '100%',
     });
+
+    $('#time').select2({
+      width: '100%',
+    });
 </script>
 </section>
 

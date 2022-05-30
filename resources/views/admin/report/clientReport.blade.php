@@ -21,5 +21,9 @@
     <button type="submit" class="btn btn-primary">Generate Report</button>
     </form>
 </div>
-
+<script>
+    $('#nic').select2({
+      width: '100%',
+    });
+</script>
 @endsection

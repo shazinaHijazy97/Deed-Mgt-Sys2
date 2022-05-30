@@ -76,4 +76,14 @@
     </form>
 </div>
 
+<script>
+    $('#client_id').select2({
+      width: '100%',
+    });
+
+    $('#deed_type').select2({
+      width: '100%',
+    });
+    
+</script>
 @endsection

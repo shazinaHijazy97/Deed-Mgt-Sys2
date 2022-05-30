@@ -99,6 +99,16 @@
 
     today = yyyy + '-' + mm + '-' + dd;
     $('#filed_date').attr('min',today);
+
+    $('#client_id').select2({
+      width: '100%',
+    });
+    $('#lawyer_id').select2({
+      width: '100%',
+    });
+    $('#case_type').select2({
+      width: '100%',
+    });
 </script>
 </section>
 

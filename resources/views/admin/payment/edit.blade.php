@@ -61,7 +61,7 @@
     <div class = "row">
         <div class = "col-md-6">
         <label for="date">Date</label>
-        <input type="date" class="form-control" id="date" name="date" value="{{$payment->date}}" placeholder="Date">
+        <input type="date" class="form-control" id="date" name="date" value="{{$payment->date}}" placeholder="Date" required>
       </div>
       <div class="col-md-6">
         <label for="payment_type">Payment Type</label>
@@ -77,7 +77,7 @@
   <div class = "row">
         <div class = "col-md-6">
         <label for="amount">Amount</label>
-        <input type="amount" class="form-control" id="amount" name="amount" value="{{$payment->amount}}" placeholder="amount">
+        <input type="amount" class="form-control" id="amount" name="amount" value="{{$payment->amount}}" placeholder="amount" required>
       </div>
     </div>
   </div>
@@ -87,6 +87,19 @@
 </div>
 
   </div>
+  <script>
+    $('#client_id').select2({
+      width: '100%',
+    });
+
+    $('#lawyer_id').select2({
+      width: '100%',
+    });
+
+    $('#payment_type').select2({
+      width: '100%',
+    });
+  </script>
 </section>
 
 @endsection

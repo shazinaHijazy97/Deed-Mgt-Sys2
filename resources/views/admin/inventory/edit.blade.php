@@ -39,7 +39,7 @@
   <div class = "row">
       <div class = "col-md-6">
     <label for="item_name">Item Name</label>
-    <input type="text" class="form-control" id="item_name" name="item_name" value="{{$inventory->item_name}}" aria-describedby="" placeholder="Item Name">
+    <input type="text" class="form-control" id="item_name" name="item_name" value="{{$inventory->item_name}}" aria-describedby="" placeholder="Item Name" required>
   </div>
   <div class="col-md-6">
         <label for="item_category">Item Category</label>
@@ -61,11 +61,11 @@
     <div class = "row">
       <div class="col-md-6">
         <label for="quantity">Quantity</label>
-        <input type="text" class="form-control" id="quantity" name="quantity" value="{{$inventory->quantity}}" aria-describedby="" placeholder="Quantity">
+        <input type="text" class="form-control" id="quantity" name="quantity" value="{{$inventory->quantity}}" aria-describedby="" placeholder="Quantity" required>
       </div>
       <div class="col-md-6">
         <label for="service_date">Service Date</label>
-        <input type="date" class="form-control" id="service_date" name="service_date" value="{{$inventory->service_date}}" placeholder="Service Date">
+        <input type="date" class="form-control" id="service_date" name="service_date" value="{{$inventory->service_date}}" placeholder="Service Date" required>
       </div>
     </div>
   </div>
@@ -73,11 +73,11 @@
   <div class = "row">
       <div class="col-md-6">
         <label for="manufacturer">Manufacturer</label>
-        <input type="text" class="form-control" id="manufacturer" name="manufacturer" value="{{$inventory->manufacturer}}" placeholder="Manufacturer">
+        <input type="text" class="form-control" id="manufacturer" name="manufacturer" value="{{$inventory->manufacturer}}" placeholder="Manufacturer" required>
       </div>
       <div class="col-md-6">
         <label for="manufacturer_contact">Manufacturer Contact</label>
-        <input type="text" class="form-control" id="manufacturer_contact" name="manufacturer_contact" value="{{$inventory->manufacturer_contact}}" placeholder="Manufacturer Contact">
+        <input type="text" class="form-control" id="manufacturer_contact" name="manufacturer_contact" value="{{$inventory->manufacturer_contact}}" placeholder="Manufacturer Contact" required>
       </div>
     </div>
   </div>
@@ -87,6 +87,11 @@
 </div>
 
   </div>
+  <script>
+    $('#item_category').select2({
+      width: '100%',
+    });
+</script>
 </section>
 
 @endsection

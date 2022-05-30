@@ -55,5 +55,14 @@
     <button type="submit" class="btn btn-primary">Generate Report</button>
     </form>
 </div>
+<script>
+    $('#client_id').select2({
+      width: '100%',
+    });
 
+    $('#lawyer_id').select2({
+      width: '100%',
+    });
+
+    </script>
 @endsection
